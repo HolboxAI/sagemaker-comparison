@@ -1,0 +1,56 @@
+{
+  "updated": "2026-10-02",
+  "platform": "sagemaker",
+  "account_id": "751871643798",
+  "region": "us-east-1",
+  "execution_role": "arn:aws:iam::751871643798:role/sagemaker-stanford-exec",
+  "data_bucket": "s3://stanford-train-data",
+  "experiments": {
+    "orena_sft": {
+      "job_name": "orena-sft-2026-10-02-16-48-24-104",
+      "instance_type": "ml.g5.12xlarge",
+      "state": "InProgress",
+      "base_model": "Qwen/Qwen3.5-9B",
+      "method": "sft",
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 64,
+      "note": "relaunched 2026-10-02 16:48 after fixing a pyarrow mixed-content-type error in convert_row"
+    },
+    "orena_rl": {
+      "job_name": "orena-rl-2026-10-02-16-30-52-271",
+      "instance_type": "ml.g5.2xlarge",
+      "state": "InProgress",
+      "base_model": "Qwen/Qwen3.5-9B",
+      "method": "grpo",
+      "epochs": 1,
+      "learning_rate": 1e-06,
+      "lora_rank": 16,
+      "rollouts_per_prompt": 4,
+      "note": "base model differs from Fireworks (qwen3-vl-8b-instruct); SageMaker can RL the 9B directly"
+    },
+    "goemotions_sft": {
+      "job_name": "goemotions-sft-2026-10-02-16-07-29-859",
+      "instance_type": "ml.g4dn.xlarge",
+      "state": "Completed",
+      "base_model": "Qwen/Qwen3-0.6B",
+      "method": "sft",
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "final_train_loss": 1.54,
+      "steps": 79
+    },
+    "goemotions_rl": {
+      "job_name": "goemotions-rl-2026-10-02-16-30-25-068",
+      "instance_type": "ml.g5.xlarge",
+      "state": "InProgress",
+      "base_model": "Qwen/Qwen3-0.6B",
+      "method": "grpo",
+      "epochs": 1,
+      "learning_rate": 1e-05,
+      "lora_rank": 16,
+      "rollouts_per_prompt": 4
+    }
+  }
+}
