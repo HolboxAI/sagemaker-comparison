@@ -1,0 +1,30 @@
+
+===== dataset fs-or1-orena-sft (CHAT, 10980 rows) =====
+  create OK -> accounts/purchase-j087ceepz9i/datasets/fs-or1-orena-sft
+  upload OK -> None
+
+===== dataset fs-or1-orena-rl (RL, 2000 rows) =====
+  create OK -> accounts/purchase-j087ceepz9i/datasets/fs-or1-orena-rl
+  upload OK -> None
+
+===== dataset fs-or1-ge-sft (CHAT, 43410 rows) =====
+  create OK -> accounts/purchase-j087ceepz9i/datasets/fs-or1-ge-sft
+  upload OK -> None
+
+===== dataset fs-or1-ge-rl (RL, 5000 rows) =====
+  create OK -> accounts/purchase-j087ceepz9i/datasets/fs-or1-ge-rl
+  upload OK -> None
+
+===== evaluator fs-or1-goemotions-reward =====
+  create OK -> accounts/purchase-j087ceepz9i/evaluators/fs-or1-goemotions-reward
+  upload endpoint -> ['evaluation.py', 'requirements.txt']
+  PUT evaluation.py -> HTTP 400
+  PUT requirements.txt -> HTTP 400
+  validate_upload: BadRequestError: Error code: 400 - {'code': 9, 'details': [], 'message': 'error validating evaluator source code objects: fireworks-artifacts-purchase-j087ceepz9i-f36887/evaluatorsv2/fs-or1-goemotions-reward/requirements.txt was not uploaded'}
+
+===== current state =====
+  dataset fs-or1-orena-sft: state=READY format=CHAT count=10980
+  dataset fs-or1-orena-rl: state=READY format=RL count=2000
+  dataset fs-or1-ge-sft: state=READY format=CHAT count=43410
+  dataset fs-or1-ge-rl: state=READY format=RL count=5000
+  evaluator fs-or1-goemotions-reward: state=BUILDING status=Status(code='OK', message='Evaluator is being built')

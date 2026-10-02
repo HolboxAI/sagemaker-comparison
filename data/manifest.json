@@ -1,0 +1,100 @@
+{
+  "note": "Canonical input data. All three platforms MUST use these exact files (same split, same order, same bytes). Files over ~30 MB are not committed to git; regenerate them and verify the sha256 below before running.",
+  "generated_utc": "2026-10-02",
+  "goemotions": {
+    "data/train.tsv": {
+      "bytes": 3519053,
+      "rows": 43410,
+      "sha256": "1c254a142be5c00e80d819b9ae1bbd36d94b2eeb8f4b1271846508d57e57d9c5",
+      "format": "text \\t comma-separated-label-ids \\t id",
+      "source": "Google Research GoEmotions (Apache-2.0), 27 emotions + neutral",
+      "committed": true
+    },
+    "data/dev.tsv": {
+      "bytes": 439059,
+      "rows": 5426,
+      "sha256": "575489c079c9de1097062a01738f998590d6b7ead66dd1c9fd1d2ba01fd8bc62",
+      "committed": true
+    },
+    "data/test.tsv": {
+      "bytes": 436706,
+      "rows": 5427,
+      "sha256": "0587b2dd8b27b97352adbfc3fb083d46005c8946657fdc2b1ca8b1cc7f1f8be4",
+      "committed": true
+    },
+    "goemotions_sft.jsonl": {
+      "bytes": 27594651,
+      "rows": 43410,
+      "sha256": "9341cd423676f6c8c6c92233a610019888abd0b5bfa3bbcad97d7dead4b5e51a",
+      "format": "OpenAI CHAT JSONL (system + user text + assistant label list)",
+      "built_by": "fireworks/scripts/20_build_datasets.py from data/train.tsv + data/emotions.txt",
+      "committed": true
+    },
+    "goemotions_rl.jsonl": {
+      "bytes": 3265801,
+      "rows": 5000,
+      "sha256": "abf2da78c4b069c8e2a84b8d1c571cf66006efccbe803a6875cbb8bfd3472e3b",
+      "format": "RL JSONL (messages + top-level ground_truth.labels)",
+      "built_by": "fireworks/scripts/20_build_datasets.py (5000-row subset)",
+      "committed": true
+    },
+    "data/full_dataset/goemotions_1.csv": {
+      "bytes": 14174600,
+      "sha256": "cac049036bad5d68d1081f72b65f2cc51e4df82af05e3e22cfa747051cac1af3",
+      "source": "raw unsplit GoEmotions (original 3 CSVs)",
+      "committed": false,
+      "why": "raw upstream data; the split .tsv files above are what the runs use"
+    },
+    "data/full_dataset/goemotions_2.csv": {
+      "bytes": 14173154,
+      "sha256": "f699ecc5aa425c1720c1d02475f1e41815244b680bd75b282eb770d2c76cd84d",
+      "committed": false
+    },
+    "data/full_dataset/goemotions_3.csv": {
+      "bytes": 14395164,
+      "sha256": "467f1e7191af00f2e76cc7f425885c2dc304bea8aff284b10e8c460d22f2e1af",
+      "committed": false
+    }
+  },
+  "orena": {
+    "orena_sft.jsonl": {
+      "bytes": 362440449,
+      "rows": 10980,
+      "sha256": "479ee29c43220acc99e733d5817e3641408ff73de28e5ebbdf409270a45b87a9",
+      "format": "OpenAI CHAT JSONL, image as base64 JPEG inline + question + reference answer",
+      "source": "built by fireworks/scripts/20_build_datasets.py from the ORena train split (public HF: orena-dkfz/heico-focus-vqa + orena-dkfz/lapchole-focus-vqa)",
+      "committed": false,
+      "why": "362 MB of base64 images — exceeds git limits; regenerate from source"
+    },
+    "orena_rl.jsonl": {
+      "bytes": 66426556,
+      "rows": 2000,
+      "sha256": "4aa35236dff5f7b549e06c619b9f3b61bdda2d752efdce2e6e1e3dff9a58f50f",
+      "format": "RL JSONL (messages + top-level ground_truth.answer / answer_format / choices)",
+      "source": "2000-prompt subset; byte-identical to the prior team's orena_train.jsonl",
+      "committed": false,
+      "why": "66 MB of base64 images"
+    },
+    "reference/orena_train_full.jsonl": {
+      "bytes": 366380115,
+      "rows": 10980,
+      "sha256": "c399b1313eca1a830faa6994d2c12e0da5910b479588f4df1fde68af49b97aad",
+      "committed": false
+    },
+    "reference/orena_train.jsonl": {
+      "bytes": 66426556,
+      "rows": 2000,
+      "sha256": "4aa35236dff5f7b549e06c619b9f3b61bdda2d752efdce2e6e1e3dff9a58f50f",
+      "committed": false
+    },
+    "reference/orena_eval_unfiltered.jsonl": {
+      "bytes": 6459393,
+      "sha256": "63648b9869ff0854f9cd6fbc27fe4194607ca7bc0f9d3f0dcceade9fd5dad0bd",
+      "committed": false
+    }
+  },
+  "sample_rows": {
+    "data/orena/orena_sft_sample_2rows.jsonl": "2 full rows from orena_sft.jsonl, committed for schema visibility",
+    "data/orena/orena_rl_sample_2rows.jsonl": "2 full rows from orena_rl.jsonl, committed for schema visibility"
+  }
+}

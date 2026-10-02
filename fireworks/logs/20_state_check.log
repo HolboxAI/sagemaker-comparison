@@ -1,0 +1,6 @@
+=== evaluator ===
+state= BUILD_FAILED status= Status(code='INTERNAL', message='Internal error occurred, please contact the Fireworks AI team at https://discord.gg/fireworks-ai')
+
+=== SFT jobs ===
+etia90sh: state=JOB_STATE_RUNNING status=Status(code='OK', message='0% complete | Epoch 1/1') progress=JobProgress(cached_input_token_count=0, epoch=0, failed_requests=0, input_tokens=0, output_rows=0, output_tokens=0, percent=0, successfully_processed_requests=0, total_input_requests=0, total_processed_requests=0)
+ktcdqquf: state=JOB_STATE_RUNNING status=Status(code='OK', message='0% complete | Epoch 1/1') progress=JobProgress(cached_input_token_count=0, epoch=0, failed_requests=0, input_tokens=0, output_rows=0, output_tokens=0, percent=0, successfully_processed_requests=0, total_input_requests=0, total_processed_requests=0)

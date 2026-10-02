@@ -1,0 +1,19 @@
+=== fetch reference artifacts Fri Oct  2 01:27:14 PM UTC 2026 ===
+[evaluator] evaluatorsv2/evaluation-orena-focus-reward/orena-focus-rft.tar.gz -> 319617459 bytes
+  tarball contents:
+    - orena-focus-rft/export_dataset.py
+    - orena-focus-rft/requirements.txt
+    - orena-focus-rft/evaluation.py
+    - orena-focus-rft/test_reward.py
+    - orena-focus-rft/README.md
+    - orena-focus-rft/.gitignore
+    - orena-focus-rft/orena_scoring.py
+    - orena-focus-rft/data/orena_eval_unfiltered.jsonl
+    - orena-focus-rft/data/orena_train_full.jsonl
+    - orena-focus-rft/data/orena_train.jsonl
+
+[dataset] dataset/orena-focus-eval-200/orena_eval_unfiltered.jsonl -> 6459393 bytes
+  first 3 lines:
+  [0] {"messages": [{"role": "system", "content": "You are a surgical video analyst. You are shown a single frame from a laparoscopic or endoscopic procedure and asked one question about the surgical FOREIGN OBJECTS visible in it.\n\nThe only foreign object classes that exist are:\nClip, Sponge, Silicone loop, External drain, Specimen, Specimen bag, Needle, Gallstone.\nNever invent a class outside this list. Surgical instruments (graspers, scissors, trocars, cautery hooks) are NOT foreign objects and must never be counted or named.\n\nWork through the frame quadrant by quadrant, noting every candidate object and its position, discarding instruments and anatomy. Keep your reasoning brief.\n\nYour final reply must be ONLY the answer itself \u2014 no explanation, no units, no restating of the quest
+  [1] {"messages": [{"role": "system", "content": "You are a surgical video analyst. You are shown a single frame from a laparoscopic or endoscopic procedure and asked one question about the surgical FOREIGN OBJECTS visible in it.\n\nThe only foreign object classes that exist are:\nClip, Sponge, Silicone loop, External drain, Specimen, Specimen bag, Needle, Gallstone.\nNever invent a class outside this list. Surgical instruments (graspers, scissors, trocars, cautery hooks) are NOT foreign objects and must never be counted or named.\n\nWork through the frame quadrant by quadrant, noting every candidate object and its position, discarding instruments and anatomy. Keep your reasoning brief.\n\nYour final reply must be ONLY the answer itself \u2014 no explanation, no units, no restating of the quest
+  [2] {"messages": [{"role": "system", "content": "You are a surgical video analyst. You are shown a single frame from a laparoscopic or endoscopic procedure and asked one question about the surgical FOREIGN OBJECTS visible in it.\n\nThe only foreign object classes that exist are:\nClip, Sponge, Silicone loop, External drain, Specimen, Specimen bag, Needle, Gallstone.\nNever invent a class outside this list. Surgical instruments (graspers, scissors, trocars, cautery hooks) are NOT foreign objects and must never be counted or named.\n\nWork through the frame quadrant by quadrant, noting every candidate object and its position, discarding instruments and anatomy. Keep your reasoning brief.\n\nYour final reply must be ONLY the answer itself \u2014 no explanation, no units, no restating of the quest

@@ -1,0 +1,2358 @@
+
+===== supervised_fine_tuning_jobs (0) =====
+
+===== dpo_jobs (0) =====
+
+===== reinforcement_fine_tuning_jobs (4) =====
+{
+ "dataset": "accounts/purchase-j087ceepz9i/datasets/orena-focus-resume-train",
+ "evaluator": "accounts/purchase-j087ceepz9i/evaluators/evaluation-orena-focus-reward",
+ "accelerator_seconds": {},
+ "aws_s3_config": {
+  "credentials_secret": "",
+  "iam_role_arn": ""
+ },
+ "azure_blob_storage_config": {
+  "credentials_secret": "",
+  "managed_identity_client_id": "",
+  "tenant_id": ""
+ },
+ "chunk_size": 200,
+ "completed_time": "2026-08-07 14:37:08.142158+00:00",
+ "created_by": "purchase@holbox.ai",
+ "create_time": "2026-08-07 10:47:07.929262+00:00",
+ "display_name": "",
+ "eval_auto_carveout": false,
+ "evaluation_dataset": "",
+ "inference_parameters": {
+  "extra_body": "{}",
+  "max_output_tokens": 1024,
+  "response_candidates_count": 16,
+  "temperature": 0.7,
+  "top_k": null,
+  "top_p": 1.0
+ },
+ "job_progress": {
+  "cached_input_token_count": 0,
+  "epoch": 0,
+  "failed_requests": 0,
+  "input_tokens": 0,
+  "output_rows": 0,
+  "output_tokens": 0,
+  "percent": 97,
+  "successfully_processed_requests": 0,
+  "total_input_requests": 0,
+  "total_processed_requests": 0
+ },
+ "loss_config": {
+  "dpo": null,
+  "kl_beta": null,
+  "method": "METHOD_UNSPECIFIED",
+  "orpo": null
+ },
+ "max_concurrent_evaluations": 0,
+ "max_concurrent_rollouts": 0,
+ "max_inference_replica_count": null,
+ "mcp_server": null,
+ "name": "accounts/purchase-j087ceepz9i/reinforcementFineTuningJobs/z9bse1ut",
+ "node_count": 1,
+ "reservation_target": "",
+ "output_metrics": "{\"epoch_to_evaluation_output\":{\"0\":{\"metrics\":{\"correlation\":{\"matrix\":[[1,0.059,0],[0.059,1,0],[0,0,1]],\"metrics\":[\"exact_match\",\"no_excluded_class\",\"no_hallucinated_class\"]},\"eval_error_count\":0,\"eval_status_excluded_count\":0,\"invalid_score_count\":0,\"metrics_distribution\":{\"exact_match\":{\"average\":0.583756345177665,\"distribution_bins\":[0,0.05,0.1,0.15000000000000002,0.2,0.25,0.30000000000000004,0.35000000000000003,0.4,0.45,0.5,0.55,0.6000000000000001,0.65,0.7000000000000001,0.75,0.8,0.8500000000000001,0.9,0.9500000000000001,1],\"distribution_counts\":[1312,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1840],\"median\":1,\"success_count\":3152},\"no_excluded_class\":{\"average\":0.9302030456852792,\"distribution_bins\":[0,0.05,0.1,0.15000000000000002,0.2,0.25,0.30000000000000004,0.35000000000000003,0.4,0.45,0.5,0.55,0.6000000000000001,0.65,0.7000000000000001,0.75,0.8,0.8500000000000001,0.9,0.9500000000000001,1],\"distribution_counts\":[220,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2932],\"median\":1,\"success_count\":3152},\"no_hallucinated_class\":{\"average\":1,\"distribution_bins\":[0.9,0.905,0.91,0.915,0.92,0.925,0.93,0.935,0.9400000000000001,0.9450000000000001,0.95,0.9550000000000001,0.96,0.965,0.97,0.975,0.98,0.985,0.99,0.995,1],\"distribution_counts\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3152],\"median\":1,\"success_count\":3152}},\"rollup_distribution\":{\"average\":0.6506622401498671,\"distribution_bins\":[0,0.05,0.1,0.15000000000000002,0.2,0.25,0.30000000000000004,0.35000000000000003,0.4,0.45,0.5,
+{
+ "dataset": "accounts/purchase-j087ceepz9i/datasets/orena-focus-unfiltered-5000",
+ "evaluator": "accounts/purchase-j087ceepz9i/evaluators/evaluation-orena-focus-reward",
+ "accelerator_seconds": {},
+ "aws_s3_config": {
+  "credentials_secret": "",
+  "iam_role_arn": ""
+ },
+ "azure_blob_storage_config": {
+  "credentials_secret": "",
+  "managed_identity_client_id": "",
+  "tenant_id": ""
+ },
+ "chunk_size": 200,
+ "completed_time": "2026-08-05 16:05:04.964572+00:00",
+ "created_by": "purchase@holbox.ai",
+ "create_time": "2026-08-05 14:02:04.769580+00:00",
+ "display_name": "",
+ "eval_auto_carveout": false,
+ "evaluation_dataset": "",
+ "inference_parameters": {
+  "extra_body": "{}",
+  "max_output_tokens": 1024,
+  "response_candidates_count": 16,
+  "temperature": 0.7,
+  "top_k": null,
+  "top_p": 1.0
+ },
+ "job_progress": {
+  "cached_input_token_count": 0,
+  "epoch": 0,
+  "failed_requests": 0,
+  "input_tokens": 0,
+  "output_rows": 0,
+  "output_tokens": 0,
+  "percent": 96,
+  "successfully_processed_requests": 0,
+  "total_input_requests": 0,
+  "total_processed_requests": 0
+ },
+ "loss_config": {
+  "dpo": null,
+  "kl_beta": null,
+  "method": "METHOD_UNSPECIFIED",
+  "orpo": null
+ },
+ "max_concurrent_evaluations": 0,
+ "max_concurrent_rollouts": 0,
+ "max_inference_replica_count": null,
+ "mcp_server": null,
+ "name": "accounts/purchase-j087ceepz9i/reinforcementFineTuningJobs/vudiw5on",
+ "node_count": 1,
+ "reservation_target": "",
+ "output_metrics": "{\"epoch_to_evaluation_output\":{\"0\":{\"metrics\":{\"correlation\":{\"matrix\":[[1,0.081,0],[0.081,1,0],[0,0,1]],\"metrics\":[\"exact_match\",\"no_excluded_class\",\"no_hallucinated_class\"]},\"eval_error_count\":0,\"eval_status_excluded_count\":0,\"invalid_score_count\":0,\"metrics_distribution\":{\"exact_match\":{\"average\":0.541875,\"distribution_bins\":[0,0.05,0.1,0.15000000000000002,0.2,0.25,0.30000000000000004,0.35000000000000003,0.4,0.45,0.5,0.55,0.6000000000000001,0.65,0.7000000000000001,0.75,0.8,0.8500000000000001,0.9,0.9500000000000001,1],\"distribution_counts\":[1466,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1734],\"median\":1,\"success_count\":3200},\"no_excluded_class\":{\"average\":0.9303125,\"distribution_bins\":[0,0.05,0.1,0.15000000000000002,0.2,0.25,0.30000000000000004,0.35000000000000003,0.4,0.45,0.5,0.55,0.6000000000000001,0.65,0.7000000000000001,0.75,0.8,0.8500000000000001,0.9,0.9500000000000001,1],\"distribution_counts\":[223,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2977],\"median\":1,\"success_count\":3200},\"no_hallucinated_class\":{\"average\":1,\"distribution_bins\":[0.9,0.905,0.91,0.915,0.92,0.925,0.93,0.935,0.9400000000000001,0.9450000000000001,0.95,0.9550000000000001,0.96,0.965,0.97,0.975,0.98,0.985,0.99,0.995,1],\"distribution_counts\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3200],\"median\":1,\"success_count\":3200}},\"rollup_distribution\":{\"average\":0.6097136904761905,\"distribution_bins\":[0,0.05,0.1,0.15000000000000002,0.2,0.25,0.30000000000000004,0.35000000000000003,0.4,0.45,0.5,0.55,0.60000000
+{
+ "dataset": "accounts/purchase-j087ceepz9i/datasets/orena-focus-train-full",
+ "evaluator": "accounts/purchase-j087ceepz9i/evaluators/evaluation-orena-focus-reward",
+ "accelerator_seconds": {},
+ "aws_s3_config": {
+  "credentials_secret": "",
+  "iam_role_arn": ""
+ },
+ "azure_blob_storage_config": {
+  "credentials_secret": "",
+  "managed_identity_client_id": "",
+  "tenant_id": ""
+ },
+ "chunk_size": 200,
+ "completed_time": "2026-07-31 11:45:03.798141+00:00",
+ "created_by": "purchase@holbox.ai",
+ "create_time": "2026-07-31 08:10:03.507596+00:00",
+ "display_name": "",
+ "eval_auto_carveout": false,
+ "evaluation_dataset": "accounts/purchase-j087ceepz9i/datasets/orena-focus-eval-200",
+ "inference_parameters": {
+  "extra_body": "{}",
+  "max_output_tokens": 1024,
+  "response_candidates_count": 16,
+  "temperature": 0.7,
+  "top_k": null,
+  "top_p": 1.0
+ },
+ "job_progress": {
+  "cached_input_token_count": 0,
+  "epoch": 0,
+  "failed_requests": 0,
+  "input_tokens": 0,
+  "output_rows": 0,
+  "output_tokens": 0,
+  "percent": 98,
+  "successfully_processed_requests": 0,
+  "total_input_requests": 0,
+  "total_processed_requests": 0
+ },
+ "loss_config": {
+  "dpo": null,
+  "kl_beta": null,
+  "method": "METHOD_UNSPECIFIED",
+  "orpo": null
+ },
+ "max_concurrent_evaluations": 0,
+ "max_concurrent_rollouts": 0,
+ "max_inference_replica_count": null,
+ "mcp_server": null,
+ "name": "accounts/purchase-j087ceepz9i/reinforcementFineTuningJobs/iqev22iu",
+ "node_count": 1,
+ "reservation_target": "",
+ "output_metrics": "{\"epoch_to_evaluation_output\":{\"0\":{\"metrics\":{\"correlation\":{\"matrix\":[[1,0.096,0],[0.096,1,0],[0,0,1]],\"metrics\":[\"exact_match\",\"no_excluded_class\",\"no_hallucinated_class\"]},\"eval_error_count\":0,\"eval_status_excluded_count\":0,\"invalid_score_count\":0,\"metrics_distribution\":{\"exact_match\":{\"average\":0.23555276381909548,\"distribution_bins\":[0,0.05,0.1,0.15000000000000002,0.2,0.25,0.30000000000000004,0.35000000000000003,0.4,0.45,0.5,0.55,0.6000000000000001,0.65,0.7000000000000001,0.75,0.8,0.8500000000000001,0.9,0.9500000000000001,1],\"distribution_counts\":[2434,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,750],\"median\":0,\"success_count\":3184},\"no_excluded_class\":{\"average\":0.9707914572864321,\"distribution_bins\":[0,0.05,0.1,0.15000000000000002,0.2,0.25,0.30000000000000004,0.35000000000000003,0.4,0.45,0.5,0.55,0.6000000000000001,0.65,0.7000000000000001,0.75,0.8,0.8500000000000001,0.9,0.9500000000000001,1],\"distribution_counts\":[93,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3091],\"median\":1,\"success_count\":3184},\"no_hallucinated_class\":{\"average\":1,\"distribution_bins\":[0.9,0.905,0.91,0.915,0.92,0.925,0.93,0.935,0.9400000000000001,0.9450000000000001,0.95,0.9550000000000001,0.96,0.965,0.97,0.975,0.98,0.985,0.99,0.995,1],\"distribution_counts\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3184],\"median\":1,\"success_count\":3184}},\"rollup_distribution\":{\"average\":0.26609386216798275,\"distribution_bins\":[0,0.05,0.1,0.15000000000000002,0.2,
+{
+ "dataset": "accounts/fireworks/datasets/demo-gsm8k-math-dataset-1000",
+ "evaluator": "accounts/purchase-j087ceepz9i/evaluators/gsm8k-evaluator",
+ "accelerator_seconds": {},
+ "aws_s3_config": null,
+ "azure_blob_storage_config": null,
+ "chunk_size": 100,
+ "completed_time": null,
+ "created_by": "system",
+ "create_time": "2026-05-21 06:32:14.709102+00:00",
+ "display_name": "Fake Demo GSM8K Math (No Charge)",
+ "eval_auto_carveout": false,
+ "evaluation_dataset": "",
+ "inference_parameters": {
+  "extra_body": "{}",
+  "max_output_tokens": null,
+  "response_candidates_count": 4,
+  "temperature": 1.0,
+  "top_k": null,
+  "top_p": 1.0
+ },
+ "job_progress": {
+  "cached_input_token_count": 0,
+  "epoch": 0,
+  "failed_requests": 0,
+  "input_tokens": 0,
+  "output_rows": 0,
+  "output_tokens": 0,
+  "percent": 90,
+  "successfully_processed_requests": 0,
+  "total_input_requests": 0,
+  "total_processed_requests": 0
+ },
+ "loss_config": {
+  "dpo": null,
+  "kl_beta": null,
+  "method": "METHOD_UNSPECIFIED",
+  "orpo": null
+ },
+ "max_concurrent_evaluations": 0,
+ "max_concurrent_rollouts": 0,
+ "max_inference_replica_count": null,
+ "mcp_server": null,
+ "name": "accounts/purchase-j087ceepz9i/reinforcementFineTuningJobs/demo-rft-job",
+ "node_count": 0,
+ "reservation_target": "",
+ "output_metrics": "{\"curves\":{\"average\":{\"Score\":[0.0125,0.19,0.19,0.1975,0.33,0.3875,0.3747,0.425,0.4125,0.4325],\"accuracy_reward\":[0.0125,0.15,0.1325,0.14,0.25,0.3125,0.2707,0.35,0.32,0.345],\"format_reward\":[0.0125,0.23,0.2475,0.255,0.41,0.4625,0.4787,0.5,0.505,0.52]}},\"epoch_to_evaluation_output\":{\"0\":{\"checkpoint_gcs_path\":\"gs://fireworks-artifacts-purchase-j087ceepz9i-f36887/rft-demo/checkpoints/demo-epoch-0-chunk-0/checkpoint\",\"end_of_epoch\":false,\"epoch_id\":\"demo-rft-job-epoch-0-chunk-0\",\"epoch_streamlog_gcs_path\":\"gs://fireworks-artifacts-purchase-j087ceepz9i-f36887/rft-demo/evj-demo-epoch-0-chunk-0/e2b_log/run.log\",\"metrics\":{\"correlation\":{\"matrix\":[[1,0.697],[0.697,1]],\"metrics\":[\"accuracy_reward\",\"format_reward\"]},\"metrics_distribution\":{\"accuracy_reward\":{\"average\":0.345,\"distribution_bins\":[0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95,1],\"distribution_counts\":[262,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,138],\"median\":0,\"success_count\":400},\"format_reward\":{\"average\":0.52,\"distribution_bins\":[0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95,1],\"distribution_counts\":[192,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,208],\"median\":1,\"success_count\":400}},\"rollup_distribution\":{\"average\":0.4325,\"distribution_bins\":[0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95,1],\"distribution_counts\":[192,0,0,0,0,0,0,0,0,0,70,0,0,0,0,0,0,0,0,138],\"median\":0.5,\"success_count\":400},\"total_count\":400},\"output_dataset_name\":\"accounts/purchase-j087ceepz9i/datasets/rft-eval-demo-epoch-0-chunk-0\"},\"1\":{\"checkpoint_gcs_p
+
+===== datasets (50) =====
+{
+ "average_turn_count": 2.0,
+ "created_by": "purchase@holbox.ai",
+ "create_time": "2026-07-31 08:07:38.246638+00:00",
+ "display_name": "",
+ "estimated_token_count": "1614000",
+ "eval_protocol": null,
+ "evaluation_result": null,
+ "example_count": "200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/orena-focus-eval-200",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 08:07:44.948922+00:00",
+ "user_uploaded": {},
+ "averageTurnCount": 2,
+ "createTime": "2026-07-31T08:07:38.246638Z",
+ "createdBy": "purchase@holbox.ai",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_PLAINTEXT",
+ "estimatedTokenCount": "1614000",
+ "exampleCount": "200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T08:07:44.948922Z",
+ "userUploaded": {}
+}
+{
+ "average_turn_count": 2.0,
+ "created_by": "purchase@holbox.ai",
+ "create_time": "2026-08-06 15:32:31.934804+00:00",
+ "display_name": "",
+ "estimated_token_count": "72460300",
+ "eval_protocol": null,
+ "evaluation_result": null,
+ "example_count": "8864",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/orena-focus-resume-train",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-08-06 15:34:03.357577+00:00",
+ "user_uploaded": {},
+ "averageTurnCount": 2,
+ "createTime": "2026-08-06T15:32:31.934804Z",
+ "createdBy": "purchase@holbox.ai",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_PLAINTEXT",
+ "estimatedTokenCount": "72460300",
+ "exampleCount": "8864",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-08-06T15:34:03.357577Z",
+ "userUploaded": {}
+}
+{
+ "average_turn_count": 2.0,
+ "created_by": "purchase@holbox.ai",
+ "create_time": "2026-07-31 06:29:18.968812+00:00",
+ "display_name": "",
+ "estimated_token_count": "91640600",
+ "eval_protocol": null,
+ "evaluation_result": null,
+ "example_count": "10980",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/orena-focus-train-full",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 06:30:24.975393+00:00",
+ "user_uploaded": {},
+ "averageTurnCount": 2,
+ "createTime": "2026-07-31T06:29:18.968812Z",
+ "createdBy": "purchase@holbox.ai",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_PLAINTEXT",
+ "estimatedTokenCount": "91640600",
+ "exampleCount": "10980",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T06:30:24.975393Z",
+ "userUploaded": {}
+}
+{
+ "average_turn_count": 2.0,
+ "created_by": "purchase@holbox.ai",
+ "create_time": "2026-08-05 12:21:54.619757+00:00",
+ "display_name": "",
+ "estimated_token_count": "41273200",
+ "eval_protocol": null,
+ "evaluation_result": null,
+ "example_count": "5000",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/orena-focus-unfiltered-5000",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-08-05 12:23:15.693744+00:00",
+ "user_uploaded": {},
+ "averageTurnCount": 2,
+ "createTime": "2026-08-05T12:21:54.619757Z",
+ "createdBy": "purchase@holbox.ai",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_PLAINTEXT",
+ "estimatedTokenCount": "41273200",
+ "exampleCount": "5000",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-08-05T12:23:15.693744Z",
+ "userUploaded": {}
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 08:16:17.439806+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-0",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 08:17:48.529828+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T08:16:17.439806Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T08:17:48.529828Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 08:20:32.029943+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-1",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 08:22:23.264073+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T08:20:32.029943Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T08:22:23.264073Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 08:54:52.555443+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-10",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 08:56:23.508477+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T08:54:52.555443Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T08:56:23.508477Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 08:58:38.867298+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-11",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:00:19.824831+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T08:58:38.867298Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:00:19.824831Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:02:39.075938+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-12",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:04:10.140074+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:02:39.075938Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:04:10.140074Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:06:24.868934+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-13",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:07:55.996406+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:06:24.868934Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:07:55.996406Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:10:10.366694+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-14",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:11:41.478098+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:10:10.366694Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:11:41.478098Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:13:55.211314+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-15",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:15:26.220806+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:13:55.211314Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:15:26.220806Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:17:40.960095+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-16",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:19:12.163436+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:17:40.960095Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:19:12.163436Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:21:28.310876+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-17",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:22:59.411701+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:21:28.310876Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:22:59.411701Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:25:12.902455+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-18",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:26:44.093505+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:25:12.902455Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:26:44.093505Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:28:58.145887+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-19",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:30:29.222711+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:28:58.145887Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:30:29.222711Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 08:24:37.657480+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-2",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 08:26:08.837683+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T08:24:37.657480Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T08:26:08.837683Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:32:46.484033+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-20",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:34:17.612621+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:32:46.484033Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:34:17.612621Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:36:32.922910+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-21",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:37:53.946630+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:36:32.922910Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:37:53.946630Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:40:08.365627+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-22",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:41:39.305192+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:40:08.365627Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:41:39.305192Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:43:59.298269+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-23",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:45:30.390079+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:43:59.298269Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:45:30.390079Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:47:46.209841+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-24",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:49:17.243385+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:47:46.209841Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:49:17.243385Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:51:30.607787+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-25",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:53:01.833059+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:51:30.607787Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:53:01.833059Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:55:16.061896+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-26",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 09:56:47.113076+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:55:16.061896Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T09:56:47.113076Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 09:59:01.761681+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-27",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:00:32.881516+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T09:59:01.761681Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:00:32.881516Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:02:49.445714+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-28",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:04:20.421147+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:02:49.445714Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:04:20.421147Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:06:35.296676+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-29",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:08:06.470408+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:06:35.296676Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:08:06.470408Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 08:28:22.008828+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-3",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 08:29:53.319517+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T08:28:22.008828Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T08:29:53.319517Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:10:21.275540+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-30",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:12:02.298027+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:10:21.275540Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:12:02.298027Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:14:17.674993+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-31",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:15:48.844843+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:14:17.674993Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:15:48.844843Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:18:04.464355+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-32",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:19:35.489845+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:18:04.464355Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:19:35.489845Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:21:49.934837+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-33",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:23:20.952230+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:21:49.934837Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:23:20.952230Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:25:40.436779+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-34",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:27:11.547849+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:25:40.436779Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:27:11.547849Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:29:31.013642+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-35",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:31:02.000858+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:29:31.013642Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:31:02.000858Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:33:17.068170+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-36",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:34:48.199617+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:33:17.068170Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:34:48.199617Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:37:02.343755+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-37",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:38:33.441995+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:37:02.343755Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:38:33.441995Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:40:47.914291+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-38",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:42:28.948469+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:40:47.914291Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:42:28.948469Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:44:42.548676+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-39",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:46:23.629946+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:44:42.548676Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:46:23.629946Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 08:32:07.654591+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-4",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 08:33:38.722906+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T08:32:07.654591Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T08:33:38.722906Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:48:36.632737+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-40",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:50:07.740299+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:48:36.632737Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:50:07.740299Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:52:20.960990+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-41",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:54:02.003179+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:52:20.960990Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:54:02.003179Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 10:56:17.176055+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-42",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 10:57:48.284307+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T10:56:17.176055Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T10:57:48.284307Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 11:00:01.812116+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-43",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 11:01:42.944004+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T11:00:01.812116Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T11:01:42.944004Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 11:03:56.102787+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-44",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 11:05:37.078194+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T11:03:56.102787Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T11:05:37.078194Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 11:07:50.198585+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-45",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 11:09:21.276872+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T11:07:50.198585Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T11:09:21.276872Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 11:11:36.032306+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-46",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 11:13:07.288015+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T11:11:36.032306Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T11:13:07.288015Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 11:15:26.562517+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-47",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 11:16:57.600622+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T11:15:26.562517Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T11:16:57.600622Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 11:19:12.136756+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-48",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 11:20:43.078272+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T11:19:12.136756Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T11:20:43.078272Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 11:22:57.346574+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3184",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-49",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 11:24:28.413026+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T11:22:57.346574Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3184",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T11:24:28.413026Z"
+}
+{
+ "average_turn_count": 0.0,
+ "created_by": "purchase-j087ceepz9i",
+ "create_time": "2026-07-31 08:35:52.063153+00:00",
+ "display_name": "",
+ "estimated_token_count": "0",
+ "eval_protocol": null,
+ "evaluation_result": {
+  "evaluation_job_id": ""
+ },
+ "example_count": "3200",
+ "external_url": "",
+ "format": "CHAT",
+ "name": "accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-5",
+ "source_job_name": "",
+ "splitted": null,
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "transformed": null,
+ "update_time": "2026-07-31 08:37:23.176751+00:00",
+ "user_uploaded": null,
+ "averageTurnCount": 0,
+ "createTime": "2026-07-31T08:35:52.063153Z",
+ "createdBy": "purchase-j087ceepz9i",
+ "displayName": "",
+ "encryptionState": "ENCRYPTION_STATE_UNSPECIFIED",
+ "estimatedTokenCount": "0",
+ "evaluationResult": {
+  "evaluationJobId": ""
+ },
+ "exampleCount": "3200",
+ "externalUrl": "",
+ "sourceJobName": "",
+ "updateTime": "2026-07-31T08:37:23.176751Z"
+}
+
+===== evaluators (2) =====
+{
+ "commit_hash": "None+unknown",
+ "created_by": "purchase@holbox.ai",
+ "create_time": "2026-07-31 06:33:21.917733+00:00",
+ "criteria": [],
+ "default_dataset": "",
+ "description": "Evaluator for evaluation.orena_focus_reward",
+ "display_name": "evaluation-orena-focus-reward",
+ "entry_point": "evaluation.py::orena_focus_reward",
+ "name": "accounts/purchase-j087ceepz9i/evaluators/evaluation-orena-focus-reward",
+ "requirements": "",
+ "source": null,
+ "state": "ACTIVE",
+ "status": {
+  "code": "OK",
+  "message": "Template built successfully"
+ },
+ "update_time": "2026-07-31 06:36:07.420345+00:00",
+ "commitHash": "None+unknown",
+ "createTime": "2026-07-31T06:33:21.917733Z",
+ "createdBy": "purchase@holbox.ai",
+ "defaultDataset": "",
+ "displayName": "evaluation-orena-focus-reward",
+ "encryptionState": "ENCRYPTION_STATE_PLAINTEXT",
+ "entryPoint": "evaluation.py::orena_focus_reward",
+ "updateTime": "2026-07-31T06:36:07.420345Z"
+}
+{
+ "commit_hash": "",
+ "created_by": "system",
+ "create_time": "2026-05-21 06:32:14.709102+00:00",
+ "criteria": [
+  {
+   "code_snippets": {
+    "entry_file": "",
+    "entry_func": "",
+    "file_contents": {
+     "main.py": "import numpy as np\nimport pydantic\nimport re\nimport math\n\ndef evaluate(messages: list[dict], **kwargs) -> dict:\n    \"\"\"\n    Evaluates a single entry from the dataset. This function is required in the `main.py` file.\n    This template is when you skip rollup in a multi-metrics evaluation.\n    \n    Args:\n        messages: A list of dictionaries representing a single line from the dataset jsonl file.\n        kwargs: Additional keyword arguments. Highly recommended to not remove this due to potential more keywords being passed to the function.\n    Returns:\n        dict: Evaluate result that should include is_score_valid, score, and reason\n    \"\"\"\n\n    ground_truth = kwargs.get('ground_truth')\n    completion = messages[-1][\"content\"]\n\n    # Evaluate accuracy and format compliance\n    (\n        accuracy_reward, \n        extracted_completion_answer, \n        extracted_ground_truth_answer\n    ) = accuracy_reward_fn(completion, ground_truth, True)\n\n    print(accuracy_reward)\n\n    format_reward = format_reward_fn(completion)    \n\n    return {\n        \"score\": (accuracy_reward + format_reward) * 0.5,\n        \"is_score_valid\": True,\n        \"reason\": \"This is the eval result for the score used\",\n        \"extracted_completion_answer\": extracted_completion_answer,\n        \"extracted_ground_truth_answer\": extracted_ground_truth_answer,\n        \"metrics\": {\n            \"accuracy_reward\": {\n                \"is_score_valid\": True,\n                \"score\": accuracy_reward,\n                \"reason\": \"This is the eval result for result accuracy\"\n            },\n            \"format_reward\": {\n                \"is_score_valid\": True,\n                \"score\": format_reward,\n                \"reason\": \"This is the eval result for format matching\"\n            }\n        }\n    }\n\n\ndef extract_last_number(text: str) -> float:\n    \"\"\"\n    Extract the last number from the text.\n    Returns the float value, or float('nan') if not found or not convertible.\n    \"\"\"\n    num_match = re.findall(r\"([-+]$1\\$?\\d[\\d,]*\\.?\\d*)\", text)\n    if num_match:\n        answer = num_match[-1]\n        answer = answer.replace(\"$\", \"\").replace(\",\", \"\")\n        try:\n            return float(answer.strip())\n        except ValueError:\n            return float(\"nan\")\n    return float(\"nan\")\n\n\ndef fraction_to_float(text: str) -> float:\n    \"\"\"\n    Detects and converts LaTeX fraction strings to float.\n    Supports \\dfrac{}{} and \\frac{}{} formats.\n    \"\"\"\n    pattern = r\"\\\\(?:d?frac)\\{([\\d.]+)\\}\\{([\\d.]+)\\}\"\n    match = re.search(pattern, text)\n    if match:\n        numerator = float(match.group(1))\n        denominator = float(mat
+
+===== evaluation_jobs (0) =====
+
+===== deployments (2) =====
+{
+ "base_model": "accounts/purchase-j087ceepz9i/models/orena-focus-rl-v3",
+ "accelerator_count": 1,
+ "accelerator_type": "NVIDIA_H200_141GB",
+ "active_model_version": "",
+ "autoscaling_policy": {
+  "load_targets": {
+   "default": 0.8
+  },
+  "scale_down_window": "600s",
+  "scale_to_zero_window": "3600s",
+  "scale_up_window": "30s",
+  "scalingSchedules": {}
+ },
+ "auto_tune": {
+  "long_prompt": false
+ },
+ "cluster": "",
+ "create_time": "2026-08-01 10:14:06.997993+00:00",
+ "delete_time": null,
+ "deployment_shape": "accounts/fireworks/deploymentShapes/qwen3-vl-8b-instruct-throughput/versions/bffb3z98",
+ "deployment_template": null,
+ "description": "",
+ "desired_replica_count": 0,
+ "direct_route_api_keys": [],
+ "direct_route_handle": "",
+ "direct_route_type": "DIRECT_ROUTE_TYPE_UNSPECIFIED",
+ "disable_deployment_size_validation": true,
+ "display_name": "qwen-fine-tuned-orena-v0.1",
+ "draft_model": "",
+ "draft_token_count": 0,
+ "enable_addons": false,
+ "enable_hot_load": false,
+ "enable_hot_reload_latest_addon": false,
+ "enable_mtp": null,
+ "enable_session_affinity": true,
+ "expire_time": null,
+ "hot_load_bucket_type": "BUCKET_TYPE_UNSPECIFIED",
+ "hot_load_bucket_url": "",
+ "max_context_length": 0,
+ "max_replica_count": 0,
+ "max_with_revocable_replica_count": 0,
+ "min_replica_count": 0,
+ "name": "accounts/purchase-j087ceepz9i/deployments/qnpznc8m",
+ "ngram_speculation_length": 0,
+ "num_peft_device_cached": 0,
+ "placement": {
+  "multi_region": "GLOBAL",
+  "region": "REGION_UNSPECIFIED",
+  "regions": []
+ },
+ "precision": "PRECISION_UNSPECIFIED",
+ "pricing_plan_id": "",
+ "purge_time": null,
+ "region": "REGION_UNSPECIFIED",
+ "replica_count": 0,
+ "replica_stats": {
+  "downloading_model_replica_count": 0,
+  "initializing_replica_count": 0,
+  "pending_scheduling_replica_count": 0,
+  "ready_replica_count": 0,
+  "effectiveReplicaCount": 0,
+  "revocableReplicaCount": 0
+ },
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "target_model_version": "",
+ "update_time": "2026-08-02 02:43:47.062263+00:00",
+ "acceleratorCount": 1,
+ "acceleratorType": "NVIDIA_H200_141GB",
+ "activeModelVersion": "",
+ "annotations": {},
+ "autoTune": {
+  "longPrompt": false
+ },
+ "autoscalingPolicy": {
+  "loadTargets": {
+   "default": 0.8
+  },
+  "scaleDownWindow": "600s",
+  "scaleToZeroWindow": "3600s",
+  "scaleUpWindow": "30s",
+  "scalingSchedules": {}
+ },
+ "baseModel": "accounts/purchase-j087ceepz9i/models/orena-focus-rl-v3",
+ "createTime": "2026-08-01T10:14:06.997993Z",
+ "deleteTime": null,
+ "deploymentShape": "accounts/fireworks/deploymentShapes/qwen3-vl-8b-instruct-throughput/versions/bffb3z98",
+ "desiredReplicaCount": 0,
+ "directRouteApiKeys": [],
+ "directRouteHandle": "",
+ "directRouteType": "DIRECT_ROUTE_TYPE_UNSPECIFIED",
+ "disableDeploymentSizeValidation": true,
+ "displayName": "qwen-fine-tuned-orena-v0.1",
+ "draftModel": "",
+ "draftTokenCount": 0,
+ "enableAddons": false,
+ "enableHotLoad": false,
+ "enableHotReloadLatestAddon": false,
+ "enableSessionAffinity": tru
+{
+ "base_model": "accounts/fireworks/models/glm-5p2",
+ "accelerator_count": 8,
+ "accelerator_type": "NVIDIA_B300_288GB",
+ "active_model_version": "",
+ "autoscaling_policy": {
+  "load_targets": {
+   "default": 0.8
+  },
+  "scale_down_window": "600s",
+  "scale_to_zero_window": "3600s",
+  "scale_up_window": "30s",
+  "scalingSchedules": {}
+ },
+ "auto_tune": {
+  "long_prompt": false
+ },
+ "cluster": "",
+ "create_time": "2026-08-13 12:53:59.109378+00:00",
+ "delete_time": null,
+ "deployment_shape": "accounts/fireworks/deploymentShapes/glm-5p2-fast/versions/ktirfggy",
+ "deployment_template": null,
+ "description": "",
+ "desired_replica_count": 0,
+ "direct_route_api_keys": [],
+ "direct_route_handle": "",
+ "direct_route_type": "DIRECT_ROUTE_TYPE_UNSPECIFIED",
+ "disable_deployment_size_validation": true,
+ "display_name": "",
+ "draft_model": "",
+ "draft_token_count": 3,
+ "enable_addons": false,
+ "enable_hot_load": false,
+ "enable_hot_reload_latest_addon": false,
+ "enable_mtp": null,
+ "enable_session_affinity": true,
+ "expire_time": null,
+ "hot_load_bucket_type": "BUCKET_TYPE_UNSPECIFIED",
+ "hot_load_bucket_url": "",
+ "max_context_length": 0,
+ "max_replica_count": 0,
+ "max_with_revocable_replica_count": 0,
+ "min_replica_count": 0,
+ "name": "accounts/purchase-j087ceepz9i/deployments/jy4q8r6z",
+ "ngram_speculation_length": 0,
+ "num_peft_device_cached": 0,
+ "placement": {
+  "multi_region": "GLOBAL",
+  "region": "REGION_UNSPECIFIED",
+  "regions": []
+ },
+ "precision": "FP4",
+ "pricing_plan_id": "",
+ "purge_time": null,
+ "region": "REGION_UNSPECIFIED",
+ "replica_count": 0,
+ "replica_stats": {
+  "downloading_model_replica_count": 0,
+  "initializing_replica_count": 0,
+  "pending_scheduling_replica_count": 0,
+  "ready_replica_count": 0,
+  "effectiveReplicaCount": 0,
+  "revocableReplicaCount": 0
+ },
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "target_model_version": "",
+ "update_time": "2026-08-13 14:45:43.242166+00:00",
+ "acceleratorCount": 8,
+ "acceleratorType": "NVIDIA_B300_288GB",
+ "activeModelVersion": "",
+ "annotations": {},
+ "autoTune": {
+  "longPrompt": false
+ },
+ "autoscalingPolicy": {
+  "loadTargets": {
+   "default": 0.8
+  },
+  "scaleDownWindow": "600s",
+  "scaleToZeroWindow": "3600s",
+  "scaleUpWindow": "30s",
+  "scalingSchedules": {}
+ },
+ "baseModel": "accounts/fireworks/models/glm-5p2",
+ "createTime": "2026-08-13T12:53:59.109378Z",
+ "deleteTime": null,
+ "deploymentShape": "accounts/fireworks/deploymentShapes/glm-5p2-fast/versions/ktirfggy",
+ "desiredReplicaCount": 0,
+ "directRouteApiKeys": [],
+ "directRouteHandle": "",
+ "directRouteType": "DIRECT_ROUTE_TYPE_UNSPECIFIED",
+ "disableDeploymentSizeValidation": true,
+ "displayName": "",
+ "draftModel": "",
+ "draftTokenCount": 3,
+ "enableAddons": false,
+ "enableHotLoad": false,
+ "enableHotReloadLatestAddon": false,
+ "enableSessionAffinity": true,
+ "hideAcceleratorCount": false,
+ "hideReplicaCount": false,
+ "hotLoadBucketType": "BUCKET_TYPE_UNSPECIFIED",
+ "hotLoadBucketUrl": "",
+ "hotLoadTrai
+
+===== lora (0) =====

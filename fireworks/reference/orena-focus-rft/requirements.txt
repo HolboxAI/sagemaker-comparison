@@ -1,0 +1,22 @@
+# Dependencies for the *evaluator*, not for this project as a whole.
+#
+# Deliberately just the one line. `evaluation.py` imports only the standard
+# library plus `eval_protocol` and `orena_scoring` — and `orena_scoring.py`
+# itself needs nothing beyond `re`, so it travels in the upload tarball rather
+# than being installed.
+#
+# `datasets` and `pillow` are NOT here on purpose. They are export-time
+# dependencies, used only by `export_dataset.py` on your machine. That file
+# imports them lazily so its presence in the tarball cannot break the remote
+# build. Adding them here would install ~400 MB into the evaluator container to
+# run code the evaluator never calls.
+#
+# To work on this repo locally, use the .venv instead:
+#   uv pip install --python .venv/bin/python \
+#       "git+https://github.com/eval-protocol/python-sdk.git" pillow datasets pytest "mcp<2"
+#
+# The "mcp<2" pin is load-bearing: eval_protocol imports
+# `mcp.client.streamable_http.streamablehttp_client`, which was removed in
+# mcp 2.x. Without the pin, `ep create rft` dies on an ImportError that has
+# nothing to do with your evaluator.
+eval-protocol

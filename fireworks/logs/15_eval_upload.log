@@ -1,0 +1,6 @@
+create: (*, account_id: 'str | None' = None, evaluator: 'evaluator_create_params.Evaluator', evaluator_id: 'str | Omit' = <fireworks.Omit object at 0x7f7b7411b8c0>, extra_headers: 'Headers | None' = None, extra_query: 'Query | None' = None, extra_body: 'Body | None' = None, timeout: 'float | httpx.Timeout | None | NotGiven' = NOT_GIVEN) -> 'EvaluatorCreateResponse'
+get_upload_endpoint: (evaluator_id: 'str', *, account_id: 'str | None' = None, filename_to_size: 'Dict[str, str]', read_mask: 'str | Omit' = <fireworks.Omit object at 0x7f7b7411b8c0>, extra_headers: 'Headers | None' = None, extra_query: 'Query | None' = None, extra_body: 'Body | None' = None, timeout: 'float | httpx.Timeout | None | NotGiven' = NOT_GIVEN) -> 'EvaluatorGetUploadEndpointResponse'
+validate_upload: (evaluator_id: 'str', *, account_id: 'str | None' = None, body: 'object', extra_headers: 'Headers | None' = None, extra_query: 'Query | None' = None, extra_body: 'Body | None' = None, timeout: 'float | httpx.Timeout | None | NotGiven' = NOT_GIVEN) -> 'object'
+
+=== inspect existing evaluator source endpoint (how upload looks) ===
+ERR TypeError EvaluatorsResource.get_upload_endpoint() missing 1 required keyword-only argument: 'filename_to_size'

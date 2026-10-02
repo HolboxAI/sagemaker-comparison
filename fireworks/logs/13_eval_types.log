@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "<string>", line 20, in <module>
+    fw = Fireworks(api_key=os.environ['FIREWORKS_API_KEY'], account_id='purchase-j087ceepz9i')
+                           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen os>", line 709, in __getitem__
+KeyError: 'FIREWORKS_API_KEY'
+===== Evaluator =====
+  commit_hash: ForwardRef("Annotated[str, PropertyInfo(alias='commitHash')]", module='fireworks.types.evaluator_create_params')
+  criteria: ForwardRef('Iterable[EvaluatorCriterion]', module='fireworks.types.evaluator_create_params')
+  default_dataset: ForwardRef("Annotated[str, PropertyInfo(alias='defaultDataset')]", module='fireworks.types.evaluator_create_params')
+  description: ForwardRef('str', module='fireworks.types.evaluator_create_params')
+  display_name: ForwardRef("Annotated[str, PropertyInfo(alias='displayName')]", module='fireworks.types.evaluator_create_params')
+  entry_point: ForwardRef("Annotated[str, PropertyInfo(alias='entryPoint')]", module='fireworks.types.evaluator_create_params')
+  requirements: ForwardRef('str', module='fireworks.types.evaluator_create_params')
+  source: ForwardRef('EvaluatorSourceParam', module='fireworks.types.evaluator_create_params')
+
+===== EvaluatorCriterion =====
+  code_snippets: ForwardRef("Annotated[EvaluatorCriterionCodeSnippets, PropertyInfo(alias='codeSnippets')]", module='fireworks.types.evaluator_create_params')
+  description: ForwardRef('str', module='fireworks.types.evaluator_create_params')
+  name: ForwardRef('str', module='fireworks.types.evaluator_create_params')
+  type: ForwardRef("Literal['TYPE_UNSPECIFIED', 'CODE_SNIPPETS']", module='fireworks.types.evaluator_create_params')
+
+===== EvaluatorCriterionCodeSnippets =====
+  entry_file: ForwardRef("Annotated[str, PropertyInfo(alias='entryFile')]", module='fireworks.types.evaluator_create_params')
+  entry_func: ForwardRef("Annotated[str, PropertyInfo(alias='entryFunc')]", module='fireworks.types.evaluator_create_params')
+  file_contents: ForwardRef("Annotated[Dict[str, str], PropertyInfo(alias='fileContents')]", module='fireworks.types.evaluator_create_params')
+  language: ForwardRef('str', module='fireworks.types.evaluator_create_params')
+

@@ -1,0 +1,53 @@
+{
+  "updated": "2026-10-02 14:34:08.888782+00:00",
+  "experiments": {
+    "orena_sft": {
+      "job_name": "accounts/purchase-j087ceepz9i/supervisedFineTuningJobs/etia90sh",
+      "state": "JOB_STATE_RUNNING",
+      "base_model": "accounts/fireworks/models/qwen3p5-9b",
+      "output_model": "accounts/purchase-j087ceepz9i/models/fs-or1-orena-sft",
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 64,
+      "loss_method": null,
+      "status": "{'code': 'OK', 'message': '60% complete | Epoch 1/1 | training'}"
+    },
+    "orena_rl": {
+      "job_name": "accounts/purchase-j087ceepz9i/reinforcementFineTuningJobs/fs-or1-orena-rl",
+      "state": "JOB_STATE_RUNNING",
+      "base_model": "accounts/fireworks/models/qwen3-vl-8b-instruct",
+      "output_model": "accounts/purchase-j087ceepz9i/models/fs-or1-orena-rl",
+      "epochs": 1,
+      "learning_rate": 1e-05,
+      "lora_rank": 16,
+      "loss_method": "GRPO",
+      "status": "{'code': 'OK', 'message': '0% complete | Epoch 1/1'}"
+    },
+    "goemotions_sft": {
+      "job_name": "accounts/purchase-j087ceepz9i/supervisedFineTuningJobs/ktcdqquf",
+      "state": "JOB_STATE_RUNNING",
+      "base_model": "accounts/fireworks/models/qwen3-0p6b",
+      "output_model": "accounts/purchase-j087ceepz9i/models/fs-or1-ge-sft",
+      "epochs": 1,
+      "learning_rate": 0.0001,
+      "lora_rank": 16,
+      "loss_method": null,
+      "status": "{'code': 'OK', 'message': '36% complete | Epoch 1/1 | training'}"
+    },
+    "goemotions_rl": {
+      "job_name": "accounts/purchase-j087ceepz9i/reinforcementFineTuningJobs/fs-or1-ge-rl",
+      "state": "JOB_STATE_RUNNING",
+      "base_model": "accounts/fireworks/models/qwen3-0p6b",
+      "output_model": "accounts/purchase-j087ceepz9i/models/fs-or1-ge-rl",
+      "epochs": 1,
+      "learning_rate": 1e-05,
+      "lora_rank": 16,
+      "loss_method": "GRPO",
+      "status": "{'code': 'OK', 'message': ''}"
+    }
+  },
+  "evaluators": {
+    "orena": "evaluation-orena-focus-reward (ACTIVE, prior)",
+    "goemotions": "fs-or1-goemotions-reward (ACTIVE, tarball upload)"
+  }
+}

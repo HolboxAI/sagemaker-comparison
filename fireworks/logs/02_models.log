@@ -1,0 +1,226 @@
+=== model catalog Fri Oct  2 01:22:24 PM UTC 2026 ===
+total models: 4
+
+[model fields]: ['base_model_details', 'calibrated', 'cluster', 'construct', 'context_length', 'conversation_config', 'copy', 'create_time', 'default_draft_model', 'default_draft_token_count', 'default_sampling_params', 'deployed_model_refs', 'deprecation_date', 'description', 'dict', 'display_name', 'fine_tuning_job', 'from_orm', 'github_url', 'hugging_face_url', 'imported_from', 'json', 'kind', 'model_computed_fields', 'model_config', 'model_construct', 'model_copy', 'model_dump', 'model_dump_json', 'model_extra', 'model_fields', 'model_fields_set', 'model_json_schema', 'model_parametrized_name', 'model_post_init', 'model_rebuild', 'model_validate', 'model_validate_json', 'model_validate_strings', 'name', 'parse_file', 'parse_obj', 'parse_raw', 'peft_details', 'public', 'rl_tunable', 'schema', 'schema_json', 'snapshot_type', 'state', 'status', 'supported_precisions', 'supported_precisions_with_calibration', 'supports_image_input', 'supports_lora', 'supports_serverless', 'supports_tools', 'teft_details', 'to_dict', 'to_json']
+Traceback (most recent call last):
+  File "/home/susmitkulkarni/Documents/stanford_testing/fireworks_vs_sagemaker/scripts/04_models.py", line 23, in <module>
+    qwen = [m for m in models if "qwen" in (m.id or "").lower()]
+                                            ^^^^
+  File "/home/susmitkulkarni/Documents/stanford_testing/fireworks_vs_sagemaker/.venv/lib64/python3.14/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Model' object has no attribute 'id'
+=== model catalog (paginated) Fri Oct  2 01:22:42 PM UTC 2026 ===
+total models fetched: 4
+NAME                                                         img  lora rl   srvr ctx
+accounts/purchase-j087ceepz9i/models/orena-focus-rl-v3       1    0    1    0    0
+accounts/purchase-j087ceepz9i/models/orena-focus-rl-v4       1    0    1    0    0
+accounts/purchase-j087ceepz9i/models/orena-focus-rl-v5       1    0    1    0    0
+accounts/purchase-j087ceepz9i/models/qwen3-vl-8b-sft         1    1    1    0    262144
+
+=== QWEN models ===
+   accounts/purchase-j087ceepz9i/models/qwen3-vl-8b-sft | img True | lora True | rl True
+
+=== image-capable ===
+   accounts/purchase-j087ceepz9i/models/orena-focus-rl-v3 | lora False | rl True
+   accounts/purchase-j087ceepz9i/models/orena-focus-rl-v4 | lora False | rl True
+   accounts/purchase-j087ceepz9i/models/orena-focus-rl-v5 | lora False | rl True
+   accounts/purchase-j087ceepz9i/models/qwen3-vl-8b-sft | lora True | rl True
+
+=== full dump of all fetched models ===
+{
+ "name": "accounts/purchase-j087ceepz9i/models/orena-focus-rl-v3",
+ "display_name": "",
+ "description": "",
+ "kind": "HF_PEFT_ADDON",
+ "context_length": 0,
+ "supports_image_input": true,
+ "supports_lora": false,
+ "rl_tunable": true,
+ "supports_serverless": false,
+ "peft_details": {
+  "base_model": "accounts/fireworks/models/qwen3-vl-8b-instruct",
+  "r": 16,
+  "target_modules": [
+   "v_proj",
+   "gate_proj",
+   "q_proj",
+   "k_proj",
+   "up_proj",
+   "down_proj",
+   "o_proj"
+  ],
+  "base_model_type": "qwen3_vl",
+  "merge_addon_model_name": ""
+ },
+ "teft_details": null,
+ "base_model_details": {
+  "checkpoint_format": "CHECKPOINT_FORMAT_UNSPECIFIED",
+  "default_precision": "PRECISION_UNSPECIFIED",
+  "api_model_type": "",
+  "moe": false,
+  "parameter_count": "0",
+  "supports_fireattention": false,
+  "supports_mtp": false,
+  "tunable": true,
+  "world_size": 0,
+  "huggingfaceFiles": []
+ },
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "imported_from": ""
+}
+{
+ "name": "accounts/purchase-j087ceepz9i/models/orena-focus-rl-v4",
+ "display_name": "",
+ "description": "",
+ "kind": "HF_PEFT_ADDON",
+ "context_length": 0,
+ "supports_image_input": true,
+ "supports_lora": false,
+ "rl_tunable": true,
+ "supports_serverless": false,
+ "peft_details": {
+  "base_model": "accounts/purchase-j087ceepz9i/models/qwen3-vl-8b-sft",
+  "r": 16,
+  "target_modules": [
+   "o_proj",
+   "k_proj",
+   "down_proj",
+   "gate_proj",
+   "q_proj",
+   "v_proj",
+   "up_proj"
+  ],
+  "base_model_type": "qwen3_vl",
+  "merge_addon_model_name": ""
+ },
+ "teft_details": null,
+ "base_model_details": {
+  "checkpoint_format": "CHECKPOINT_FORMAT_UNSPECIFIED",
+  "default_precision": "PRECISION_UNSPECIFIED",
+  "api_model_type": "",
+  "moe": false,
+  "parameter_count": "0",
+  "supports_fireattention": false,
+  "supports_mtp": false,
+  "tunable": false,
+  "world_size": 0,
+  "huggingfaceFiles": []
+ },
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "imported_from": ""
+}
+{
+ "name": "accounts/purchase-j087ceepz9i/models/orena-focus-rl-v5",
+ "display_name": "",
+ "description": "",
+ "kind": "HF_PEFT_ADDON",
+ "context_length": 0,
+ "supports_image_input": true,
+ "supports_lora": false,
+ "rl_tunable": true,
+ "supports_serverless": false,
+ "peft_details": {
+  "base_model": "accounts/purchase-j087ceepz9i/models/qwen3-vl-8b-sft",
+  "r": 16,
+  "target_modules": [
+   "q_proj",
+   "k_proj",
+   "gate_proj",
+   "up_proj",
+   "down_proj",
+   "v_proj",
+   "o_proj"
+  ],
+  "base_model_type": "qwen3_vl",
+  "merge_addon_model_name": ""
+ },
+ "teft_details": null,
+ "base_model_details": {
+  "checkpoint_format": "CHECKPOINT_FORMAT_UNSPECIFIED",
+  "default_precision": "PRECISION_UNSPECIFIED",
+  "api_model_type": "",
+  "moe": false,
+  "parameter_count": "0",
+  "supports_fireattention": false,
+  "supports_mtp": false,
+  "tunable": false,
+  "world_size": 0,
+  "huggingfaceFiles": []
+ },
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "imported_from": ""
+}
+{
+ "name": "accounts/purchase-j087ceepz9i/models/qwen3-vl-8b-sft",
+ "display_name": "Qwen3-VL-8B-Instruct SFT (merged)",
+ "description": "",
+ "kind": "HF_BASE_MODEL",
+ "context_length": 262144,
+ "supports_image_input": true,
+ "supports_lora": true,
+ "rl_tunable": true,
+ "supports_serverless": false,
+ "peft_details": {
+  "base_model": "",
+  "r": 0,
+  "target_modules": [],
+  "base_model_type": "",
+  "merge_addon_model_name": ""
+ },
+ "teft_details": null,
+ "base_model_details": {
+  "checkpoint_format": "HUGGINGFACE",
+  "default_precision": "PRECISION_UNSPECIFIED",
+  "api_model_type": "qwen3_vl",
+  "moe": false,
+  "parameter_count": "8767123696",
+  "supports_fireattention": true,
+  "supports_mtp": false,
+  "tunable": true,
+  "world_size": 1,
+  "huggingfaceFiles": [
+   "chat_template.jinja",
+   "config.json",
+   "config.json.bak2",
+   "generation_config.json",
+   "model-00001-of-00004.safetensors",
+   "model-00002-of-00004.safetensors",
+   "model-00003-of-00004.safetensors",
+   "model-00004-of-00004.safetensors",
+   "model.safetensors.index.json",
+   "preprocessor_config.json",
+   "processor_config.json",
+   "tokenizer.json",
+   "tokenizer_config.json",
+   "tokenizer_config.json.bak",
+   "tokenizer_config.json.bak2"
+  ]
+ },
+ "state": "READY",
+ "status": {
+  "code": "OK",
+  "message": ""
+ },
+ "imported_from": ""
+}
+=== tunable base models Fri Oct  2 01:23:31 PM UTC 2026 ===
+[models resource methods]: ['create', 'delete', 'get', 'get_download_endpoint', 'get_upload_endpoint', 'list', 'prepare', 'update', 'validate_upload', 'with_raw_response', 'with_streaming_response']
+
+[get accounts/fireworks/models/qwen3-vl-8b-instruct] ERR TypeError: ModelsResource.get() got an unexpected keyword argument 'name'
+
+[get accounts/fireworks/models/qwen3-vl-8b] ERR TypeError: ModelsResource.get() got an unexpected keyword argument 'name'
+
+[list without account_id] ...
+  ERR ValueError: Missing account_id argument; Please provide it at the client level, e.g. Fireworks(account_id='abcd') or per method.

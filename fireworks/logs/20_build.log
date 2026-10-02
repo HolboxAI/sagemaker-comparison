@@ -1,0 +1,36 @@
+=== built ===
+goemotions_sft.jsonl  43410 rows (CHAT)
+goemotions_rl.jsonl   5000 rows (RL)
+orena_sft.jsonl       10980 rows (CHAT)
+orena_rl.jsonl        2000 rows (RL)
+
+=== ORena answer_format distribution (full train) ===
+  FO_Class: 5659
+  number: 4116
+  binary: 1205
+
+=== ORena answer samples by format ===
+  [FO_Class]
+      'external drain'
+      'clip'
+      'specimen, specimen bag'
+      'clip'
+      'clip, sponge'
+  [number]
+      '3'
+      '1'
+      '1'
+      '4'
+      '1'
+  [binary]
+      'no'
+      'no'
+      'yes'
+      'yes'
+      'yes'
+
+=== GoEmotions label sample ===
+   [(0, 'admiration'), (1, 'amusement'), (2, 'anger'), (3, 'annoyance'), (4, 'approval'), (5, 'caring'), (6, 'confusion')]
+   [(7, 'curiosity'), (8, 'desire'), (9, 'disappointment'), (10, 'disapproval'), (11, 'disgust'), (12, 'embarrassment'), (13, 'excitement')]
+   [(14, 'fear'), (15, 'gratitude'), (16, 'grief'), (17, 'joy'), (18, 'love'), (19, 'nervousness'), (20, 'optimism')]
+   [(21, 'pride'), (22, 'realization'), (23, 'relief'), (24, 'remorse'), (25, 'sadness'), (26, 'surprise'), (27, 'neutral')]

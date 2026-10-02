@@ -1,0 +1,4 @@
+# Evaluator deps only — one line. `evaluation.py` imports stdlib + eval_protocol.
+# The `mcp<2` pin is LOCAL-only (for the `ep` CLI); it must NOT ship here because
+# the remote build resolves mcp from eval_protocol itself.
+eval-protocol

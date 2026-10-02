@@ -1,0 +1,159 @@
+=== Fireworks vs SageMaker — setup Fri Oct  2 01:14:24 PM UTC 2026 ===
+--- archive.zip ---
+-rw-r--r--. 1 susmitkulkarni susmitkulkarni 18454108 Oct  2 18:42 /home/susmitkulkarni/Downloads/archive.zip
+--- zip contents (first 60) ---
+Archive:  /home/susmitkulkarni/Downloads/archive.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+    20316  02-18-2021 14:51   GoEmotionsFormat.PNG
+     7551  02-18-2021 14:51   README.md
+     9495  02-18-2021 14:51   analyze_data.py
+     4042  02-18-2021 14:51   calculate_metrics.py
+   439059  02-18-2021 14:51   data/dev.tsv
+       55  02-18-2021 14:51   data/ekman_labels.csv
+      396  02-18-2021 14:51   data/ekman_mapping.json
+      248  02-18-2021 14:51   data/emotions.txt
+ 14174600  02-18-2021 14:51   data/full_dataset/goemotions_1.csv
+ 14173154  02-18-2021 14:51   data/full_dataset/goemotions_2.csv
+ 14395164  02-18-2021 14:51   data/full_dataset/goemotions_3.csv
+      367  02-18-2021 14:51   data/sentiment_dict.json
+      367  02-18-2021 14:51   data/sentiment_mapping.json
+   436706  02-18-2021 14:51   data/test.tsv
+  3519053  02-18-2021 14:51   data/train.tsv
+     6290  02-18-2021 14:51   extract_words.py
+   233576  02-18-2021 14:51   goemotions_model_card.pdf
+      898  02-18-2021 14:51   plots/colors.tsv
+    29982  02-18-2021 14:51   plots/correlations.pdf
+    13121  02-18-2021 14:51   plots/hierarchical_clustering.pdf
+    33238  02-18-2021 14:51   plots/hierarchical_corr.pdf
+    12046  02-18-2021 14:51   plots/number_of_labels.pdf
+     4158  02-18-2021 14:51   replace_emotions.py
+    32464  02-18-2021 14:51   tables/emotion_words.csv
+---------                     -------
+ 47546346                     24 files
+--- zip tail (file count / total size) ---
+    33238  02-18-2021 14:51   plots/hierarchical_corr.pdf
+    12046  02-18-2021 14:51   plots/number_of_labels.pdf
+     4158  02-18-2021 14:51   replace_emotions.py
+    32464  02-18-2021 14:51   tables/emotion_words.csv
+---------                     -------
+ 47546346                     24 files
+=== extract Fri Oct  2 01:14:36 PM UTC 2026 ===
+--- data/goemotions/data ---
+total 4320
+drwxr-xr-x. 1 susmitkulkarni susmitkulkarni     246 Oct  2 18:44 .
+drwxr-xr-x. 1 susmitkulkarni susmitkulkarni     278 Oct  2 18:44 ..
+-rw-r--r--. 1 susmitkulkarni susmitkulkarni  439059 Feb 18  2021 dev.tsv
+-rw-r--r--. 1 susmitkulkarni susmitkulkarni      55 Feb 18  2021 ekman_labels.csv
+-rw-r--r--. 1 susmitkulkarni susmitkulkarni     396 Feb 18  2021 ekman_mapping.json
+-rw-r--r--. 1 susmitkulkarni susmitkulkarni     248 Feb 18  2021 emotions.txt
+drwxr-xr-x. 1 susmitkulkarni susmitkulkarni      96 Oct  2 18:44 full_dataset
+-rw-r--r--. 1 susmitkulkarni susmitkulkarni     367 Feb 18  2021 sentiment_dict.json
+-rw-r--r--. 1 susmitkulkarni susmitkulkarni     367 Feb 18  2021 sentiment_mapping.json
+-rw-r--r--. 1 susmitkulkarni susmitkulkarni  436706 Feb 18  2021 test.tsv
+-rw-r--r--. 1 susmitkulkarni susmitkulkarni 3519053 Feb 18  2021 train.tsv
+--- emotions.txt (28 labels) ---
+admiration
+amusement
+anger
+annoyance
+approval
+caring
+confusion
+curiosity
+desire
+disappointment
+disapproval
+disgust
+embarrassment
+excitement
+fear
+gratitude
+grief
+joy
+love
+nervousness
+optimism
+pride
+realization
+relief
+remorse
+sadness
+surprise
+neutral--- train.tsv head ---
+My favourite food is anything I didn't have to cook myself.	27	eebbqej
+Now if he does off himself, everyone will think hes having a laugh screwing with people instead of actually dead	27	ed00q6i
+WHY THE FUCK IS BAYLESS ISOING	2	eezlygj
+--- row counts ---
+  43410 data/goemotions/data/train.tsv
+   5426 data/goemotions/data/dev.tsv
+   5427 data/goemotions/data/test.tsv
+  54263 total
+=== Fireworks API key check Fri Oct  2 01:14:37 PM UTC 2026 ===
+--- [1] inference /models ---
+{"data":[{"id":"accounts/fireworks/models/glm-5p2","object":"model","owned_by":"fireworks","created":1781630293,"kind":"HF_BASE_MODEL","supports_chat":true,"supports_image_input":false,"supports_tools":true,"context_length":1048576},{"id":"accounts/fireworks/routers/glm-5p2-fast","object":"model","owned_by":"fireworks","created":1781630293,"kind":"HF_BASE_MODEL","supports_chat":true,"supports_image_input":false,"supports_tools":true,"context_length":1048576},{"id":"accounts/fireworks/models/kimi-k2p6","object":"model","owned_by":"fireworks","created":1776455694,"kind":"HF_BASE_MODEL","supports_chat":true,"supports_image_input":true,"supports_tools":true,"context_length":262144},{"id":"accounts/fireworks/models/kimi-k2p7-code","object":"model","owned_by":"fireworks","created":1781283600,"kind":"HF_BASE_MODEL","supports_chat":true,"supports_image_input":true,"supports_tools":true,"context_length":262144},{"id":"accounts/fireworks/models/minimax-m2p7","object":"model","owned_by":"fireworks","created":1775867225,"kind":"HF_BASE_MODEL","supports_chat":true,"supports_image_input":false,"supports_tools":true,"context_length":196608},{"id":"accounts/fireworks/models/minimax-m3","object":"model","owned_by":"fireworks","created":1781214748,"kind":"HF_BASE_MODEL","supports_chat":true,"supports_image_input":false,"supports_tools":true,"context_length":512000},{"id":"accounts/fireworks/models/gpt-oss-120b","object":"model","owned_by":"fireworks","created":1754345600,"kind":"HF_BASE_MODEL"
+--- [2] fine-tuning jobs list ---
+{"error":{"message":"Path not found: /v1/fine_tuning/jobs","param":null,"code":"NOT_FOUND","type":"error"},"request_id":"ac42a9e9-0480-4c27-bac9-29c38ce6352d"}
+[HTTP 404]
+
+=== SDK access verification Fri Oct  2 01:15:09 PM UTC 2026 ===
+/home/susmitkulkarni/Documents/stanford_testing/fireworks_vs_sagemaker/scripts/00_verify_access.py:9: DeprecationWarning: Importing from 'fireworks.client' is deprecated. Use 'from fireworks import Fireworks, AsyncFireworks' instead. The 'fireworks.client' shim will be removed in a future release.
+  from fireworks.client import Fireworks
+fireworks-ai version: 1.2.19
+
+[client attrs] ['account_id', 'accounts', 'api_key', 'api_keys', 'auth_headers', 'base_url', 'batch_inference_jobs', 'chat', 'close', 'completions', 'copy', 'custom_auth', 'datasets', 'default_headers', 'default_query', 'delete', 'deployment_shape_versions', 'deployment_shapes', 'deployments', 'dpo_jobs', 'evaluation_jobs', 'evaluators', 'get', 'get_api_list', 'is_closed', 'lora', 'max_retries', 'messages', 'models', 'patch', 'platform_headers', 'post', 'put', 'qs', 'reinforcement_fine_tuning_jobs', 'reinforcement_fine_tuning_steps', 'request', 'secrets', 'supervised_fine_tuning_jobs', 'timeout', 'user_agent', 'users', 'with_options', 'with_raw_response', 'with_streaming_response']
+
+[inference] listing models ...
+[inference] ERR ValueError: Missing account_id argument; Please provide it at the client level, e.g. Fireworks(account_id='abcd') or per method.
+
+[fine-tuning] discovering surface ...
+[fine-tuning] no 'fine_tuning' attribute on client
+
+[account] ...
+[account] ERR AttributeError: 'AccountsResource' object has no attribute 'retrieve'
+
+[training-api] checking fireworks.training module ...
+[training-api] module present; attrs: ['annotations']
+
+DONE
+=== SDK discovery Fri Oct  2 01:15:25 PM UTC 2026 ===
+[accounts] methods: ['get', 'list', 'with_raw_response', 'with_streaming_response']
+[users] methods: ['create', 'get', 'list', 'update', 'with_raw_response', 'with_streaming_response']
+
+[accounts.list] ...
+  OK: "SyncCursorAccounts[Account](accounts=[Account(email='purchase@holbox.ai', account_type='ACCOUNT_TYPE_UNSPECIFIED', create_time=datetime.datetime(2026, 5, 21, 6, 31, 56, 25804, tzinfo=TzInfo(0)), display_name='Holbox AI', name='accounts/purchase-j087ceepz9i', state='UPDATING', status=Status(code='INTERNAL', message='Internal error occurred, please contact the Fireworks AI team at https://discord.gg/fireworks-ai'), suspend_state='UNSUSPENDED', update_time=datetime.datetime(2026, 10, 2, 11, 47, 16, 971706, tzinfo=TzInfo(0)), accountType='ACCOUNT_TYPE_UNSPECIFIED', createTime='2026-05-21T06:31:56.025804Z', displayName='Holbox AI', notificationSettings=None, productivityOnly=False, scimEnabled=False, suspendState='UNSUSPENDED', updateTime='2026-10-02T11:47:16.971706Z')], next_page_token='', nextPageToken='', totalSize=0)"
+
+[accounts.retrieve_current] ...
+  get ERR ValueError: Missing account_id argument; Please provide it at the client level, e.g. Fireworks(account_id='abcd') or per method.
+
+[supervised_fine_tuning_jobs] methods: ['create', 'delete', 'get', 'list', 'resume', 'with_raw_response', 'with_streaming_response']
+
+[dpo_jobs] methods: ['create', 'delete', 'get', 'get_metrics_file_endpoint', 'list', 'resume', 'with_raw_response', 'with_streaming_response']
+
+[reinforcement_fine_tuning_jobs] methods: ['cancel', 'create', 'delete', 'get', 'list', 'resume', 'with_raw_response', 'with_streaming_response']
+
+[reinforcement_fine_tuning_steps] methods: ['create', 'delete', 'execute', 'get', 'list', 'resume', 'with_raw_response', 'with_streaming_response']
+
+[datasets] methods: ['create', 'delete', 'get', 'get_download_endpoint', 'get_upload_endpoint', 'list', 'update', 'upload', 'validate_upload', 'with_raw_response', 'with_streaming_response']
+
+[evaluators] methods: ['create', 'delete', 'get', 'get_build_log_endpoint', 'get_source_code_endpoint', 'get_upload_endpoint', 'list', 'update', 'validate_upload', 'with_raw_response', 'with_streaming_response']
+
+[evaluation_jobs] methods: ['create', 'delete', 'get', 'get_log_endpoint', 'list', 'with_raw_response', 'with_streaming_response']
+
+[deployments] methods: ['create', 'delete', 'get', 'list', 'scale', 'undelete', 'update', 'with_raw_response', 'with_streaming_response']
+
+[lora] methods: ['get', 'list', 'load', 'unload', 'update', 'with_raw_response', 'with_streaming_response']
+=== training access verification Fri Oct  2 01:15:41 PM UTC 2026 ===
+account_id: purchase-j087ceepz9i
+[account] name=accounts/purchase-j087ceepz9i state=UPDATING status=INTERNAL:Internal error occurred, please contact the Fireworks AI team at https://discord
+[supervised_fine_tuning_jobs] list OK — "SyncCursorSupervisedFineTuningJobs[SupervisedFineTuningJob](supervised_fine_tuning_jobs=[], next_page_token='', nextPageToken='', supervisedFineTuningJobs=[], totalSize=0)"
+[dpo_jobs] list OK — "SyncCursorDpoJobs[DpoJob](dpo_jobs=[], next_page_token='', dpoJobs=[], nextPageToken='', totalSize=0)"
+[reinforcement_fine_tuning_jobs] list OK — "SyncCursorReinforcementFineTuningJobs[ReinforcementFineTuningJob](reinforcement_fine_tuning_jobs=[ReinforcementFineTuningJob(dataset='accounts/purchase-j087ceepz9i/datasets/orena-focus-resume-train', evaluator='accounts/purchase-j087ceepz9i/evaluators/evaluation-orena-focus-reward', accelerator_sec
+[datasets] list OK — "SyncCursorDatasets[Dataset](datasets=[Dataset(average_turn_count=2.0, created_by='purchase@holbox.ai', create_time=datetime.datetime(2026, 7, 31, 8, 7, 38, 246638, tzinfo=TzInfo(0)), display_name='', estimated_token_count='1614000', eval_protocol=None, evaluation_result=None, example_count='200', e
+[evaluators] list OK — "SyncCursorEvaluators[EvaluatorListResponse](evaluators=[EvaluatorListResponse(commit_hash='None+unknown', created_by='purchase@holbox.ai', create_time=datetime.datetime(2026, 7, 31, 6, 33, 21, 917733, tzinfo=TzInfo(0)), criteria=[], default_dataset='', description='Evaluator for evaluation.orena_fo
+[evaluation_jobs] list OK — "SyncCursorEvaluationJobs[EvaluationJobListResponse](evaluation_jobs=[], next_page_token='', evaluationJobs=[], nextPageToken='', totalSize=0)"
+[deployments] list OK — "SyncCursorDeployments[Deployment](deployments=[Deployment(base_model='accounts/purchase-j087ceepz9i/models/orena-focus-rl-v3', accelerator_count=1, accelerator_type='NVIDIA_H200_141GB', active_model_version='', autoscaling_policy=AutoscalingPolicy(load_targets={'default': 0.8}, scale_down_window='6
+[lora] list OK — "SyncCursorLora[DeployedModel](deployed_models=[], next_page_token='', deployedModels=[], nextPageToken='', totalSize=0)"
+
+[models] listing with account scope ...
+[models] ERR TypeError: object of type 'SyncCursorModels[Model]' has no len()

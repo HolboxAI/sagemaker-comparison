@@ -1,0 +1,31 @@
+===== DatasetParam =====
+  display_name: ForwardRef("Annotated[str, PropertyInfo(alias='displayName')]", module='fireworks.types.dataset_param')
+  eval_protocol: ForwardRef("Annotated[object, PropertyInfo(alias='evalProtocol')]", module='fireworks.types.dataset_param')
+  evaluation_result: ForwardRef("Annotated[EvaluationResultParam, PropertyInfo(alias='evaluationResult')]", module='fireworks.types.dataset_param')
+  example_count: ForwardRef("Annotated[str, PropertyInfo(alias='exampleCount')]", module='fireworks.types.dataset_param')
+  external_url: ForwardRef("Annotated[str, PropertyInfo(alias='externalUrl')]", module='fireworks.types.dataset_param')
+  format: ForwardRef("Literal['FORMAT_UNSPECIFIED', 'CHAT', 'COMPLETION', 'RL']", module='fireworks.types.dataset_param')
+  source_job_name: ForwardRef("Annotated[str, PropertyInfo(alias='sourceJobName')]", module='fireworks.types.dataset_param')
+  splitted: ForwardRef('SplittedParam', module='fireworks.types.dataset_param')
+  transformed: ForwardRef('TransformedParam', module='fireworks.types.dataset_param')
+  user_uploaded: ForwardRef("Annotated[object, PropertyInfo(alias='userUploaded')]", module='fireworks.types.dataset_param')
+
+RL submodule names: ['Annotated', 'AwsS3Config', 'AzureBlobStorageConfig', 'InferenceParameters', 'PropertyInfo', 'ReinforcementFineTuningJobCreateParams', 'ReinforcementLearningLossConfig', 'Required', 'TrainingConfig', 'TypedDict', 'WandbConfig', 'annotations']
+===== RL.InferenceParameters =====
+  extra_body: ForwardRef("Annotated[str, PropertyInfo(alias='extraBody')]", module='fireworks.types.reinforcement_fine_tuning_job_create_params')
+  max_output_tokens: ForwardRef("Annotated[int, PropertyInfo(alias='maxOutputTokens')]", module='fireworks.types.reinforcement_fine_tuning_job_create_params')
+  response_candidates_count: ForwardRef("Annotated[int, PropertyInfo(alias='responseCandidatesCount')]", module='fireworks.types.reinforcement_fine_tuning_job_create_params')
+  temperature: ForwardRef('float', module='fireworks.types.reinforcement_fine_tuning_job_create_params')
+  top_k: ForwardRef("Annotated[int, PropertyInfo(alias='topK')]", module='fireworks.types.reinforcement_fine_tuning_job_create_params')
+  top_p: ForwardRef("Annotated[float, PropertyInfo(alias='topP')]", module='fireworks.types.reinforcement_fine_tuning_job_create_params')
+
+===== EvaluatorCreateParams =====
+  account_id: ForwardRef('str', module='fireworks.types.evaluator_create_params')
+  evaluator: ForwardRef('Required[Evaluator]', module='fireworks.types.evaluator_create_params')
+  evaluator_id: ForwardRef("Annotated[str, PropertyInfo(alias='evaluatorId')]", module='fireworks.types.evaluator_create_params')
+
+===== EvaluatorSourceParam =====
+  github_repository_name: ForwardRef("Annotated[str, PropertyInfo(alias='githubRepositoryName')]", module='fireworks.types.evaluator_source_param')
+  type: ForwardRef("Literal['TYPE_UNSPECIFIED', 'TYPE_UPLOAD', 'TYPE_GITHUB', 'TYPE_TEMPORARY']", module='fireworks.types.evaluator_source_param')
+
+ECP names: ['Annotated', 'Dict', 'Evaluator', 'EvaluatorCreateParams', 'EvaluatorCriterion', 'EvaluatorCriterionCodeSnippets', 'EvaluatorSourceParam', 'Iterable', 'Literal', 'PropertyInfo', 'Required', 'TypedDict', 'annotations']

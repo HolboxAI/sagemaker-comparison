@@ -1,0 +1,14 @@
+deleted old fs-or1-goemotions-reward
+recreate OK
+PUT evaluation.py -> 200
+PUT requirements.txt -> 200
+validate_upload OK — building...
+  [0s] state=BUILDING status=Status(code='OK', message='Evaluator is being built')
+  [10s] state=BUILDING status=Status(code='OK', message='Evaluator is being built')
+  [20s] state=BUILDING status=Status(code='OK', message='Evaluator is being built')
+  [30s] state=BUILDING status=Status(code='OK', message='Evaluator is being built')
+  [40s] state=BUILDING status=Status(code='OK', message='Evaluator is being built')
+  [50s] state=BUILDING status=Status(code='OK', message='Evaluator is being built')
+  [60s] state=BUILDING status=Status(code='OK', message='Evaluator is being built')
+  [70s] state=BUILDING status=Status(code='OK', message='Evaluator is being built')
+  [80s] state=BUILD_FAILED status=Status(code='INTERNAL', message='Internal error occurred, please contact the Fireworks AI team at https://discord.gg/fireworks-ai')

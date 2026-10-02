@@ -1,0 +1,57 @@
+===== evaluator: evaluation-orena-focus-reward =====
+{
+ "commit_hash": "None+unknown",
+ "created_by": "purchase@holbox.ai",
+ "create_time": "2026-07-31 06:33:21.917733+00:00",
+ "criteria": [],
+ "default_dataset": "",
+ "description": "Evaluator for evaluation.orena_focus_reward",
+ "display_name": "evaluation-orena-focus-reward",
+ "entry_point": "evaluation.py::orena_focus_reward",
+ "name": "accounts/purchase-j087ceepz9i/evaluators/evaluation-orena-focus-reward",
+ "requirements": "",
+ "source": null,
+ "state": "ACTIVE",
+ "status": {
+  "code": "OK",
+  "message": "Template built successfully"
+ },
+ "update_time": "2026-07-31 06:36:07.420345+00:00",
+ "commitHash": "None+unknown",
+ "createTime": "2026-07-31T06:33:21.917733Z",
+ "createdBy": "purchase@holbox.ai",
+ "defaultDataset": "",
+ "displayName": "evaluation-orena-focus-reward",
+ "encryptionState": "ENCRYPTION_STATE_PLAINTEXT",
+ "entryPoint": "evaluation.py::orena_focus_reward",
+ "updateTime": "2026-07-31T06:36:07.420345Z"
+}
+
+===== datasets list =====
+ - accounts/purchase-j087ceepz9i/datasets/orena-focus-eval-200 | format= CHAT | example_count= 200 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/orena-focus-resume-train | format= CHAT | example_count= 8864 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/orena-focus-train-full | format= CHAT | example_count= 10980 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/orena-focus-unfiltered-5000 | format= CHAT | example_count= 5000 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-0 | format= CHAT | example_count= 3184 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-1 | format= CHAT | example_count= 3200 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-10 | format= CHAT | example_count= 3200 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-11 | format= CHAT | example_count= 3200 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-12 | format= CHAT | example_count= 3184 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-13 | format= CHAT | example_count= 3184 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-14 | format= CHAT | example_count= 3200 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-15 | format= CHAT | example_count= 3184 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-16 | format= CHAT | example_count= 3200 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-17 | format= CHAT | example_count= 3184 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-18 | format= CHAT | example_count= 3184 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-19 | format= CHAT | example_count= 3200 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-2 | format= CHAT | example_count= 3184 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-20 | format= CHAT | example_count= 3200 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-21 | format= CHAT | example_count= 3184 | state= READY
+ - accounts/purchase-j087ceepz9i/datasets/rft-evalv3-iqev22iu-epoch-0-chunk-22 | format= CHAT | example_count= 3200 | state= READY
+
+===== RL jobs list =====
+count: 4
+{"name": "accounts/purchase-j087ceepz9i/reinforcementFineTuningJobs/z9bse1ut", "state": "JOB_STATE_COMPLETED", "status": {"code": "OK", "message": "Training completed"}, "training_config": {"base_model": "", "batch_size": 32768, "batch_size_samples": 0, "sampler_checkpoint_save_interval_steps": null, "epochs": 1, "gradient_accumulation_steps": 1, "jinja_template": "", "learning_rate": 3e-05, "learning_rate_warmup_steps": 0, "lora_rank": 16, "max_context_length": 32768, "optimizer_weight_decay": 0.0, "output_model": "accounts/purchase-j087ceepz9i/models/orena-focus-rl-v5", "region": null, "warm_start_from": "accounts/purchase-j087ceepz9i/models/orena-focus-rl-v4", "loraAlpha": 0, "loraDropout": 0, "loraTargetModules": [], "lrScheduler": null, "trainerShardingScheme": null}, "loss_config": {"dpo": null, "kl_beta": null, "method": "METHOD_UNSPECIFIED", "orpo": null}, "dataset": "accounts/purchase-j087ceepz9i/datasets/orena-focus-resume-train", "evaluator": "accounts/purchase-j087ceepz9i/evaluators/evaluation-orena-focus-reward"}
+{"name": "accounts/purchase-j087ceepz9i/reinforcementFineTuningJobs/vudiw5on", "state": "JOB_STATE_COMPLETED", "status": {"code": "OK", "message": "Training completed"}, "training_config": {"base_model": "accounts/purchase-j087ceepz9i/models/qwen3-vl-8b-sft", "batch_size": 32768, "batch_size_samples": 0, "sampler_checkpoint_save_interval_steps": null, "epochs": 1, "gradient_accumulation_steps": 1, "jinja_template": "", "learning_rate": 0.0001, "learning_rate_warmup_steps": 0, "lora_rank": 16, "max_context_length": 32768, "optimizer_weight_decay": 0.0, "output_model": "accounts/purchase-j087ceepz9i/models/orena-focus-rl-v4", "region": null, "warm_start_from": "", "loraAlpha": 0, "loraDropout": 0, "loraTargetModules": [], "lrScheduler": null, "trainerShardingScheme": null}, "loss_config": {"dpo": null, "kl_beta": null, "method": "METHOD_UNSPECIFIED", "orpo": null}, "dataset": "accounts/purchase-j087ceepz9i/datasets/orena-focus-unfiltered-5000", "evaluator": "accounts/purchase-j087ceepz9i/evaluators/evaluation-orena-focus-reward"}
+{"name": "accounts/purchase-j087ceepz9i/reinforcementFineTuningJobs/iqev22iu", "state": "JOB_STATE_COMPLETED", "status": {"code": "OK", "message": "Training completed"}, "training_config": {"base_model": "accounts/fireworks/models/qwen3-vl-8b-instruct", "batch_size": 32768, "batch_size_samples": 0, "sampler_checkpoint_save_interval_steps": null, "epochs": 1, "gradient_accumulation_steps": 1, "jinja_template": "", "learning_rate": 0.0001, "learning_rate_warmup_steps": 0, "lora_rank": 16, "max_context_length": 32768, "optimizer_weight_decay": 0.0, "output_model": "accounts/purchase-j087ceepz9i/models/orena-focus-rl-v3", "region": null, "warm_start_from": "", "loraAlpha": 0, "loraDropout": 0, "loraTargetModules": [], "lrScheduler": null, "trainerShardingScheme": null}, "loss_config": {"dpo": null, "kl_beta": null, "method": "METHOD_UNSPECIFIED", "orpo": null}, "dataset": "accounts/purchase-j087ceepz9i/datasets/orena-focus-train-full", "evaluator": "accounts/purchase-j087ceepz9i/evaluators/evaluation-orena-focus-reward"}
+{"name": "accounts/purchase-j087ceepz9i/reinforcementFineTuningJobs/demo-rft-job", "state": "JOB_STATE_COMPLETED", "status": {"code": "OK", "message": "Completed"}, "training_config": {"base_model": "accounts/fireworks/models/qwen3-0p6b", "batch_size": 32768, "batch_size_samples": 0, "sampler_checkpoint_save_interval_steps": null, "epochs": 1, "gradient_accumulation_steps": 1, "jinja_template": "", "learning_rate": 0.0001, "learning_rate_warmup_steps": 0, "lora_rank": 8, "max_context_length": 8192, "optimizer_weight_decay": 0.0, "output_model": "accounts/purchase-j087ceepz9i/models/demo-rft-model", "region": null, "warm_start_from": "", "loraAlpha": 0, "loraDropout": 0, "loraTargetModules": [], "lrScheduler": null, "trainerShardingScheme": null}, "loss_config": {"dpo": null, "kl_beta": null, "method": "METHOD_UNSPECIFIED", "orpo": null}, "dataset": "accounts/fireworks/datasets/demo-gsm8k-math-dataset-1000", "evaluator": "accounts/purchase-j087ceepz9i/evaluators/gsm8k-evaluator"}

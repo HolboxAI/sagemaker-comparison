@@ -1,0 +1,5 @@
+=== evaluator state ===
+state= BUILDING status= Status(code='OK', message='Evaluator is being built')
+
+=== prior SFT jobs ===
+count: 0
