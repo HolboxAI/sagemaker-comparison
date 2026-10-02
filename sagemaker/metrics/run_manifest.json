@@ -7,7 +7,7 @@
   "data_bucket": "s3://stanford-train-data",
   "experiments": {
     "orena_sft": {
-      "job_name": "orena-sft-2026-10-02-16-48-24-104",
+      "job_name": "orena-sft-2026-10-02-17-58-46-825",
       "instance_type": "ml.g5.12xlarge",
       "state": "InProgress",
       "base_model": "Qwen/Qwen3.5-9B",
@@ -15,19 +15,20 @@
       "epochs": 1,
       "learning_rate": 0.0001,
       "lora_rank": 64,
-      "note": "relaunched 2026-10-02 16:48 after fixing a pyarrow mixed-content-type error in convert_row"
+      "note": "attempt 3: pyarrow mixed-content fix -> multi-GPU DataParallel device mismatch -> single-GPU (CUDA_VISIBLE_DEVICES=0) now applied"
     },
     "orena_rl": {
-      "job_name": "orena-rl-2026-10-02-16-30-52-271",
+      "job_name": "orena-rl-2026-10-02-17-18-25-972",
       "instance_type": "ml.g5.2xlarge",
-      "state": "InProgress",
+      "state": "Completed",
       "base_model": "Qwen/Qwen3.5-9B",
       "method": "grpo",
       "epochs": 1,
       "learning_rate": 1e-06,
       "lora_rank": 16,
       "rollouts_per_prompt": 4,
-      "note": "base model differs from Fireworks (qwen3-vl-8b-instruct); SageMaker can RL the 9B directly"
+      "steps": 50,
+      "note": "RL_DONE after UTF-8 locale fix, but reward=0 throughout (Qwen3 thinking mode exhausts max_completion_length=128). Base model differs from Fireworks (qwen3-vl-8b-instruct)."
     },
     "goemotions_sft": {
       "job_name": "goemotions-sft-2026-10-02-16-07-29-859",
@@ -44,13 +45,15 @@
     "goemotions_rl": {
       "job_name": "goemotions-rl-2026-10-02-16-30-25-068",
       "instance_type": "ml.g5.xlarge",
-      "state": "InProgress",
+      "state": "Completed",
       "base_model": "Qwen/Qwen3-0.6B",
       "method": "grpo",
       "epochs": 1,
       "learning_rate": 1e-05,
       "lora_rank": 16,
-      "rollouts_per_prompt": 4
+      "rollouts_per_prompt": 4,
+      "steps": 256,
+      "note": "RL_DONE but reward=0 throughout (Qwen3 thinking mode exhausts max_completion_length=64)"
     }
   }
 }

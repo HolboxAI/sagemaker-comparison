@@ -187,6 +187,12 @@ Recorded rather than silently applied, per the repo rules.
    `multiple_choice` are exact. Reward magnitudes are therefore not directly
    comparable on ORena. GoEmotions reward (Jaccard) matches Fireworks §8.2.
 
+8. **RL runs complete but do not learn (reward = 0).** Both GRPO jobs reached
+   `RL_DONE`, but Qwen3/Qwen3.5 "thinking" mode made every completion run to
+   `max_completion_length` (`clipped_ratio=1`), so reward stayed `0` with `kl≈0`.
+   Fireworks disabled thinking (`enable_thinking: False`); the SageMaker launch did
+   not, so the two RL runs have no meaningful score as launched.
+
 ---
 
 ## 9. IAM / execution-role setup
@@ -217,10 +223,10 @@ keep the quota until their async `Stopping` phase completes.
 
 | # | SageMaker job name | Instance | State |
 |---|---|---|---|
-| 1 | `orena-sft-2026-10-02-16-48-24-104` | `ml.g5.12xlarge` | InProgress (relaunched after a data-format fix) |
-| 2 | `orena-rl-2026-10-02-16-30-52-271` | `ml.g5.2xlarge` | InProgress |
-| 3 | `goemotions-sft-2026-10-02-16-07-29-859` | `ml.g4dn.xlarge` | Completed |
-| 4 | `goemotions-rl-2026-10-02-16-30-25-068` | `ml.g5.xlarge` | InProgress |
+| 1 | `orena-sft-2026-10-02-17-58-46-825` | `ml.g5.12xlarge` | InProgress (3rd attempt; single-GPU env now applied) |
+| 2 | `orena-rl-2026-10-02-17-18-25-972` | `ml.g5.2xlarge` | Completed (RL_DONE; reward=0 — §8.8) |
+| 3 | `goemotions-sft-2026-10-02-16-07-29-859` | `ml.g4dn.xlarge` | Completed (loss 1.54) |
+| 4 | `goemotions-rl-2026-10-02-16-30-25-068` | `ml.g5.xlarge` | Completed (RL_DONE; reward=0 — §8.8) |
 
 Final metrics land in [`metrics/final_results.json`](../metrics/final_results.json)
 in the exact schema from [`analysis/schema.md`](../../analysis/schema.md), once all

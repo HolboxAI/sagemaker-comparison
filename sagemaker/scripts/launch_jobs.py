@@ -30,6 +30,12 @@ SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "src")
 ROLE_ARN = os.environ.get(
     "ROLE_ARN", f"arn:aws:iam::{ACCOUNT}:role/sagemaker-stanford-exec")
 
+# Force UTF-8 in the training container. trl's end-of-run model-card save reads a
+# template with Path.read_text() (ascii by default); the Qwen3.5 processor config
+# carries non-ASCII bytes that crash it under a POSIX locale. PYTHONUTF8=1 (PEP 540)
+# makes the default open()/read_text() encoding UTF-8.
+BASE_ENV = {"PYTHONUTF8": "1", "LC_ALL": "C.UTF-8", "LANG": "C.UTF-8"}
+
 
 def get_session() -> sagemaker.Session:
     boto = boto3.Session(profile_name="stanford_gpu", region_name=REGION)
@@ -37,7 +43,7 @@ def get_session() -> sagemaker.Session:
 
 
 def make_estimator(entry: str, name: str, instance: str, hps: dict,
-                   volume_size: int = 100) -> PyTorch:
+                   volume_size: int = 100, environment: dict | None = None) -> PyTorch:
     return PyTorch(
         entry_point=entry,
         source_dir=SRC,
@@ -53,6 +59,7 @@ def make_estimator(entry: str, name: str, instance: str, hps: dict,
         volume_size=volume_size,
         max_run=6 * 3600,
         use_spot_instances=False,
+        environment={**BASE_ENV, **(environment or {})},
     )
 
 
@@ -69,6 +76,11 @@ JOBS = {
         entry="orena_sft.py", name="orena-sft", instance="ml.g5.12xlarge",
         hps={"epochs": "1.0", "max_train_samples": "256", "max_seq_length": "2048"},
         volume_size=200,
+        # TRL SFTTrainer wraps the VLM in DataParallel on the 4-GPU g5.12xlarge and
+        # crashes with a cuda:0-vs-cuda:1 device mismatch in the vision embeddings.
+        # Pin to a single GPU for the demo (a real run would use the pytorchddp
+        # distribution instead of DataParallel).
+        environment={"CUDA_VISIBLE_DEVICES": "0"},
         inputs={"train": f"s3://{BUCKET}/sft/train.jsonl",
                 "frames": f"s3://{BUCKET}/curated_frames/"}),
     "orena_rl": dict(
@@ -93,7 +105,8 @@ def main() -> int:
             print(f"SKIP {key}", flush=True)
             continue
         est = make_estimator(cfg["entry"], cfg["name"], cfg["instance"], cfg["hps"],
-                             cfg.get("volume_size", 100))
+                             cfg.get("volume_size", 100),
+                             environment=cfg.get("environment"))
         est.fit(inputs=cfg["inputs"], wait=args.wait)
         name = est.latest_training_job.name
         launched[key] = name
