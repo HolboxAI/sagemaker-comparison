@@ -70,6 +70,9 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 | GoEmotions SFT | train loss | 0.313 |
 | GoEmotions RL | micro_f1 | 0.175 → **0.377** |
 
+**Results graphs:** [`analysis/plots/fireworks_summary.png`](analysis/plots/fireworks_summary.png)
+(SFT loss curves + RL reward curves). Individual charts are in the same folder.
+
 ---
 
 ## How to add a platform's data

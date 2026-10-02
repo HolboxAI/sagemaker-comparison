@@ -5,6 +5,9 @@ platforms happens here.
 
 - [`schema.md`](schema.md) — the exact JSON schema every platform writes its
   `final_results.json` in.
+- [`plot_results.py`](plot_results.py) — reads a platform's metrics and writes
+  charts to `plots/`. Run it after each platform adds data.
+- [`plots/`](plots/) — generated PNG charts (Fireworks results so far).
 - `compare.py` (to add) — joins the three platforms' `final_results.json` files
   and prints side-by-side metric and cost tables.
 
