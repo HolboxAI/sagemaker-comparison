@@ -1,0 +1,65 @@
+{
+  "updated": "2026-10-03",
+  "platform": "prime-intellect",
+  "account": "purchase@holbox.ai",
+  "wallet_id": "cmuqrcy9q003v5jp12qivuuu9",
+  "balance_usd": 48.79,
+  "spent_usd": 1.22,
+  "compute": "on-demand pod, self-run prime-rl (headless CLI + API)",
+  "instance_type": "A100 40GB SXM4 ($1.99/hr)",
+  "sdk": "prime CLI 0.9.1 + api.primeintellect.ai",
+  "note": "No final metrics yet. 1 of 4 running, 3 not started. Headless path only; hosted dashboard shows nothing for pod-based work.",
+  "experiments": {
+    "orena_sft": {
+      "job_name": null,
+      "instance_type": "A100 40GB",
+      "state": "NOT_STARTED",
+      "base_model": "Qwen/Qwen3.5-9B",
+      "method": "sft",
+      "epochs": 1,
+      "learning_rate": 1e-4,
+      "lora_rank": 64,
+      "subset": "300 train / 100 eval",
+      "step_cap": 128
+    },
+    "orena_rl": {
+      "job_name": null,
+      "instance_type": "A100 40GB",
+      "state": "NOT_STARTED",
+      "base_model": "Qwen/Qwen3.5-9B",
+      "method": "grpo",
+      "epochs": 1,
+      "learning_rate": 1e-5,
+      "lora_rank": 16,
+      "subset": "128 prompts",
+      "step_cap": 48,
+      "note": "PI can RL Qwen3.5-9B directly (unlike Fireworks, which uses qwen3-vl-8b-instruct)."
+    },
+    "goemotions_sft": {
+      "job_name": "pod 234fc42f (self-run)",
+      "instance_type": "A100 40GB SXM4",
+      "state": "RUNNING",
+      "base_model": "Qwen/Qwen3-0.6B",
+      "method": "sft",
+      "epochs": 1,
+      "learning_rate": 1e-4,
+      "lora_rank": 16,
+      "subset": "800 train / 200 dev",
+      "step_cap": 100,
+      "live_loss": {"step_1": 5.7935, "step_6": 3.365, "step_60": 0.2457},
+      "note": "de-risk run; loss 5.79 -> 0.25 over 60 steps; peak VRAM 3.3/39.5 GiB."
+    },
+    "goemotions_rl": {
+      "job_name": null,
+      "instance_type": "A100 40GB",
+      "state": "NOT_STARTED",
+      "base_model": "Qwen/Qwen3-0.6B",
+      "method": "grpo",
+      "epochs": 1,
+      "learning_rate": 1e-5,
+      "lora_rank": 16,
+      "subset": "256 prompts",
+      "step_cap": 64
+    }
+  }
+}
