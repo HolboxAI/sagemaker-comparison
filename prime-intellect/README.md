@@ -1,4 +1,4 @@
-# Prime Intellect — run data
+# Prime Intellect run data
 
 This folder holds the Prime Intellect leg of the three-platform benchmark.
 
@@ -27,7 +27,7 @@ No final metrics yet. Machine-readable state: [`metrics/run_manifest.json`](metr
 
 ## Key facts
 
-- **Compute:** on-demand pod — A100 40GB SXM4 at $1.99/hr, self-run `prime-rl`
+- **Compute:** on-demand pod, an A100 40GB SXM4 at $1.99/hr, self-run `prime-rl`
   (`prime pods create` → `ssh` → `uv run sft @ config.toml`). Full fine-tune is
   gated (empty GPU list); hosted LoRA SFT is gated on closed-beta volumes.
 - **Models:** `Qwen/Qwen3.5-9B` (ORena), `Qwen/Qwen3-0.6B` (GoEmotions). PI can
@@ -38,9 +38,9 @@ No final metrics yet. Machine-readable state: [`metrics/run_manifest.json`](metr
 
 ## Headless friction (the ease-of-use story)
 
-1. Volatile GPU inventory — on-demand offers go stale in minutes (5 create attempts).
-2. SSH key — a passphrase-protected local key silently breaks automation (2 pod recreations).
-3. Config schema drift — the pod image ships an older prime-rl than the public docs.
-4. No managed dashboard for pods — pod work shows nothing in the "Jobs" view.
+1. Volatile GPU inventory. On-demand offers go stale in minutes (5 create attempts).
+2. SSH key. A passphrase-protected local key silently breaks automation (2 pod recreations).
+3. Config schema drift. The pod image ships an older prime-rl than the public docs.
+4. No managed dashboard for pods. Pod work shows nothing in the "Jobs" view.
 
 Details in [`EXPERIENCE_REPORT.md`](EXPERIENCE_REPORT.md).
