@@ -7,15 +7,20 @@
   "data_bucket": "s3://stanford-train-data",
   "experiments": {
     "orena_sft": {
-      "job_name": "orena-sft-2026-10-02-17-58-46-825",
+      "job_name": "orena-sft-2026-10-02-18-18-08-591",
       "instance_type": "ml.g5.12xlarge",
-      "state": "InProgress",
+      "state": "Completed",
       "base_model": "Qwen/Qwen3.5-9B",
       "method": "sft",
       "epochs": 1,
       "learning_rate": 0.0001,
-      "lora_rank": 64,
-      "note": "attempt 3: pyarrow mixed-content fix -> multi-GPU DataParallel device mismatch -> single-GPU (CUDA_VISIBLE_DEVICES=0) now applied"
+      "lora_rank": 32,
+      "max_context_length": 2048,
+      "dataset_size": 256,
+      "steps": 64,
+      "final_train_loss": 1.494,
+      "wall_time_s": 787,
+      "note": "attempt 4 succeeded: rank 64->32 + expandable_segments to fit 9B bf16 on one 24GB A10G (attempts 1-3: pyarrow mixed-content -> DataParallel device mismatch -> OOM)"
     },
     "orena_rl": {
       "job_name": "orena-rl-2026-10-02-17-18-25-972",
@@ -28,7 +33,9 @@
       "lora_rank": 16,
       "rollouts_per_prompt": 4,
       "steps": 50,
-      "note": "RL_DONE after UTF-8 locale fix, but reward=0 throughout (Qwen3 thinking mode exhausts max_completion_length=128). Base model differs from Fireworks (qwen3-vl-8b-instruct)."
+      "final_score": 0.0,
+      "wall_time_s": 1747,
+      "note": "RL_DONE after UTF-8 locale fix, but reward=0 throughout (Qwen3.5 thinking mode exhausts max_completion_length=128). Base model differs from Fireworks (qwen3-vl-8b-instruct)."
     },
     "goemotions_sft": {
       "job_name": "goemotions-sft-2026-10-02-16-07-29-859",
@@ -39,8 +46,11 @@
       "epochs": 1,
       "learning_rate": 0.0001,
       "lora_rank": 16,
+      "max_context_length": 512,
+      "dataset_size": 5000,
       "final_train_loss": 1.54,
-      "steps": 79
+      "steps": 79,
+      "wall_time_s": 1174
     },
     "goemotions_rl": {
       "job_name": "goemotions-rl-2026-10-02-16-30-25-068",
@@ -53,6 +63,8 @@
       "lora_rank": 16,
       "rollouts_per_prompt": 4,
       "steps": 256,
+      "final_jaccard": 0.0,
+      "wall_time_s": 1605,
       "note": "RL_DONE but reward=0 throughout (Qwen3 thinking mode exhausts max_completion_length=64)"
     }
   }

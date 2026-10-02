@@ -80,7 +80,7 @@ Data is read from S3 channels (script-mode `inputs=`), not from the canonical
 | Instance | `ml.g5.12xlarge`, 200 GB volume |
 | Epochs | 1 |
 | Learning rate | 1e-4 |
-| LoRA rank / alpha / dropout | 64 / 128 / 0.05 (`target_modules="all-linear"`) |
+| LoRA rank / alpha / dropout | 32 / 64 / 0.05 (`target_modules="all-linear"`) — memory-forced (see §8.9) |
 | Batch size | micro 1 / effective 4 |
 | Max length | 2048 |
 | Max train samples | 256 (launch hyperparameter) |
@@ -156,6 +156,7 @@ Recorded rather than silently applied, per the repo rules.
    |---|---|---|---|
    | 1 ORena SFT | batch (micro/effective) | 4 / 32 | 1 / 4 |
    | 1 ORena SFT | max context | 65536 | 2048 |
+   | 1 ORena SFT | LoRA rank / alpha | 64 / 128 | 32 / 64 |
    | 2 ORena RL | learning rate | 1e-5 | 1e-6 |
    | 2 ORena RL | max output tokens | 512 | 128 |
    | 2 ORena RL | rollouts/prompt | 8 | 4 |
@@ -193,6 +194,13 @@ Recorded rather than silently applied, per the repo rules.
    Fireworks disabled thinking (`enable_thinking: False`); the SageMaker launch did
    not, so the two RL runs have no meaningful score as launched.
 
+9. **ORena SFT 9B bf16 does not fit one 24 GB A10G.** Attempts 1–3 failed
+   (pyarrow mixed-content → multi-GPU DataParallel device mismatch → CUDA OOM,
+   ~200 MB over at step 1). It completed on attempt 4 after dropping LoRA rank
+   64→32/64 and enabling `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True`
+   (still bf16, single GPU). This is a SageMaker on-demand-GPU ceiling the
+   Fireworks B200/H200 shape never hit.
+
 ---
 
 ## 9. IAM / execution-role setup
@@ -223,11 +231,11 @@ keep the quota until their async `Stopping` phase completes.
 
 | # | SageMaker job name | Instance | State |
 |---|---|---|---|
-| 1 | `orena-sft-2026-10-02-17-58-46-825` | `ml.g5.12xlarge` | InProgress (3rd attempt; single-GPU env now applied) |
+| 1 | `orena-sft-2026-10-02-18-18-08-591` | `ml.g5.12xlarge` | Completed (loss 1.494 — rank 32 + expandable_segments, 4th attempt) |
 | 2 | `orena-rl-2026-10-02-17-18-25-972` | `ml.g5.2xlarge` | Completed (RL_DONE; reward=0 — §8.8) |
 | 3 | `goemotions-sft-2026-10-02-16-07-29-859` | `ml.g4dn.xlarge` | Completed (loss 1.54) |
 | 4 | `goemotions-rl-2026-10-02-16-30-25-068` | `ml.g5.xlarge` | Completed (RL_DONE; reward=0 — §8.8) |
 
-Final metrics land in [`metrics/final_results.json`](../metrics/final_results.json)
-in the exact schema from [`analysis/schema.md`](../../analysis/schema.md), once all
-jobs reach a terminal state.
+Final metrics are in [`metrics/final_results.json`](../metrics/final_results.json)
+(exact [`analysis/schema.md`](../../analysis/schema.md) schema) and the verbatim job
+logs in [`logs/`](../logs/). All four jobs are terminal.

@@ -7,7 +7,7 @@ import time
 JOBS = [
     "goemotions-sft-2026-10-02-16-07-29-859",
     "goemotions-rl-2026-10-02-16-30-25-068",
-    "orena-sft-2026-10-02-17-58-46-825",
+    "orena-sft-2026-10-02-18-18-08-591",
     "orena-rl-2026-10-02-17-18-25-972",
 ]
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logs")

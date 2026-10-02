@@ -1,0 +1,483 @@
+bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+bash: no job control in this shell
+CUDA compat package should be installed for NVIDIA driver smaller than 550.163.01
+Current installed NVIDIA driver version is 595.91.07
+Skipping CUDA compat setup as newer NVIDIA driver is installed
+2026-10-02 17:31:07,954 sagemaker-training-toolkit INFO     Imported framework sagemaker_pytorch_container.training
+2026-10-02 17:31:07,977 sagemaker-training-toolkit INFO     No Neurons detected (normal if no neurons installed)
+2026-10-02 17:31:07,985 sagemaker_pytorch_container.training INFO     Block until all host DNS lookups succeed.
+2026-10-02 17:31:07,986 sagemaker_pytorch_container.training INFO     Invoking user training script.
+2026-10-02 17:31:09,523 sagemaker-training-toolkit INFO     Installing dependencies from requirements.txt
+Collecting transformers==5.18.0 (from -r requirements.txt (line 1))
+Downloading transformers-5.18.0-py3-none-any.whl.metadata (32 kB)
+Collecting trl==1.14.1 (from -r requirements.txt (line 2))
+Downloading trl-1.14.1-py3-none-any.whl.metadata (12 kB)
+Collecting peft==0.21.2 (from -r requirements.txt (line 3))
+Downloading peft-0.21.2-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: accelerate>=1.4.0 in /opt/conda/lib/python3.11/site-packages (from -r requirements.txt (line 4)) (1.9.0)
+Collecting datasets>=4.7.0 (from -r requirements.txt (line 5))
+Downloading datasets-5.0.1-py3-none-any.whl.metadata (23 kB)
+Collecting huggingface-hub<3.0,>=1.31.0 (from transformers==5.18.0->-r requirements.txt (line 1))
+Downloading huggingface_hub-2.1.1-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: numpy>=1.17 in /opt/conda/lib/python3.11/site-packages (from transformers==5.18.0->-r requirements.txt (line 1)) (1.26.4)
+Requirement already satisfied: packaging>=20.0 in /opt/conda/lib/python3.11/site-packages (from transformers==5.18.0->-r requirements.txt (line 1)) (24.1)
+Requirement already satisfied: pyyaml>=5.1 in /opt/conda/lib/python3.11/site-packages (from transformers==5.18.0->-r requirements.txt (line 1)) (6.0.2)
+Collecting regex>=2025.10.22 (from transformers==5.18.0->-r requirements.txt (line 1))
+Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting tokenizers<0.24.0,>=0.23.1 (from transformers==5.18.0->-r requirements.txt (line 1))
+Downloading tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.8 kB)
+Requirement already satisfied: typer in /opt/conda/lib/python3.11/site-packages (from transformers==5.18.0->-r requirements.txt (line 1)) (0.16.0)
+Collecting safetensors>=0.8.0 (from transformers==5.18.0->-r requirements.txt (line 1))
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Requirement already satisfied: tqdm>=4.60 in /opt/conda/lib/python3.11/site-packages (from transformers==5.18.0->-r requirements.txt (line 1)) (4.66.5)
+Requirement already satisfied: jinja2 in /opt/conda/lib/python3.11/site-packages (from trl==1.14.1->-r requirements.txt (line 2)) (3.1.6)
+Requirement already satisfied: psutil in /opt/conda/lib/python3.11/site-packages (from peft==0.21.2->-r requirements.txt (line 3)) (7.0.0)
+Requirement already satisfied: torch>=1.13.0 in /opt/conda/lib/python3.11/site-packages (from peft==0.21.2->-r requirements.txt (line 3)) (2.5.1+cu124)
+Collecting click<9.0.0,>=8.4.2 (from huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1))
+Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Requirement already satisfied: filelock>=3.10.0 in /opt/conda/lib/python3.11/site-packages (from huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1)) (3.18.0)
+Requirement already satisfied: fsspec>=2023.5.0 in /opt/conda/lib/python3.11/site-packages (from huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1)) (2025.7.0)
+Collecting hf-xet<2.0.0,>=1.6.0 (from huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1))
+Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx2<3,>=2.0.0 (from huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1))
+Downloading httpx2-2.13.1-py3-none-any.whl.metadata (9.8 kB)
+Requirement already satisfied: typing-extensions>=4.1.0 in /opt/conda/lib/python3.11/site-packages (from huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1)) (4.14.1)
+Collecting anyio>=4.10 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1))
+Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+Collecting httpcore2==2.13.1 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1))
+Downloading httpcore2-2.13.1-py3-none-any.whl.metadata (26 kB)
+Collecting idna>=3.18 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1))
+Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting truststore>=0.10 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1))
+Downloading truststore-0.10.4-py3-none-any.whl.metadata (4.4 kB)
+Requirement already satisfied: h11>=0.16 in /opt/conda/lib/python3.11/site-packages (from httpcore2==2.13.1->httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1)) (0.16.0)
+Collecting huggingface-hub<3.0,>=1.31.0 (from transformers==5.18.0->-r requirements.txt (line 1))
+Downloading huggingface_hub-1.33.0-py3-none-any.whl.metadata (16 kB)
+Collecting httpx<1,>=0.23.0 (from huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1))
+Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Requirement already satisfied: certifi in /opt/conda/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1)) (2025.7.14)
+Collecting httpcore==1.* (from httpx<1,>=0.23.0->huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1))
+Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: pyarrow>=21.0.0 in /opt/conda/lib/python3.11/site-packages (from datasets>=4.7.0->-r requirements.txt (line 5)) (21.0.0)
+Requirement already satisfied: dill<0.4.2,>=0.3.0 in /opt/conda/lib/python3.11/site-packages (from datasets>=4.7.0->-r requirements.txt (line 5)) (0.4.0)
+Requirement already satisfied: pandas in /opt/conda/lib/python3.11/site-packages (from datasets>=4.7.0->-r requirements.txt (line 5)) (2.3.1)
+Requirement already satisfied: requests>=2.32.2 in /opt/conda/lib/python3.11/site-packages (from datasets>=4.7.0->-r requirements.txt (line 5)) (2.32.4)
+Collecting xxhash (from datasets>=4.7.0->-r requirements.txt (line 5))
+Downloading xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (17 kB)
+Requirement already satisfied: multiprocess<0.70.20 in /opt/conda/lib/python3.11/site-packages (from datasets>=4.7.0->-r requirements.txt (line 5)) (0.70.18)
+Collecting aiohttp!=4.0.0a0,!=4.0.0a1 (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=4.7.0->-r requirements.txt (line 5))
+Downloading aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+Collecting aiohappyeyeballs>=2.5.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=4.7.0->-r requirements.txt (line 5))
+Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+Collecting aiosignal>=1.4.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=4.7.0->-r requirements.txt (line 5))
+Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+Requirement already satisfied: attrs>=17.3.0 in /opt/conda/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=4.7.0->-r requirements.txt (line 5)) (25.3.0)
+Collecting frozenlist>=1.1.1 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=4.7.0->-r requirements.txt (line 5))
+Downloading frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+Collecting multidict<7.0,>=4.5 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=4.7.0->-r requirements.txt (line 5))
+Downloading multidict-6.9.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+Collecting propcache>=0.2.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=4.7.0->-r requirements.txt (line 5))
+Downloading propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+Collecting yarl<2.0,>=1.17.0 (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=4.7.0->-r requirements.txt (line 5))
+Downloading yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+Collecting typing-extensions>=4.5.0 (from httpx2<3,>=2.0.0->huggingface-hub<3.0,>=1.31.0->transformers==5.18.0->-r requirements.txt (line 1))
+Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /opt/conda/lib/python3.11/site-packages (from requests>=2.32.2->datasets>=4.7.0->-r requirements.txt (line 5)) (3.4.0)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/conda/lib/python3.11/site-packages (from requests>=2.32.2->datasets>=4.7.0->-r requirements.txt (line 5)) (2.5.0)
+Requirement already satisfied: networkx in /opt/conda/lib/python3.11/site-packages (from torch>=1.13.0->peft==0.21.2->-r requirements.txt (line 3)) (3.5)
+Requirement already satisfied: sympy==1.13.1 in /opt/conda/lib/python3.11/site-packages (from torch>=1.13.0->peft==0.21.2->-r requirements.txt (line 3)) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /opt/conda/lib/python3.11/site-packages (from sympy==1.13.1->torch>=1.13.0->peft==0.21.2->-r requirements.txt (line 3)) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /opt/conda/lib/python3.11/site-packages (from jinja2->trl==1.14.1->-r requirements.txt (line 2)) (3.0.2)
+Requirement already satisfied: python-dateutil>=2.8.2 in /opt/conda/lib/python3.11/site-packages (from pandas->datasets>=4.7.0->-r requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /opt/conda/lib/python3.11/site-packages (from pandas->datasets>=4.7.0->-r requirements.txt (line 5)) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /opt/conda/lib/python3.11/site-packages (from pandas->datasets>=4.7.0->-r requirements.txt (line 5)) (2025.2)
+Requirement already satisfied: six>=1.5 in /opt/conda/lib/python3.11/site-packages (from python-dateutil>=2.8.2->pandas->datasets>=4.7.0->-r requirements.txt (line 5)) (1.17.0)
+Requirement already satisfied: shellingham>=1.3.0 in /opt/conda/lib/python3.11/site-packages (from typer->transformers==5.18.0->-r requirements.txt (line 1)) (1.5.4)
+Requirement already satisfied: rich>=10.11.0 in /opt/conda/lib/python3.11/site-packages (from typer->transformers==5.18.0->-r requirements.txt (line 1)) (14.0.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /opt/conda/lib/python3.11/site-packages (from rich>=10.11.0->typer->transformers==5.18.0->-r requirements.txt (line 1)) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /opt/conda/lib/python3.11/site-packages (from rich>=10.11.0->typer->transformers==5.18.0->-r requirements.txt (line 1)) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in /opt/conda/lib/python3.11/site-packages (from markdown-it-py>=2.2.0->rich>=10.11.0->typer->transformers==5.18.0->-r requirements.txt (line 1)) (0.1.2)
+Downloading transformers-5.18.0-py3-none-any.whl (12.6 MB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.6/12.6 MB 242.6 MB/s  0:00:00
+Downloading trl-1.14.1-py3-none-any.whl (925 kB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 925.5/925.5 kB 62.0 MB/s  0:00:00
+Downloading peft-0.21.2-py3-none-any.whl (835 kB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 835.4/835.4 kB 58.4 MB/s  0:00:00
+Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 195.6 MB/s  0:00:00
+Downloading tokenizers-0.23.2-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 183.3 MB/s  0:00:00
+Downloading huggingface_hub-1.33.0-py3-none-any.whl (846 kB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 846.4/846.4 kB 61.1 MB/s  0:00:00
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading datasets-5.0.1-py3-none-any.whl (559 kB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 559.1/559.1 kB 36.3 MB/s  0:00:00
+Downloading aiohttp-3.14.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 114.5 MB/s  0:00:00
+Downloading multidict-6.9.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (320 kB)
+Downloading yarl-1.25.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Downloading anyio-4.15.1-py3-none-any.whl (132 kB)
+Downloading frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (231 kB)
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+Downloading propcache-0.5.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (235 kB)
+Downloading regex-2026.9.29-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 805.0/805.0 kB 60.5 MB/s  0:00:00
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading xxhash-4.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (261 kB)
+Installing collected packages: xxhash, typing-extensions, safetensors, regex, propcache, multidict, idna, httpcore, hf-xet, frozenlist, click, aiohappyeyeballs, yarl, anyio, aiosignal, httpx, aiohttp, huggingface-hub, tokenizers, datasets, transformers, trl, peft
+Attempting uninstall: typing-extensions
+Found existing installation: typing_extensions 4.14.1
+Uninstalling typing_extensions-4.14.1:
+Successfully uninstalled typing_extensions-4.14.1
+Attempting uninstall: safetensors
+Found existing installation: safetensors 0.5.3
+Uninstalling safetensors-0.5.3:
+Successfully uninstalled safetensors-0.5.3
+Attempting uninstall: idna
+Found existing installation: idna 3.10
+Uninstalling idna-3.10:
+Successfully uninstalled idna-3.10
+Attempting uninstall: hf-xet
+Found existing installation: hf-xet 1.1.5
+Uninstalling hf-xet-1.1.5:
+Successfully uninstalled hf-xet-1.1.5
+Attempting uninstall: click
+Found existing installation: click 8.2.1
+Uninstalling click-8.2.1:
+Successfully uninstalled click-8.2.1
+Attempting uninstall: anyio
+Found existing installation: anyio 4.9.0
+Uninstalling anyio-4.9.0:
+Successfully uninstalled anyio-4.9.0
+Attempting uninstall: huggingface-hub
+Found existing installation: huggingface-hub 0.33.4
+Uninstalling huggingface-hub-0.33.4:
+Successfully uninstalled huggingface-hub-0.33.4
+Successfully installed aiohappyeyeballs-2.7.1 aiohttp-3.14.3 aiosignal-1.4.0 anyio-4.15.1 click-8.5.0 datasets-5.0.1 frozenlist-1.8.0 hf-xet-1.6.0 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-1.33.0 idna-3.20 multidict-6.9.1 peft-0.21.2 propcache-0.5.4 regex-2026.9.29 safetensors-0.8.0 tokenizers-0.23.2 transformers-5.18.0 trl-1.14.1 typing-extensions-4.16.0 xxhash-4.0.1 yarl-1.25.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+2026-10-02 17:31:22,969 sagemaker-training-toolkit INFO     Waiting for the process to finish and give a return code.
+2026-10-02 17:31:22,969 sagemaker-training-toolkit INFO     Done waiting for a return code. Received 0 from exiting process.
+2026-10-02 17:31:22,993 sagemaker-training-toolkit INFO     No Neurons detected (normal if no neurons installed)
+2026-10-02 17:31:23,024 sagemaker-training-toolkit INFO     No Neurons detected (normal if no neurons installed)
+2026-10-02 17:31:23,054 sagemaker-training-toolkit INFO     No Neurons detected (normal if no neurons installed)
+2026-10-02 17:31:23,063 sagemaker-training-toolkit INFO     Invoking user script
+Training Env:
+{
+    "additional_framework_parameters": {},
+    "channel_input_dirs": {
+        "data": "/opt/ml/input/data/data",
+        "frames": "/opt/ml/input/data/frames"
+    },
+    "current_host": "algo-1",
+    "current_instance_group": "homogeneousCluster",
+    "current_instance_group_hosts": [
+        "algo-1"
+    ],
+    "current_instance_type": "ml.g5.2xlarge",
+    "distribution_hosts": [],
+    "distribution_instance_groups": [],
+    "framework_module": "sagemaker_pytorch_container.training:main",
+    "hosts": [
+        "algo-1"
+    ],
+    "hyperparameters": {
+        "max_samples": "256",
+        "max_steps": "50"
+    },
+    "input_config_dir": "/opt/ml/input/config",
+    "input_data_config": {
+        "data": {
+            "TrainingInputMode": "File",
+            "S3DistributionType": "FullyReplicated",
+            "RecordWrapperType": "None"
+        },
+        "frames": {
+            "TrainingInputMode": "File",
+            "S3DistributionType": "FullyReplicated",
+            "RecordWrapperType": "None"
+        }
+    },
+    "input_dir": "/opt/ml/input",
+    "instance_groups": [
+        "homogeneousCluster"
+    ],
+    "instance_groups_dict": {
+        "homogeneousCluster": {
+            "instance_group_name": "homogeneousCluster",
+            "instance_type": "ml.g5.2xlarge",
+            "hosts": [
+                "algo-1"
+            ]
+        }
+    },
+    "is_hetero": false,
+    "is_master": true,
+    "is_modelparallel_enabled": null,
+    "is_smddpmprun_installed": false,
+    "is_smddprun_installed": true,
+    "job_name": "orena-rl-2026-10-02-17-18-25-972",
+    "log_level": 20,
+    "master_hostname": "algo-1",
+    "model_dir": "/opt/ml/model",
+    "module_dir": "s3://stanford-train-data/orena-rl-2026-10-02-17-18-25-972/source/sourcedir.tar.gz",
+    "module_name": "orena_rl",
+    "network_interface_name": "eth0",
+    "num_cpus": 8,
+    "num_gpus": 1,
+    "num_neurons": 0,
+    "output_data_dir": "/opt/ml/output/data",
+    "output_dir": "/opt/ml/output",
+    "output_intermediate_dir": "/opt/ml/output/intermediate",
+    "resource_config": {
+        "current_host": "algo-1",
+        "current_instance_type": "ml.g5.2xlarge",
+        "current_group_name": "homogeneousCluster",
+        "hosts": [
+            "algo-1"
+        ],
+        "instance_groups": [
+            {
+                "instance_group_name": "homogeneousCluster",
+                "instance_type": "ml.g5.2xlarge",
+                "hosts": [
+                    "algo-1"
+                ]
+            }
+        ],
+        "network_interface_name": "eth0",
+        "topology": null
+    },
+    "user_entry_point": "orena_rl.py"
+}
+Environment variables:
+SM_HOSTS=["algo-1"]
+SM_NETWORK_INTERFACE_NAME=eth0
+SM_HPS={"max_samples":"256","max_steps":"50"}
+SM_USER_ENTRY_POINT=orena_rl.py
+SM_FRAMEWORK_PARAMS={}
+SM_RESOURCE_CONFIG={"current_group_name":"homogeneousCluster","current_host":"algo-1","current_instance_type":"ml.g5.2xlarge","hosts":["algo-1"],"instance_groups":[{"hosts":["algo-1"],"instance_group_name":"homogeneousCluster","instance_type":"ml.g5.2xlarge"}],"network_interface_name":"eth0","topology":null}
+SM_INPUT_DATA_CONFIG={"data":{"RecordWrapperType":"None","S3DistributionType":"FullyReplicated","TrainingInputMode":"File"},"frames":{"RecordWrapperType":"None","S3DistributionType":"FullyReplicated","TrainingInputMode":"File"}}
+SM_OUTPUT_DATA_DIR=/opt/ml/output/data
+SM_CHANNELS=["data","frames"]
+SM_CURRENT_HOST=algo-1
+SM_CURRENT_INSTANCE_TYPE=ml.g5.2xlarge
+SM_CURRENT_INSTANCE_GROUP=homogeneousCluster
+SM_CURRENT_INSTANCE_GROUP_HOSTS=["algo-1"]
+SM_INSTANCE_GROUPS=["homogeneousCluster"]
+SM_INSTANCE_GROUPS_DICT={"homogeneousCluster":{"hosts":["algo-1"],"instance_group_name":"homogeneousCluster","instance_type":"ml.g5.2xlarge"}}
+SM_DISTRIBUTION_INSTANCE_GROUPS=[]
+SM_IS_HETERO=false
+SM_MODULE_NAME=orena_rl
+SM_LOG_LEVEL=20
+SM_FRAMEWORK_MODULE=sagemaker_pytorch_container.training:main
+SM_INPUT_DIR=/opt/ml/input
+SM_INPUT_CONFIG_DIR=/opt/ml/input/config
+SM_OUTPUT_DIR=/opt/ml/output
+SM_NUM_CPUS=8
+SM_NUM_GPUS=1
+SM_NUM_NEURONS=0
+SM_MODEL_DIR=/opt/ml/model
+SM_MODULE_DIR=s3://stanford-train-data/orena-rl-2026-10-02-17-18-25-972/source/sourcedir.tar.gz
+SM_TRAINING_ENV={"additional_framework_parameters":{},"channel_input_dirs":{"data":"/opt/ml/input/data/data","frames":"/opt/ml/input/data/frames"},"current_host":"algo-1","current_instance_group":"homogeneousCluster","current_instance_group_hosts":["algo-1"],"current_instance_type":"ml.g5.2xlarge","distribution_hosts":[],"distribution_instance_groups":[],"framework_module":"sagemaker_pytorch_container.training:main","hosts":["algo-1"],"hyperparameters":{"max_samples":"256","max_steps":"50"},"input_config_dir":"/opt/ml/input/config","input_data_config":{"data":{"RecordWrapperType":"None","S3DistributionType":"FullyReplicated","TrainingInputMode":"File"},"frames":{"RecordWrapperType":"None","S3DistributionType":"FullyReplicated","TrainingInputMode":"File"}},"input_dir":"/opt/ml/input","instance_groups":["homogeneousCluster"],"instance_groups_dict":{"homogeneousCluster":{"hosts":["algo-1"],"instance_group_name":"homogeneousCluster","instance_type":"ml.g5.2xlarge"}},"is_hetero":false,"is_master":true,"is_modelparallel_enabled":null,"is_smddpmprun_installed":false,"is_smddprun_installed":true,"job_name":"orena-rl-2026-10-02-17-18-25-972","log_level":20,"master_hostname":"algo-1","model_dir":"/opt/ml/model","module_dir":"s3://stanford-train-data/orena-rl-2026-10-02-17-18-25-972/source/sourcedir.tar.gz","module_name":"orena_rl","network_interface_name":"eth0","num_cpus":8,"num_gpus":1,"num_neurons":0,"output_data_dir":"/opt/ml/output/data","output_dir":"/opt/ml/output","output_intermediate_dir":"/opt/ml/output/intermediate","resource_config":{"current_group_name":"homogeneousCluster","current_host":"algo-1","current_instance_type":"ml.g5.2xlarge","hosts":["algo-1"],"instance_groups":[{"hosts":["algo-1"],"instance_group_name":"homogeneousCluster","instance_type":"ml.g5.2xlarge"}],"network_interface_name":"eth0","topology":null},"user_entry_point":"orena_rl.py"}
+SM_USER_ARGS=["--max_samples","256","--max_steps","50"]
+SM_OUTPUT_INTERMEDIATE_DIR=/opt/ml/output/intermediate
+SM_CHANNEL_DATA=/opt/ml/input/data/data
+SM_CHANNEL_FRAMES=/opt/ml/input/data/frames
+SM_HP_MAX_SAMPLES=256
+SM_HP_MAX_STEPS=50
+PYTHONPATH=/opt/ml/code:/opt/conda/bin:/opt/conda/lib/python311.zip:/opt/conda/lib/python3.11:/opt/conda/lib/python3.11/lib-dynload:/opt/conda/lib/python3.11/site-packages
+Invoking script with the following command:
+/opt/conda/bin/python3.11 orena_rl.py --max_samples 256 --max_steps 50
+2026-10-02 17:31:23,065 sagemaker-training-toolkit INFO     Exceptions not imported for SageMaker Debugger as it is not installed.
+2026-10-02 17:31:23,065 sagemaker-training-toolkit INFO     Exceptions not imported for SageMaker TF as Tensorflow is not installed.
+loading processor + model
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]
+Fetching 4 files:  25%|██▌       | 1/4 [00:27<01:21, 27.10s/it]
+Fetching 4 files:  50%|█████     | 2/4 [00:36<00:33, 16.75s/it]
+Fetching 4 files:  75%|███████▌  | 3/4 [00:37<00:09,  9.61s/it]
+Fetching 4 files: 100%|██████████| 4/4 [00:37<00:00,  5.91s/it]
+Fetching 4 files: 100%|██████████| 4/4 [00:37<00:00,  9.49s/it]
+Loading weights:   0%|          | 0/760 [00:00<?, ?it/s]
+Loading weights:  12%|█▏        | 91/760 [00:00<00:00, 909.39it/s]
+Loading weights:  24%|██▍       | 182/760 [00:00<00:01, 323.99it/s]
+Loading weights:  37%|███▋      | 282/760 [00:00<00:00, 479.55it/s]
+Loading weights:  54%|█████▍    | 409/760 [00:00<00:00, 671.75it/s]
+Loading weights:  66%|██████▌   | 503/760 [00:00<00:00, 602.07it/s]
+Loading weights: 100%|██████████| 760/760 [00:00<00:00, 832.45it/s]
+rl examples (frames resolved): 256
+[transformers] The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046}.
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 248046}.
+0%|          | 0/50 [00:00<?, ?it/s]
+[transformers] `causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+`causal_conv1d_fn` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+`chunk_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+[transformers] `causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+`causal_conv1d_update` is falling back to its reference PyTorch implementation because `causal_conv1d` is not installed. This is correct but much slower; install `causal_conv1d` for the optimized kernel.
+[transformers] `fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+`fused_recurrent_gated_delta_rule` is falling back to its reference PyTorch implementation because `flash-linear-attention` is not installed. This is correct but much slower; install `flash-linear-attention` for the optimized kernel.
+2%|▏         | 1/50 [00:30<24:48, 30.38s/it]
+{'loss': '0', 'grad_norm': '0', 'learning_rate': '1e-06', 'num_tokens': '3508', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0', 'entropy': '0.2754', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '30', 'epoch': '0.003906'}
+2%|▏         | 1/50 [00:30<24:48, 30.38s/it]
+4%|▍         | 2/50 [00:59<23:33, 29.45s/it]
+{'loss': '-2.98e-08', 'grad_norm': '1.225', 'learning_rate': '9.8e-07', 'num_tokens': '7432', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0.02891', 'rewards/reward_func/std': '0.01286', 'reward': '0.02891', 'reward_std': '0.01286', 'frac_reward_zero_std': '0', 'kl': '0', 'entropy': '0.242', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '28.59', 'epoch': '0.007812'}
+4%|▍         | 2/50 [00:59<23:33, 29.45s/it]
+6%|▌         | 3/50 [01:26<22:15, 28.41s/it]
+{'loss': '2.165e-05', 'grad_norm': '0.005054', 'learning_rate': '9.6e-07', 'num_tokens': '1.088e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0005413', 'entropy': '0.2667', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.95', 'epoch': '0.01172'}
+6%|▌         | 3/50 [01:26<22:15, 28.41s/it]
+8%|▊         | 4/50 [01:53<21:24, 27.93s/it]
+{'loss': '3.905e-05', 'grad_norm': '0.009185', 'learning_rate': '9.4e-07', 'num_tokens': '1.434e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0009763', 'entropy': '0.2685', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27', 'epoch': '0.01562'}
+8%|▊         | 4/50 [01:53<21:24, 27.93s/it]
+10%|█         | 5/50 [02:20<20:44, 27.65s/it]
+{'loss': '2.491e-05', 'grad_norm': '0.005464', 'learning_rate': '9.2e-07', 'num_tokens': '1.78e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0006228', 'entropy': '0.2455', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.93', 'epoch': '0.01953'}
+10%|█         | 5/50 [02:20<20:44, 27.65s/it]
+12%|█▏        | 6/50 [02:48<20:12, 27.56s/it]
+{'loss': '2.995e-05', 'grad_norm': '0.00929', 'learning_rate': '9e-07', 'num_tokens': '2.131e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0007487', 'entropy': '0.2121', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.16', 'epoch': '0.02344'}
+12%|█▏        | 6/50 [02:48<20:12, 27.56s/it]
+14%|█▍        | 7/50 [03:15<19:40, 27.46s/it]
+{'loss': '2.518e-05', 'grad_norm': '0.006746', 'learning_rate': '8.8e-07', 'num_tokens': '2.482e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0006294', 'entropy': '0.263', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.06', 'epoch': '0.02734'}
+14%|█▍        | 7/50 [03:15<19:40, 27.46s/it]
+16%|█▌        | 8/50 [03:42<19:14, 27.48s/it]
+{'loss': '3.976e-05', 'grad_norm': '0.01491', 'learning_rate': '8.6e-07', 'num_tokens': '2.835e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0009941', 'entropy': '0.2438', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.28', 'epoch': '0.03125'}
+16%|█▌        | 8/50 [03:42<19:14, 27.48s/it]
+18%|█▊        | 9/50 [04:10<18:44, 27.44s/it]
+{'loss': '2.026e-05', 'grad_norm': '0.008759', 'learning_rate': '8.4e-07', 'num_tokens': '3.181e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '1', 'rewards/reward_func/std': '0', 'reward': '1', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0005065', 'entropy': '0.2353', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.13', 'epoch': '0.03516'}
+18%|█▊        | 9/50 [04:10<18:44, 27.44s/it]
+20%|██        | 10/50 [04:39<18:34, 27.87s/it]
+{'loss': '3.207e-05', 'grad_norm': '1.162', 'learning_rate': '8.2e-07', 'num_tokens': '3.573e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0.02437', 'rewards/reward_func/std': '0.00207', 'reward': '0.02437', 'reward_std': '0.00207', 'frac_reward_zero_std': '0', 'kl': '0.0008136', 'entropy': '0.1965', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '28.63', 'epoch': '0.03906'}
+20%|██        | 10/50 [04:39<18:34, 27.87s/it]
+22%|██▏       | 11/50 [05:06<17:58, 27.64s/it]
+{'loss': '2.31e-05', 'grad_norm': '0.006671', 'learning_rate': '8e-07', 'num_tokens': '3.919e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0005774', 'entropy': '0.2029', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.89', 'epoch': '0.04297'}
+22%|██▏       | 11/50 [05:06<17:58, 27.64s/it]
+24%|██▍       | 12/50 [05:33<17:25, 27.51s/it]
+{'loss': '2e-05', 'grad_norm': '0.004335', 'learning_rate': '7.8e-07', 'num_tokens': '4.266e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0005', 'entropy': '0.2314', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.99', 'epoch': '0.04688'}
+24%|██▍       | 12/50 [05:33<17:25, 27.51s/it]
+26%|██▌       | 13/50 [06:00<16:53, 27.40s/it]
+{'loss': '3.769e-05', 'grad_norm': '0.01291', 'learning_rate': '7.6e-07', 'num_tokens': '4.62e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0009422', 'entropy': '0.29', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.95', 'epoch': '0.05078'}
+26%|██▌       | 13/50 [06:00<16:53, 27.40s/it]
+28%|██▊       | 14/50 [06:27<16:23, 27.33s/it]
+{'loss': '3.037e-05', 'grad_norm': '0.008767', 'learning_rate': '7.4e-07', 'num_tokens': '4.973e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0007592', 'entropy': '0.2487', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.95', 'epoch': '0.05469'}
+28%|██▊       | 14/50 [06:27<16:23, 27.33s/it]
+30%|███       | 15/50 [06:54<15:54, 27.28s/it]
+{'loss': '2.872e-05', 'grad_norm': '1.322', 'learning_rate': '7.2e-07', 'num_tokens': '5.324e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0.0625', 'rewards/reward_func/std': '0.125', 'reward': '0.0625', 'reward_std': '0.125', 'frac_reward_zero_std': '0', 'kl': '0.000718', 'entropy': '0.2499', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.94', 'epoch': '0.05859'}
+30%|███       | 15/50 [06:54<15:54, 27.28s/it]
+32%|███▏      | 16/50 [07:22<15:28, 27.31s/it]
+{'loss': '2.351e-05', 'grad_norm': '1.067', 'learning_rate': '7e-07', 'num_tokens': '5.677e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0.08013', 'rewards/reward_func/std': '0.09267', 'reward': '0.08013', 'reward_std': '0.09267', 'frac_reward_zero_std': '0', 'kl': '0.0005877', 'entropy': '0.2116', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.19', 'epoch': '0.0625'}
+32%|███▏      | 16/50 [07:22<15:28, 27.31s/it]
+34%|███▍      | 17/50 [07:49<15:03, 27.38s/it]
+{'loss': '2.519e-05', 'grad_norm': '0.008596', 'learning_rate': '6.8e-07', 'num_tokens': '6.035e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0006298', 'entropy': '0.2449', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.35', 'epoch': '0.06641'}
+34%|███▍      | 17/50 [07:49<15:03, 27.38s/it]
+36%|███▌      | 18/50 [08:16<14:34, 27.32s/it]
+{'loss': '4.041e-05', 'grad_norm': '1.174', 'learning_rate': '6.6e-07', 'num_tokens': '6.386e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0.04545', 'rewards/reward_func/std': '0.09091', 'reward': '0.04545', 'reward_std': '0.09091', 'frac_reward_zero_std': '0', 'kl': '0.001011', 'entropy': '0.2604', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.96', 'epoch': '0.07031'}
+36%|███▌      | 18/50 [08:16<14:34, 27.32s/it]
+38%|███▊      | 19/50 [08:44<14:07, 27.33s/it]
+{'loss': '3.547e-05', 'grad_norm': '0.008866', 'learning_rate': '6.4e-07', 'num_tokens': '6.732e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0008869', 'entropy': '0.3491', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.14', 'epoch': '0.07422'}
+38%|███▊      | 19/50 [08:44<14:07, 27.33s/it]
+40%|████      | 20/50 [09:11<13:36, 27.22s/it]
+{'loss': '2.463e-05', 'grad_norm': '0.00566', 'learning_rate': '6.2e-07', 'num_tokens': '7.078e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0006158', 'entropy': '0.2674', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.73', 'epoch': '0.07812'}
+40%|████      | 20/50 [09:11<13:36, 27.22s/it]
+42%|████▏     | 21/50 [09:38<13:09, 27.21s/it]
+{'loss': '2.211e-05', 'grad_norm': '0.006072', 'learning_rate': '6e-07', 'num_tokens': '7.431e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0005527', 'entropy': '0.277', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27', 'epoch': '0.08203'}
+42%|████▏     | 21/50 [09:38<13:09, 27.21s/it]
+44%|████▍     | 22/50 [10:05<12:42, 27.22s/it]
+{'loss': '3.442e-05', 'grad_norm': '1.35', 'learning_rate': '5.8e-07', 'num_tokens': '7.782e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0.1169', 'rewards/reward_func/std': '0.1415', 'reward': '0.1169', 'reward_std': '0.1415', 'frac_reward_zero_std': '0', 'kl': '0.0008601', 'entropy': '0.2372', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.03', 'epoch': '0.08594'}
+44%|████▍     | 22/50 [10:05<12:42, 27.22s/it]
+46%|████▌     | 23/50 [10:32<12:13, 27.16s/it]
+{'loss': '2.882e-05', 'grad_norm': '0.008398', 'learning_rate': '5.6e-07', 'num_tokens': '8.126e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0007204', 'entropy': '0.2574', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.82', 'epoch': '0.08984'}
+46%|████▌     | 23/50 [10:32<12:13, 27.16s/it]
+48%|████▊     | 24/50 [10:59<11:46, 27.17s/it]
+{'loss': '2.464e-05', 'grad_norm': '0.007749', 'learning_rate': '5.4e-07', 'num_tokens': '8.478e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0006161', 'entropy': '0.2319', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.99', 'epoch': '0.09375'}
+48%|████▊     | 24/50 [10:59<11:46, 27.17s/it]
+50%|█████     | 25/50 [11:27<11:18, 27.15s/it]
+{'loss': '4.497e-05', 'grad_norm': '0.02129', 'learning_rate': '5.2e-07', 'num_tokens': '8.824e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.001124', 'entropy': '0.3034', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.87', 'epoch': '0.09766'}
+50%|█████     | 25/50 [11:27<11:18, 27.15s/it]
+52%|█████▏    | 26/50 [11:54<10:53, 27.24s/it]
+{'loss': '3.078e-05', 'grad_norm': '0.009158', 'learning_rate': '5e-07', 'num_tokens': '9.177e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0007695', 'entropy': '0.2636', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.24', 'epoch': '0.1016'}
+52%|█████▏    | 26/50 [11:54<10:53, 27.24s/it]
+54%|█████▍    | 27/50 [12:21<10:26, 27.24s/it]
+{'loss': '4.129e-05', 'grad_norm': '0.03226', 'learning_rate': '4.8e-07', 'num_tokens': '9.524e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.001032', 'entropy': '0.2987', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.02', 'epoch': '0.1055'}
+54%|█████▍    | 27/50 [12:21<10:26, 27.24s/it]
+56%|█████▌    | 28/50 [12:49<09:59, 27.27s/it]
+{'loss': '1.938e-05', 'grad_norm': '0.004923', 'learning_rate': '4.6e-07', 'num_tokens': '9.882e+04', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0004844', 'entropy': '0.2412', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.14', 'epoch': '0.1094'}
+56%|█████▌    | 28/50 [12:49<09:59, 27.27s/it]
+58%|█████▊    | 29/50 [13:16<09:30, 27.18s/it]
+{'loss': '3.13e-05', 'grad_norm': '0.007907', 'learning_rate': '4.4e-07', 'num_tokens': '1.023e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0007826', 'entropy': '0.244', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.76', 'epoch': '0.1133'}
+58%|█████▊    | 29/50 [13:16<09:30, 27.18s/it]
+60%|██████    | 30/50 [13:43<09:04, 27.22s/it]
+{'loss': '3.546e-05', 'grad_norm': '0.01163', 'learning_rate': '4.2e-07', 'num_tokens': '1.058e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0008865', 'entropy': '0.2688', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.12', 'epoch': '0.1172'}
+60%|██████    | 30/50 [13:43<09:04, 27.22s/it]
+62%|██████▏   | 31/50 [14:10<08:36, 27.21s/it]
+{'loss': '3.202e-05', 'grad_norm': '0.01294', 'learning_rate': '4e-07', 'num_tokens': '1.093e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0008004', 'entropy': '0.263', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.95', 'epoch': '0.1211'}
+62%|██████▏   | 31/50 [14:10<08:36, 27.21s/it]
+64%|██████▍   | 32/50 [14:37<08:09, 27.22s/it]
+{'loss': '2.997e-05', 'grad_norm': '0.007597', 'learning_rate': '3.8e-07', 'num_tokens': '1.128e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0007493', 'entropy': '0.2862', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.03', 'epoch': '0.125'}
+64%|██████▍   | 32/50 [14:37<08:09, 27.22s/it]
+66%|██████▌   | 33/50 [15:04<07:42, 27.21s/it]
+{'loss': '3.878e-05', 'grad_norm': '0.008112', 'learning_rate': '3.6e-07', 'num_tokens': '1.162e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0009695', 'entropy': '0.3228', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.98', 'epoch': '0.1289'}
+66%|██████▌   | 33/50 [15:04<07:42, 27.21s/it]
+68%|██████▊   | 34/50 [15:32<07:14, 27.18s/it]
+{'loss': '2.279e-05', 'grad_norm': '0.007057', 'learning_rate': '3.4e-07', 'num_tokens': '1.197e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0005698', 'entropy': '0.2814', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.89', 'epoch': '0.1328'}
+68%|██████▊   | 34/50 [15:32<07:14, 27.18s/it]
+70%|███████   | 35/50 [15:59<06:47, 27.20s/it]
+{'loss': '3.597e-05', 'grad_norm': '0.01092', 'learning_rate': '3.2e-07', 'num_tokens': '1.232e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '1', 'rewards/reward_func/std': '0', 'reward': '1', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0008993', 'entropy': '0.2942', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.04', 'epoch': '0.1367'}
+70%|███████   | 35/50 [15:59<06:47, 27.20s/it]
+72%|███████▏  | 36/50 [16:26<06:20, 27.20s/it]
+{'loss': '4.916e-05', 'grad_norm': '1.335', 'learning_rate': '3e-07', 'num_tokens': '1.267e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0.144', 'rewards/reward_func/std': '0.1001', 'reward': '0.144', 'reward_std': '0.1001', 'frac_reward_zero_std': '0', 'kl': '0.001227', 'entropy': '0.2545', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.99', 'epoch': '0.1406'}
+72%|███████▏  | 36/50 [16:26<06:20, 27.20s/it]
+74%|███████▍  | 37/50 [16:53<05:54, 27.26s/it]
+{'loss': '5.295e-05', 'grad_norm': '0.02006', 'learning_rate': '2.8e-07', 'num_tokens': '1.302e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '1', 'rewards/reward_func/std': '0', 'reward': '1', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.001324', 'entropy': '0.2705', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.19', 'epoch': '0.1445'}
+74%|███████▍  | 37/50 [16:53<05:54, 27.26s/it]
+76%|███████▌  | 38/50 [17:21<05:26, 27.22s/it]
+{'loss': '1.551e-05', 'grad_norm': '0.004235', 'learning_rate': '2.6e-07', 'num_tokens': '1.337e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0003877', 'entropy': '0.2264', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.94', 'epoch': '0.1484'}
+76%|███████▌  | 38/50 [17:21<05:26, 27.22s/it]
+78%|███████▊  | 39/50 [17:48<04:59, 27.25s/it]
+{'loss': '4.079e-05', 'grad_norm': '0.01237', 'learning_rate': '2.4e-07', 'num_tokens': '1.372e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.00102', 'entropy': '0.2423', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.11', 'epoch': '0.1523'}
+78%|███████▊  | 39/50 [17:48<04:59, 27.25s/it]
+80%|████████  | 40/50 [18:15<04:32, 27.26s/it]
+{'loss': '2.988e-05', 'grad_norm': '0.01289', 'learning_rate': '2.2e-07', 'num_tokens': '1.407e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0007471', 'entropy': '0.2148', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.03', 'epoch': '0.1562'}
+80%|████████  | 40/50 [18:15<04:32, 27.26s/it]
+82%|████████▏ | 41/50 [18:42<04:05, 27.26s/it]
+{'loss': '3.031e-05', 'grad_norm': '2.017', 'learning_rate': '2e-07', 'num_tokens': '1.442e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0.1465', 'rewards/reward_func/std': '0.09948', 'reward': '0.1465', 'reward_std': '0.09948', 'frac_reward_zero_std': '0', 'kl': '0.000758', 'entropy': '0.2211', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.04', 'epoch': '0.1602'}
+82%|████████▏ | 41/50 [18:42<04:05, 27.26s/it]
+84%|████████▍ | 42/50 [19:10<03:37, 27.23s/it]
+{'loss': '2.708e-05', 'grad_norm': '0.007975', 'learning_rate': '1.8e-07', 'num_tokens': '1.476e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0006771', 'entropy': '0.2752', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.94', 'epoch': '0.1641'}
+84%|████████▍ | 42/50 [19:10<03:37, 27.23s/it]
+86%|████████▌ | 43/50 [19:37<03:10, 27.18s/it]
+{'loss': '3.75e-05', 'grad_norm': '0.009282', 'learning_rate': '1.6e-07', 'num_tokens': '1.511e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '1', 'rewards/reward_func/std': '0', 'reward': '1', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0009374', 'entropy': '0.2915', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.85', 'epoch': '0.168'}
+86%|████████▌ | 43/50 [19:37<03:10, 27.18s/it]
+88%|████████▊ | 44/50 [20:04<02:43, 27.26s/it]
+{'loss': '2.115e-05', 'grad_norm': '0.00733', 'learning_rate': '1.4e-07', 'num_tokens': '1.546e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0005288', 'entropy': '0.2675', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.23', 'epoch': '0.1719'}
+88%|████████▊ | 44/50 [20:04<02:43, 27.26s/it]
+90%|█████████ | 45/50 [20:31<02:16, 27.31s/it]
+{'loss': '2.108e-05', 'grad_norm': '0.006693', 'learning_rate': '1.2e-07', 'num_tokens': '1.581e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0005269', 'entropy': '0.2454', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.2', 'epoch': '0.1758'}
+90%|█████████ | 45/50 [20:31<02:16, 27.31s/it]
+92%|█████████▏| 46/50 [20:59<01:49, 27.28s/it]
+{'loss': '3.208e-05', 'grad_norm': '0.01225', 'learning_rate': '1e-07', 'num_tokens': '1.616e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.000802', 'entropy': '0.2803', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.02', 'epoch': '0.1797'}
+92%|█████████▏| 46/50 [20:59<01:49, 27.28s/it]
+94%|█████████▍| 47/50 [21:26<01:21, 27.24s/it]
+{'loss': '3.23e-05', 'grad_norm': '0.009587', 'learning_rate': '8e-08', 'num_tokens': '1.651e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0008076', 'entropy': '0.2938', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.93', 'epoch': '0.1836'}
+94%|█████████▍| 47/50 [21:26<01:21, 27.24s/it]
+96%|█████████▌| 48/50 [21:53<00:54, 27.21s/it]
+{'loss': '2.927e-05', 'grad_norm': '0.007934', 'learning_rate': '6e-08', 'num_tokens': '1.686e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0007316', 'entropy': '0.2552', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.93', 'epoch': '0.1875'}
+96%|█████████▌| 48/50 [21:53<00:54, 27.21s/it]
+98%|█████████▊| 49/50 [22:20<00:27, 27.16s/it]
+{'loss': '3.155e-05', 'grad_norm': '0.01341', 'learning_rate': '4e-08', 'num_tokens': '1.721e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0007888', 'entropy': '0.2692', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '26.85', 'epoch': '0.1914'}
+98%|█████████▊| 49/50 [22:20<00:27, 27.16s/it]
+100%|██████████| 50/50 [22:47<00:00, 27.23s/it]
+{'loss': '3.975e-05', 'grad_norm': '0.007393', 'learning_rate': '2e-08', 'num_tokens': '1.756e+05', 'completions/mean_length': '128', 'completions/min_length': '128', 'completions/max_length': '128', 'completions/clipped_ratio': '1', 'completions/mean_terminated_length': '0', 'completions/min_terminated_length': '0', 'completions/max_terminated_length': '0', 'rewards/reward_func/mean': '0', 'rewards/reward_func/std': '0', 'reward': '0', 'reward_std': '0', 'frac_reward_zero_std': '1', 'kl': '0.0009938', 'entropy': '0.2907', 'clip_ratio/low_mean': '0', 'clip_ratio/high_mean': '0', 'clip_ratio/region_mean': '0', 'clip_ratio/low_min': '0', 'clip_ratio/high_max': '0', 'step_time': '27.19', 'epoch': '0.1953'}
+100%|██████████| 50/50 [22:47<00:00, 27.23s/it]
+{'train_runtime': '1369', 'train_samples_per_second': '0.146', 'train_steps_per_second': '0.037', 'train_loss': '2.97e-05', 'epoch': '0.1953'}
+100%|██████████| 50/50 [22:48<00:00, 27.23s/it]
+100%|██████████| 50/50 [22:48<00:00, 27.37s/it]
+RL_DONE
+2026-10-02 17:56:16,258 sagemaker-training-toolkit INFO     Waiting for the process to finish and give a return code.
+2026-10-02 17:56:16,258 sagemaker-training-toolkit INFO     Done waiting for a return code. Received 0 from exiting process.
+2026-10-02 17:56:16,258 sagemaker-training-toolkit INFO     Reporting training SUCCESS

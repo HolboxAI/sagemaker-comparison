@@ -12,20 +12,21 @@ It mirrors the Fireworks layout so the comparison script can join the two.
 | `scripts/src/` | the training entry points uploaded to SageMaker as `source_dir` |
 | `scripts/iam/` | the execution-role trust policy, scoped policy, and create script |
 | `logs/` | raw console logs (populated when jobs reach a terminal state) |
-| `metrics/` | `run_manifest.json` now; `final_results.json` when all jobs finish |
+| `metrics/` | `run_manifest.json` + `final_results.json` (schema from `../analysis/schema.md`) |
 
 ## Result summary
 
-Four jobs launched 2026-10-02 (fresh, 1 epoch, GRPO for RL). One finished, three
-running — see [`config/SAGEMAKER_4EXP_CONFIG.md`](config/SAGEMAKER_4EXP_CONFIG.md)
-and [`metrics/run_manifest.json`](metrics/run_manifest.json).
+Four jobs launched 2026-10-02 (fresh, 1 epoch, GRPO for RL). All four reached a
+terminal state — see [`config/SAGEMAKER_4EXP_CONFIG.md`](config/SAGEMAKER_4EXP_CONFIG.md),
+[`metrics/run_manifest.json`](metrics/run_manifest.json), and
+[`metrics/final_results.json`](metrics/final_results.json).
 
 | # | Experiment | Job name | State |
 |---|---|---|---|
-| 1 | ORena SFT | `orena-sft-2026-10-02-16-48-24-104` | InProgress |
-| 2 | ORena RL (GRPO) | `orena-rl-2026-10-02-16-30-52-271` | InProgress |
+| 1 | ORena SFT | `orena-sft-2026-10-02-18-18-08-591` | **Completed** (loss 1.494) |
+| 2 | ORena RL (GRPO) | `orena-rl-2026-10-02-17-18-25-972` | **Completed** (reward 0 — thinking mode) |
 | 3 | GoEmotions SFT | `goemotions-sft-2026-10-02-16-07-29-859` | **Completed** (loss 1.54) |
-| 4 | GoEmotions RL (GRPO) | `goemotions-rl-2026-10-02-16-30-25-068` | InProgress |
+| 4 | GoEmotions RL (GRPO) | `goemotions-rl-2026-10-02-16-30-25-068` | **Completed** (reward 0 — thinking mode) |
 
 ## Reproduce
 
@@ -38,7 +39,7 @@ export ROLE_ARN=arn:aws:iam::751871643798:role/sagemaker-stanford-exec
 python scripts/launch_jobs.py
 python scripts/launch_jobs.py --skip goemotions_rl orena_rl   # e.g. only SFT
 
-# tail the jobs to completion; full logs land in scripts/logs/<job>.log
+# tail the jobs to completion; full logs land in logs/<job>.log
 python scripts/monitor_jobs.py
 ```
 

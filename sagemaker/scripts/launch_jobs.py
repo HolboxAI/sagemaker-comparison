@@ -34,7 +34,8 @@ ROLE_ARN = os.environ.get(
 # template with Path.read_text() (ascii by default); the Qwen3.5 processor config
 # carries non-ASCII bytes that crash it under a POSIX locale. PYTHONUTF8=1 (PEP 540)
 # makes the default open()/read_text() encoding UTF-8.
-BASE_ENV = {"PYTHONUTF8": "1", "LC_ALL": "C.UTF-8", "LANG": "C.UTF-8"}
+BASE_ENV = {"PYTHONUTF8": "1", "LC_ALL": "C.UTF-8", "LANG": "C.UTF-8",
+            "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True"}
 
 
 def get_session() -> sagemaker.Session:
@@ -74,7 +75,11 @@ JOBS = {
         inputs={"train": f"s3://{BUCKET}/goemotions/train_rl.jsonl"}),
     "orena_sft": dict(
         entry="orena_sft.py", name="orena-sft", instance="ml.g5.12xlarge",
-        hps={"epochs": "1.0", "max_train_samples": "256", "max_seq_length": "2048"},
+        # 9B bf16 SFT does not fit one 24 GB A10G at the reference rank 64/128:
+        # step 1 OOM'd ~200 MB over. rank 32/64 + expandable_segments (BASE_ENV)
+        # are the memory-forced deltas, recorded in config §8.
+        hps={"epochs": "1.0", "max_train_samples": "256", "max_seq_length": "2048",
+             "lora_rank": "32", "lora_alpha": "64"},
         volume_size=200,
         # TRL SFTTrainer wraps the VLM in DataParallel on the 4-GPU g5.12xlarge and
         # crashes with a cuda:0-vs-cuda:1 device mismatch in the vision embeddings.
