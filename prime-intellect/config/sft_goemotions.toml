@@ -1,0 +1,36 @@
+# Exp 3 — GoEmotions SFT (small de-risk run) on Qwen/Qwen3-0.6B, parity with Fireworks §6.
+# Deviations from reference (recorded in DECISIONS_LOG): seq_len 256 (ref 8192 — irrelevant
+# for short-text classification; 800 rows can't fill 8192-length sequences), steps capped at 100.
+max_steps = 100
+output_dir = "/workspace/outputs/goemotions-sft-exp3"
+
+[model]
+name = "Qwen/Qwen3-0.6B"
+
+[model.lora]
+rank = 16
+alpha = 32
+dropout = 0.05
+
+[data]
+type = "sft"
+name = "/workspace/data/goemotions/chat"
+seq_len = 256
+batch_size = 64
+micro_batch_size = 8
+
+[optim]
+type = "adamw"
+lr = 1e-4
+
+[scheduler]
+type = "cosine"
+warmup_steps = 10
+
+[ckpt]
+
+[ckpt.weights]
+# prime-rl (this pod image) STRIPS the LoRA adapter when this is false — the saved
+# model.safetensors ends up as the base model and the fine-tune is silently lost.
+# Save the adapter separately so we can merge it for eval.
+save_adapter_separately = true

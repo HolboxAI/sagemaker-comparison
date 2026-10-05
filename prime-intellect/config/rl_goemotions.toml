@@ -1,0 +1,86 @@
+# Exp 4 — GoEmotions RL (GRPO) on Qwen/Qwen3-0.6B, parity with Fireworks §7.
+#
+# Schema VERIFIED against the pod's prime-rl (0.7.0) by reading
+# prime-rl-configs/src/prime_rl/configs/{rl,orchestrator,algorithm,trainer}.py
+# and the alphabet_sort example (single-GPU LoRA RL). LoRA lives on
+# [trainer.model.lora]; sampling on [orchestrator.train.sampling]; the taskset
+# is a local package installed into /app/.venv (goemotions_v1).
+#
+# Parity (locked — D6): lr 1e-5, LoRA r=16 α=32, temperature 0.7, max output 64,
+# 8 rollouts/prompt, GRPO, fresh (no warm-start from Exp 3). Reward = multi-label
+# Jaccard (taskset goemotions_v1); micro-F1 tracked at eval, not as the reward.
+#
+# ⚠️ KNOWN DIVERGENCE: prime-rl GRPO (GRPOAlgoConfig) has no KL-to-reference term
+#    (no kl_beta field); the reference's KL beta 0.04 has no equivalent knob here.
+#    Recorded in results.
+max_steps = 64                 # small-run cap (800 prompts / batch 64 = 12.5 -> 64 steps)
+seq_len = 256                  # short text; reference 8192 is pointless for these rows
+output_dir = "/workspace/outputs/goemotions-rl-exp4"
+
+[model]
+name = "Qwen/Qwen3-0.6B"
+
+[trainer.model]
+impl = "auto"
+
+[trainer.model.lora]
+rank = 16
+alpha = 32
+dropout = 0.05
+
+[trainer.optim]
+lr = 1e-5
+
+[orchestrator]
+batch_size = 64
+group_size = 8                # 8 rollouts per prompt
+
+[orchestrator.renderer]
+name = "qwen3"
+# Qwen3's renderer opens a <think> block by default; a fresh base model then
+# spends the whole 64-token budget "reasoning" and never emits the answer
+# (orchestrator logged "Truncation 100.0%"). Disable thinking so the model
+# answers directly and hits EOS within max_completion_tokens.
+enable_thinking = false
+
+[orchestrator.train.sampling]
+temperature = 0.7
+max_completion_tokens = 64
+
+[[orchestrator.train.env]]
+name = "goemotions"
+taskset = { id = "goemotions-v1" }
+harness = { id = "null", runtime = { type = "subprocess" } }
+
+# GRPO's default post_batch_filters enforce zero_advantage, which drops every
+# group whose 8 rollouts earned the same reward (the common case for a fresh
+# model). Keep the filters in monitor mode so training actually proceeds.
+[[orchestrator.post_batch_filters]]
+type = "gibberish"
+enforce = false
+
+[[orchestrator.post_batch_filters]]
+type = "repetition"
+enforce = false
+
+[[orchestrator.post_batch_filters]]
+type = "zero_advantage"
+enforce = false
+
+[inference]
+# The trainer shares physical GPU 0 with the vLLM inference server (single-GPU
+# pod -> CUDA_VISIBLE_DEVICES="0,0" hack). vLLM's default 0.9 utilization wants
+# 19.9 GiB but the trainer already holds ~3.8 GiB, so it failed to start with
+# "Free memory ... less than desired GPU memory utilization". Leave the trainer
+# headroom and cap the context (seq_len=256, completion<=64) to shrink the KV cache.
+gpu_memory_utilization = 0.6
+
+[inference.model]
+max_model_len = 512
+
+[ckpt] # checkpoint at the end of training
+
+[trainer.ckpt.weights]
+# Same prime-rl LoRA bug class as SFT: save the adapter separately so we can
+# merge it for eval (W' = W + (B@A)·α/r).
+save_adapter_separately = true

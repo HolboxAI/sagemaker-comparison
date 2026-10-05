@@ -7,7 +7,7 @@
 - 🚫 **Blocked** — waiting on the user / an external gate.
 - ✔ **Done** — completed.
 
-_Last updated: 2026-10-02._
+_Last updated: 2026-10-05._
 
 ---
 
@@ -56,13 +56,13 @@ If a run hits the 30-min wall → halve the subset and rerun (record the partial
 | S4 | 2026-10-02 | Answered key/token provisioning; locked logging (D10) + compute (D11) + secrets policy (D12). | ✔ |
 | S5 | 2026-10-02 | Created this `DECISIONS_LOG.md`. | ✔ |
 | S6 | 2026-10-02 | Ran `01` recon (auth ✅; `prime train gpus` empty → full-FT out; `Qwen3.5-9B` in hosted catalog, `Qwen3-0.6B` not; on-demand GPUs ≤ A100_80GB). **Path b confirmed.** | ✔ |
-| S7 | 2026-10-02 | Data prep (03): GoEmotions fetched (HF canonical) → parquet→tsv → chat/rl JSONL built (800/200). ORena JSONL (02) still pending. | ⏳ |
+| S7 | 2026-10-05 | Data prep (03 + 02): GoEmotions fetched (HF canonical) → chat/rl JSONL (800/200); ORena → base64-inline chat (300/100) + rl (128/100) JSONL (self-contained `convert_orana_to_hf.py`, no torch dep). | ✔ |
 | S8 | 2026-10-02 | Run `04` rewards self-test — `python3 rewards.py` → OK (ORena + GoEmotions reward fns). | ✔ |
-| S9 | 2026-10-02 | Run Exp 3 (GoEmotions SFT) — de-risk run. **IN PROGRESS** (pod `234fc42f…`). | ⏳ |
-| S10 | — | Run Exp 1 (ORena SFT). | ⏳ |
-| S11 | — | Run Exp 2 (ORena GRPO). | ⏳ |
-| S12 | — | Run Exp 4 (GoEmotions GRPO). | ⏳ |
-| S13 | — | Run `09` → consolidate into §9 parity schema + comparison table. | ⏳ |
+| S9 | 2026-10-02 | Run Exp 3 (GoEmotions SFT) — de-risk run. **DONE** (pod `234fc42f…`): loss 5.79→0.167, dev micro-F1 0.4956. | ✔ |
+| S10 | 2026-10-05 | Run Exp 1 (ORena SFT). **BLOCKED** — the pod's prime-rl 0.7.0 rejects `[model.vlm]` for SFT ("renderer-only SFT does not support VLMs yet"); GitHub main removed the check. Recorded as version drift (see below). | 🚫 |
+| S11 | — | Run Exp 2 (ORena GRPO). Feasible on 0.7.0 (the RL config supports `[model.vlm]`; rollout via vLLM). Deferred. | ⏳ |
+| S12 | 2026-10-05 | Run Exp 4 (GoEmotions GRPO). **DONE** (pod `484b6053…` A10): 64 steps, final Jaccard 0.0178, held-out micro-F1 0.0349. | ✔ |
+| S13 | 2026-10-05 | Run `09` → consolidated into `final_results.json` (canonical schema) + benchmark repo PR. | ✔ |
 
 ✔ 2026-10-02 — **Installation:** `uv` already present; installed `prime` 0.9.1 + `hf` (huggingface-hub 2.1.1) via `uv tool install`. Confirmed auth commands: `prime login` / `prime config set-api-key`; HF: `hf auth login`.
 
@@ -75,6 +75,16 @@ If a run hits the 30-min wall → halve the subset and rerun (record the partial
 ✔ 2026-10-02 — **prime-rl on-pod discovery + config fixes (headless gotchas):** prime-rl lives at **`/app`** (not `/workspace/prime-rl`). The pod image ships an **older prime-rl** than GitHub main → `[run]` section is rejected (`Extra inputs are not permitted`); the run name lives in `output_dir` instead. `[data] name` is passed to `datasets.load_dataset(name, subset, split)` → a bare `.jsonl` **file** path fails (`Couldn't find any data file`); must point `name` at the **directory** containing `train.jsonl`. Configs rewritten accordingly (`output_dir=/workspace/outputs/…`, `name=/workspace/data/goemotions/chat`).
 
 ✔ 2026-10-02 — **Smoke SFT passed** (fake data, `Qwen/Qwen3-0.6B`, 10 steps, A100 40GB): config validated, model downloaded, LoRA+optimizer+scheduler+training loop all work; peak 11.1 GiB, ~936 tok/s. → **Exp 3 launched** (GoEmotions SFT, 100 steps, LoRA r=16, batch 64/µ8, cosine warmup 10). Observed learning: loss 5.79 → 3.37 over steps 1–6; `Qwen3Renderer` auto-selected; LoRA = 10.1M/440M params; peak 3.3 GiB.
+
+✔ 2026-10-03 — **prime-rl LoRA checkpoint bug (root-caused + worked around).** Default `save_adapter_separately=false` makes `clean_lora_state_dict` **strip** `lora_A`/`lora_B` and keep only the frozen base weights — the docstring claims "before merging into full model weights" but no merge happens. So the saved `model.safetensors` is the *base* model and the fine-tune is silently lost (first eval = base behavior, micro-F1 0.02). Fix: `[ckpt.weights] save_adapter_separately = true` → re-run → `lora_adapters/adapter_model.safetensors` (PEFT-format, 392 keys) saved. Eval merges it manually: `W' = W + (lora_B@lora_A)·α/r` (α/r = 32/16 = 2.0, confirmed via `set_multilora_scaling` docstring "alpha/rank").
+
+✔ 2026-10-03 — **Exp 3 COMPLETE (GoEmotions SFT).** Final loss **0.167** (step 100). Held-out dev (200 rows, greedy decode, thinking disabled): **micro-F1 0.4956**, micro-Jaccard 0.3294, mean instance-F1 0.4948 (TP/FP/FN = 113/104/126). `eval_goemotions.py` (local + on-pod) does the merge + decode. Result recorded in `EXPERIMENT_RESULTS.md` + `fireworks-vs-sagemaker-comparison.md`.
+
+✔ 2026-10-05 — **ORena data built (step 02) + remaining configs & eval scripts.** Rewrote `convert_orana_to_hf.py` self-contained (parent `train_qwen3vl` imports `torch`, which is not in the local venv; D2 = keep everything in `prime_intellect/`). Built `orena/chat/{train,test}.jsonl` (300/100, base64-inline JPEG) and `orena/rl/{train,test}.jsonl` (128/100). Format mix verified (fo_class/number/open_ended/multiple_choice/binary; binary excluded from the 4-bucket metric). Wrote `configs/sft_orena.toml` (Exp 1), `configs/rl_orena.toml` (Exp 2), `configs/rl_goemotions.toml` (Exp 4), and `eval_orena.py` (VLM held-out eval with key-generic LoRA merge + 4-bucket meanAccuracy). RL configs use the GitHub-main `[orchestrator]` schema and are flagged **not verified** against the pod's older prime-rl (which already rejected `[run]`).
+
+✔ 2026-10-05 — **Exp 1 (ORena SFT) BLOCKED — VLM SFT version drift.** The pod's prime-rl 0.7.0 SFT path is renderer-only and raises `validate_renderer_vs_vlm`: "renderer-only SFT does not support VLMs yet. The renderer tokenizes text-only message dicts client-side and cannot handle image inputs." GitHub main has **removed** this validator (its only remaining VLM/SFT constraint is `freeze_vision_encoder=false` being LoRA-incompatible), so this is a pod-image version gap, not a hard platform limit. The mirror-image of Fireworks' gap: Fireworks can't RL `qwen3p5-9b`; Prime Intellect 0.7.0 can't SFT a VLM but **can** RL one (`rl.py:109` carries `vlm`, rollout through vLLM). The H200 provisioned for Exp 1/2 was **terminated** (idle at $4.50/hr, $15.51 wasted) rather than attempt a risky prime-rl upgrade.
+
+✔ 2026-10-05 — **Exp 4 COMPLETE (GoEmotions GRPO).** pod `484b6053…` (A10 24GB), 64 steps, fresh base model, reward = multi-label Jaccard, `enable_thinking=false`. Final held-out dev (200 rows, greedy): **micro-F1 0.0349, Jaccard 0.0178**; `jaccard_curve` flat/noisy (0–0.073). A fresh 0.6B + Jaccard over 64 steps is not enough signal vs Fireworks' 0.175→0.377 on 5000 prompts. **Three launch fixes:** (a) `CUDA_VISIBLE_DEVICES="0,0"` for the single-GPU disjoint-GPU check; (b) `[inference] gpu_memory_utilization=0.6` + `[inference.model] max_model_len=512` (vLLM otherwise fails: trainer holds ~3.8 GiB); (c) `enable_thinking=false` (default thinking ate the 64-token budget → Truncation 100%) + `post_batch_filters` `enforce=false` (zero_advantage dropped every group → "10 consecutive empty train batches").
 
 ## Recon findings (01, 2026-10-02)
 
@@ -96,6 +106,7 @@ If a run hits the 30-min wall → halve the subset and rerun (record the partial
 | B2 | ~~SSH access to the GPU box~~ → user has no own GPU box; compute is a PI on-demand pod (D16). | user | ✔ |
 | B3 | GoEmotions data — fetched from HF `google-research-datasets/go_emotions` (canonical, zero-auth) 2026-10-02, built to JSONL. Kaggle `debarshichanda/goemotions` (user's link) needs a Kaggle API token if we want that exact file instead. | user | ✔ |
 | B4 | Confirm `Qwen3.5-9B` is VLM-trainable on prime-rl. ✅ Resolved: prime-rl registers "Qwen3/Qwen3.5 VLMs" (`qwen3_vl`, `qwen3_5` config types); `Qwen3-0.6B` text is their getting-started model. Exact enable flag = `[model] impl="custom"` + `[model.vlm]` (verify in `docs/advanced.md#multimodal-training` at run time). | recon | ✔ |
+| B5 | ~~Prime Intellect API key unauthorized (2026-10-05)~~ **RESOLVED** — a new key was generated and `prime login` re-run (masked). Work resumed on pods `484b6053…` (A10, Exp 4) and `19b97318…` (H200, provisioned for ORena, terminated idle). | user | ✔ |
 
 ---
 
@@ -103,10 +114,10 @@ If a run hits the 30-min wall → halve the subset and rerun (record the partial
 
 | Exp | Metric | Fireworks (ref) | Prime Intellect | Δ |
 |---|---|---|---|---|
-| 1 ORena SFT | meanAccuracy (4-bucket) | — | — | — |
-| 2 ORena RL | meanAccuracy (4-bucket) | — | — | — |
-| 3 GoEmotions SFT | micro-F1 | — | — | — |
-| 4 GoEmotions RL | micro-F1 / Jaccard | — | — | — |
+| 1 ORena SFT | meanAccuracy (4-bucket) | — | 🚫 blocked (VLM SFT version drift) | — |
+| 2 ORena RL | meanAccuracy (4-bucket) | — | ⏳ not started (feasible) | — |
+| 3 GoEmotions SFT | micro-F1 | 0.313 (train loss) | **0.4956** | 800 vs 43k samples |
+| 4 GoEmotions RL | micro-F1 / Jaccard | 0.175→0.377 (F1) | **0.0349** / 0.0178 | fresh 0.6B + Jaccard over 64 steps ≈ no signal |
 
 ---
 

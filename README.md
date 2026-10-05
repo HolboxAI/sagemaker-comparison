@@ -59,7 +59,7 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 |---|---|---|
 | Fireworks | ✅ complete (4/4 jobs) | [`fireworks/metrics/final_results.json`](fireworks/metrics/final_results.json) |
 | SageMaker | ⏳ pending — team to add | — |
-| Prime Intellect | ⏳ pending — team to add | — |
+| Prime Intellect | ✅ partial — 2 complete, 1 blocked, 1 not started | [`prime-intellect/metrics/final_results.json`](prime-intellect/metrics/final_results.json) |
 
 ### Fireworks quick results (1 epoch, fresh)
 
@@ -72,6 +72,19 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 
 **Results graphs:** [`analysis/plots/fireworks_summary.png`](analysis/plots/fireworks_summary.png)
 (SFT loss curves + RL reward curves). Individual charts are in the same folder.
+
+### Prime Intellect quick results (on-demand pods, prime-rl 0.7.0)
+
+| Experiment | Final metric | Result |
+|---|---|---|
+| ORena SFT | train loss | 🚫 blocked (pod image rejects `[model.vlm]` for SFT) |
+| ORena RL | exact_match | ⏳ not started (feasible) |
+| GoEmotions SFT | micro_f1 | **0.4956** (train loss 0.167) |
+| GoEmotions RL | micro_f1 | **0.035** (Jaccard 0.018; did not learn) |
+
+Full matrix, small-run sizes, and the platform-specific findings (VLM SFT version drift,
+thinking-mode RL footgun, LoRA checkpoint bug, …):
+[`prime-intellect/config/PRIME_INTELLECT_4EXP_CONFIG.md`](prime-intellect/config/PRIME_INTELLECT_4EXP_CONFIG.md).
 
 ---
 

@@ -1,0 +1,264 @@
+/app/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py:180: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 101: invalid device ordinal (Triggered internally at /pytorch/c10/cuda/CUDAFunctions.cpp:119.)
+  return torch._C._cuda_getDeviceCount() > 0
+[transformers] kernels hub usage is disabled through the environment USE_HUB_KERNELS=NO
+W1005 12:01:50.455000 6906 torch/utils/cpp_extension.py:140] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+/app/.venv/lib/python3.12/site-packages/fla/utils/_device.py:100: UserWarning: Triton is not supported on current platform, roll back to CPU.
+  _cpu_device_warning()
+[2m12:01:52[0m [1m   INFO[0m [1m[22mStarting orchestrator (algorithm: grpo)[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22mSetting default executor to ThreadPoolExecutor(max_workers=64)[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22mInitializing tokenizer (name='Qwen/Qwen3-0.6B' trust_remote_code=False chat_template=None)[0m[0m
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[2m12:01:52[0m [1m   INFO[0m [1m[22mInitializing policy inference pool (base_url=http://localhost:8000/v1, model=Qwen/Qwen3-0.6B)[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22mInitialized Qwen3Renderer for Qwen/Qwen3-0.6B[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22mUsing direct renderer rollout client[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22mInitializing monitor (wandb=None, prime_monitor=None)[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22mConfigured 3 pre-batch rollout filter(s):[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22m  Monitoring gibberish filter (type=gibberish, enforce=False, token_id_threshold=100000, logprob_offset=2.0)[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22m  Monitoring repetition filter (type=repetition, enforce=False, window=3000, prob_threshold=0.99)[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22m  Monitoring zero_advantage filter (type=zero_advantage, enforce=False)[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22mConfigured 3 post-batch rollout filter(s):[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22m  Monitoring gibberish filter (type=gibberish, enforce=False, token_id_threshold=100000, logprob_offset=2.0)[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22m  Monitoring repetition filter (type=repetition, enforce=False, window=3000, prob_threshold=0.99)[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22m  Monitoring zero_advantage filter (type=zero_advantage, enforce=False)[0m[0m
+[2m12:01:52[0m [1m   INFO[0m [1m[22mLoading training environments[0m[0m
+[2m12:02:00[0m [1m   INFO[0m [1m[22mEnv goemotions ready: num_tasks=800 group_scoring=False[0m[0m
+[2m12:02:00[0m [32m[1mSUCCESS[0m [32m[1m[22mTrain environment(s) ready[0m[0m
+[2m12:02:00[0m [1m   INFO[0m [1m[22mWaiting for policy inference pool to be ready[0m[0m
+[2m12:02:10[0m [33m[1mWARNING[0m [33m[1m[22mInference server was not reached after 10 seconds (Error: All connection attempts failed) on http://localhost:8000[0m[0m
+[2m12:02:20[0m [33m[1mWARNING[0m [33m[1m[22mInference server was not reached after 20 seconds (Error: All connection attempts failed) on http://localhost:8000[0m[0m
+[2m12:02:30[0m [33m[1mWARNING[0m [33m[1m[22mInference server was not reached after 30 seconds (Error: All connection attempts failed) on http://localhost:8000[0m[0m
+[2m12:02:40[0m [32m[1mSUCCESS[0m [32m[1m[22mPolicy inference pool ready[0m[0m
+[2m12:02:40[0m [1m   INFO[0m [1m[22mInitializing weight broadcast (type='filesystem')[0m[0m
+[2m12:02:40[0m [1m   INFO[0m [1m[22mInitializing training batch sender (type='filesystem')[0m[0m
+[2m12:02:40[0m [1m   INFO[0m [1m[22mTraining from scratch[0m[0m
+[2m12:02:40[0m [1m   INFO[0m [1m[22mStarting orchestrator loop (max_steps=64)[0m[0m
+[2m12:02:47[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:02:48[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 1 |    7.0s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:02:48[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:02:49[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 2 |    1.7s | Reward 0.0137 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:02:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 64 inflight rollouts (train=64, eval=0)[0m[0m
+[2m12:02:50[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:02:50[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 3 |    1.4s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:03:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:03:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:03:13[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:03:15[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:03:16[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 4 |   25.6s | Reward 0.0208 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:03:17[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:03:17[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 5 |    1.5s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:03:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:03:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:03:39[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:03:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 64 inflight rollouts (train=64, eval=0)[0m[0m
+[2m12:03:41[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:03:42[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 6 |   24.2s | Reward 0.0430 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:03:42[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:03:43[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 7 |    1.3s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 3.1%[0m[0m
+[2m12:03:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:04:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:04:04[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:04:07[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:04:07[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 8 |   24.3s | Reward 0.0052 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 4.7%[0m[0m
+[2m12:04:08[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 9 |    1.2s | Reward 0.0078 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:04:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:04:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:04:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:04:31[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:04:33[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:04:34[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 10 |   25.0s | Reward 0.0396 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:04:35[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 11 |    1.4s | Reward 0.0439 | Trainable 24/64 (37.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:04:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:04:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:04:55[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:04:58[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:04:58[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:04:58[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 12 |   23.4s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:04:59[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:04:59[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 13 |    1.2s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:05:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+1 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:05:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+1 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:05:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+1 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:05:21[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:05:23[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:05:23[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:05:24[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 14 |   24.5s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:05:25[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:05:25[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 15 |    1.1s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 3.1%[0m[0m
+[2m12:05:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+1 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:05:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+1 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:05:45[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:05:48[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:05:48[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:05:49[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 16 |   23.4s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 3.1%[0m[0m
+[2m12:05:49[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 17 |    1.1s | Reward 0.0057 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 3.1%[0m[0m
+[2m12:05:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:06:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:06:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:06:10[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:06:12[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:06:12[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:06:13[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 18 |   23.1s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:06:14[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 19 |    1.4s | Reward 0.0729 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:06:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:06:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:06:34[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:06:37[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:06:37[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 20 |   22.9s | Reward 0.0118 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 3.1%[0m[0m
+[2m12:06:38[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 21 |    1.5s | Reward 0.0130 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 3.1%[0m[0m
+[2m12:06:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:06:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:07:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:07:01[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:07:03[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:07:03[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:07:04[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 22 |   25.2s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:07:05[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 23 |    1.4s | Reward 0.0104 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 3.1%[0m[0m
+[2m12:07:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:07:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:07:24[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:07:26[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:07:27[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 24 |   21.9s | Reward 0.0083 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:07:28[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 25 |    1.5s | Reward 0.0069 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:07:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:07:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:07:48[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:07:50[0m [1m   INFO[0m [1m[22mTrain batch 32/64 (50.0%) (+24 buffered); 64 inflight rollouts (train=64, eval=0)[0m[0m
+[2m12:07:50[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:07:51[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 26 |   21.9s | Reward 0.0234 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:07:52[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 27 |    1.4s | Reward 0.0109 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:08:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:08:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:08:12[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:08:14[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:08:15[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 28 |   22.8s | Reward 0.0104 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:08:16[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 29 |    1.4s | Reward 0.0201 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:08:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:08:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:08:37[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:08:39[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:08:40[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 30 |   23.3s | Reward 0.0311 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:08:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 64 inflight rollouts (train=64, eval=0)[0m[0m
+[2m12:08:41[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 31 |    1.4s | Reward 0.0156 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:08:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:09:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:09:03[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:09:05[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:09:06[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 32 |   25.1s | Reward 0.0156 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:09:07[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:09:07[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 33 |    1.5s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 6.2%[0m[0m
+[2m12:09:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:09:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:09:29[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:09:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+6 buffered); 64 inflight rollouts (train=64, eval=0)[0m[0m
+[2m12:09:31[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:09:31[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:09:31[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 34 |   24.0s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:09:32[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:09:33[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 35 |    1.4s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:09:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:09:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:09:53[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:09:55[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:09:56[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 36 |   23.0s | Reward 0.0039 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:09:57[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 37 |    1.2s | Reward 0.0091 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:10:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:10:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:10:18[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:10:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+9 buffered); 64 inflight rollouts (train=64, eval=0)[0m[0m
+[2m12:10:21[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:10:22[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 38 |   24.4s | Reward 0.0137 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:10:22[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 39 |    1.3s | Reward 0.0143 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 4.7%[0m[0m
+[2m12:10:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:10:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:10:43[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:10:46[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:10:46[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 40 |   23.4s | Reward 0.0116 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:10:47[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 41 |    1.2s | Reward 0.0124 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:10:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:11:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:11:10[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:11:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 64 inflight rollouts (train=64, eval=0)[0m[0m
+[2m12:11:12[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:11:13[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 42 |   25.2s | Reward 0.0174 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:11:13[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:11:14[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 43 |    1.4s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:11:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:11:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:11:34[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:11:37[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:11:37[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 44 |   23.3s | Reward 0.0250 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:11:38[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:11:38[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 45 |    1.2s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:11:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:11:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:11:59[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:12:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+5 buffered); 64 inflight rollouts (train=64, eval=0)[0m[0m
+[2m12:12:01[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:12:02[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 46 |   23.1s | Reward 0.0354 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:12:02[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:12:03[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 47 |    1.6s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:12:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:12:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:12:25[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:12:27[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:12:28[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 48 |   24.8s | Reward 0.0418 | Trainable 24/64 (37.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:12:29[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 49 |    1.6s | Reward 0.0039 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:12:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:12:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:12:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:12:51[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:12:53[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:12:54[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 50 |   24.2s | Reward 0.0026 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:12:54[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 51 |    1.2s | Reward 0.0078 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:13:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:13:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:13:16[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:13:18[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:13:19[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 52 |   24.3s | Reward 0.0052 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:13:20[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:13:20[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 53 |    1.4s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 3.1%[0m[0m
+[2m12:13:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:13:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:13:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:13:41[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:13:43[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:13:44[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 54 |   22.9s | Reward 0.0443 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:13:45[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 55 |    1.5s | Reward 0.0067 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:13:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:14:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:14:05[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:14:07[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:14:07[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:14:08[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 56 |   22.8s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:14:09[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 57 |    1.4s | Reward 0.0051 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:14:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:14:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:14:29[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:14:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 64 inflight rollouts (train=64, eval=0)[0m[0m
+[2m12:14:32[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:14:32[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 58 |   23.2s | Reward 0.0091 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:14:33[0m [33m[1mWARNING[0m [33m[1m[22mOnly 0/64 generated rollouts are trainable (0.0%) — consider reviewing task difficulty / filter config[0m[0m
+[2m12:14:33[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 59 |    1.4s | Reward 0.0000 | Trainable 0/64 (0.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:14:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:14:50[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:14:55[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:14:57[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:14:58[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 60 |   24.4s | Reward 0.0052 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 7.8%[0m[0m
+[2m12:14:59[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 61 |    1.1s | Reward 0.0169 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:15:00[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:15:10[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:15:20[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:15:20[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:15:23[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:15:24[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 62 |   24.5s | Reward 0.0031 | Trainable 8/64 (12.5%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:15:25[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 63 |    1.3s | Reward 0.0505 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 1.6%[0m[0m
+[2m12:15:30[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:15:40[0m [1m   INFO[0m [1m[22mTrain batch 0/64 (0.0%) (+2 buffered); 0 inflight rollouts (train=0, eval=0)[0m[0m
+[2m12:15:46[0m [1m   INFO[0m [1m[22mResuming dispatcher[0m[0m
+[2m12:15:48[0m [1m   INFO[0m [1m[22mPausing dispatcher to prevent orchestrator from racing from trainer. Waiting for new policy...[0m[0m
+[2m12:15:49[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 64 |   23.9s | Reward 0.0227 | Trainable 16/64 (25.0%) | Turns 1.0 | Branches 1.0 | Max Off-Policy 0 | Error 0.0% | Truncation 0.0%[0m[0m
+[2m12:15:49[0m [1m   INFO[0m [1m[22mDraining pipeline (cancelled 0 in-flight train rollout(s); any in-flight evals will complete)[0m[0m
+[2m12:15:49[0m [1m   INFO[0m [1m[22mPipeline drained, exiting main loop[0m[0m
+[2m12:15:49[0m [32m[1mSUCCESS[0m [32m[1m[22mOrchestrator step loop done in 13m 9s[0m[0m
+[2m12:15:49[0m [1m   INFO[0m [1m[22mWriting final checkpoint[0m[0m
+[2m12:15:51[0m [32m[1mSUCCESS[0m [32m[1m[22mOrchestrator finished.[0m[0m
