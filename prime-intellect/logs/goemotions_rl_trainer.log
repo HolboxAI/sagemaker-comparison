@@ -1,0 +1,112 @@
+[trainer0]:[transformers] kernels hub usage is disabled through the environment USE_HUB_KERNELS=NO
+[trainer0]:[2m12:01:54[0m [1m   INFO[0m [1m[22mStarting RL trainer in World(world_size=1, rank=0, local_rank=0, local_world_size=1, num_nodes=1) in /workspace/outputs/goemotions-rl-exp4[0m[0m
+[trainer0]:[2m12:01:54[0m [1m   INFO[0m [1m[22mInitializing monitor (None)[0m[0m
+[trainer0]:[2m12:01:54[0m [1m   INFO[0m [1m[22mEP auto: model is not MoE, resolving ep=1[0m[0m
+[trainer0]:[2m12:01:54[0m [1m   INFO[0m [1m[22mInitializing checkpoint managers (output_dir=None interval=None weights=WeightCheckpointConfig(save_sharded=True, save_format='safetensors', save_adapter_separately=True) skip_gather_master_weights=False weights_only=False resume_step=None keep_last=None keep_interval=None skip_progress=False skip_scheduler=False skip_dataloader=False skip_optimizer=False)[0m[0m
+[trainer0]:[2m12:01:54[0m [1m   INFO[0m [1m[22mInitializing model (name='Qwen/Qwen3-0.6B' trust_remote_code=False vlm=None conversion_dir=None seq_len=256 attn='auto' compile=CompileConfig(fullgraph=False) ac=ActivationCheckpointConfig(mode='full', freq=1, targets=['norm']) ac_offloading=ActivationOffloadingConfig(pin_memory=True, max_inflight_activations=5) fsdp_cpu_offload=False optim_cpu_offload=True reshard_after_forward=True dp_replicate=1 ep=1 ep_comm_backend='torch' deepep_num_sms=20 deepep_token_chunk_size=None cp=1 cp_style='ring' impl='auto' optimization_dtype='float32' reduce_dtype='float32' moe_router_dtype='float32' moe_use_grouped_mm=True quantization=None index_cache=None freeze_moe_router=False lora=LoRAConfig(rank=16, alpha=32.0, dropout=0.05, target_modules=['q_proj', 'k_proj', 'v_proj', 'o_proj', 'gate_proj', 'up_proj', 'down_proj', 'experts', 'fc1_latent_proj', 'fc2_latent_proj'], modules_to_save=[]) debug=DebugModelConfig(num_layers=None, random_init=False, force_balanced_routing=False) fused_lm_head_token_chunk_size=1024)[0m[0m
+[trainer0]:[2m12:01:54[0m [1m   INFO[0m [1m[22mAuto-resolved attn='auto' to 'flash_attention_2' (SM86)[0m[0m
+[trainer0]:[2m12:01:54[0m [1m   INFO[0m [1m[22mLoading model config (name=Qwen/Qwen3-0.6B, attn=flash_attention_2, trust_remote_code=False)[0m[0m
+[trainer0]:[2m12:01:54[0m [1m   INFO[0m [1m[22mAuto-selected implementation: custom[0m[0m
+[trainer0]:[2m12:01:54[0m [1m   INFO[0m [1m[22mLoading model Qwen/Qwen3-0.6B using AutoModelForCausalLMPrimeRL to meta device[0m[0m
+[trainer0]:[2m12:01:54[0m [1m   INFO[0m [1m[22mInjecting chunked LM head with chunk size 1024[0m[0m
+[trainer0]:[2m12:01:55[0m [1m   INFO[0m [1m[22mLoRA enabled: 10,092,544 adapter params adapting 440,401,920 base params[0m[0m
+[trainer0]:[2m12:01:55[0m [1m   INFO[0m [1m[22mLoRA: 0 fully trainable parameters[0m[0m
+[trainer0]:[2m12:01:55[0m [1m   INFO[0m [1m[22mLoRA: 440,401,920 adapted or fully trainable out of 606,142,464 parameters[0m[0m
+[trainer0]:[2m12:01:55[0m [1m   INFO[0m [1m[22mApplied activation checkpointing (freq=1)[0m[0m
+[trainer0]:[2m12:01:55[0m [1m   INFO[0m [1m[22mCompiled 28 layers (fullgraph=False)[0m[0m
+[trainer0]:[2m12:01:55[0m [1m   INFO[0m [1m[22mBuilding 1-D device mesh with ['dp_shard'], [1][0m[0m
+[trainer0]:[2m12:01:55[0m [33m[1mWARNING[0m [33m[1m[22mModel uses tied word embeddings, so skipping the last-layer no-reshard optimization.[0m[0m
+[trainer0]:
+[trainer0]:Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]
+[trainer0]:Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 117487.51it/s]
+[trainer0]:[2m12:01:55[0m [33m[1mWARNING[0m [33m[1m[22mFound HF weight format in snapshot state dict and PrimeRL weight format in model state dict. Trying to auto-convert...[0m[0m
+[trainer0]:[2m12:01:55[0m [1m   INFO[0m [1m[22mLoading weights using HF DCP from /root/.cache/huggingface/hub/models--Qwen--Qwen3-0.6B/snapshots/c1899de289a04d12100db370d81485cdf75e47ca/prime[0m[0m
+[trainer0]:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[trainer0]:[2m12:01:56[0m [1m   INFO[0m [1m[22mInitializing tokenizer (name='Qwen/Qwen3-0.6B' trust_remote_code=False chat_template=None)[0m[0m
+[trainer0]:[2m12:01:57[0m [1m   INFO[0m [1m[22mSetting up loss function (type='default' dppo_mask_low=0.2 dppo_mask_high=0.2 adv_tau=1.0 kl_tau=0.001)[0m[0m
+[trainer0]:[2m12:01:57[0m [1m   INFO[0m [1m[22mInitializing optimizer (lr=1e-05 weight_decay=0.01 max_norm=1.0 type='adamw' betas1=0.9 betas2=0.999)[0m[0m
+[trainer0]:[2m12:01:57[0m [1m   INFO[0m [1m[22mWaiting for run 0 to be created (self.id_2_idx={'run_default': 0})[0m[0m
+[trainer0]:[2m12:01:58[0m [1m   INFO[0m [1m[22mWrapping optimizer with CPUOffloadOptimizer for optimizer state CPU offloading[0m[0m
+[trainer0]:[2m12:01:58[0m [1m   INFO[0m [1m[22mUsing `constant` scheduler (type='constant')[0m[0m
+[trainer0]:[2m12:01:58[0m [1m   INFO[0m [1m[22mInitializing weight broadcast (type='filesystem' save_sharded=True save_format='safetensors')[0m[0m
+[trainer0]:[2m12:01:58[0m [1m   INFO[0m [1m[22mStarting from step 1 (total_tokens=0, total_samples=0)[0m[0m
+[trainer0]:[2m12:01:58[0m [1m   INFO[0m [1m[22mInitializing data loader (fake=None)[0m[0m
+[trainer0]:[2m12:01:58[0m [1m   INFO[0m [1m[22m[GC] collection took 0.00s[0m[0m
+[trainer0]:[2m12:01:58[0m [1m   INFO[0m [1m[22mStarting training loop (max_steps=64)[0m[0m
+[trainer0]:/app/.venv/lib/python3.12/site-packages/torch/_dynamo/variables/functions.py:2202: UserWarning: Dynamo detected a call to a `functools.lru_cache`-wrapped function at 'norms.py:37'. Dynamo ignores the cache wrapper and directly traces the wrapped function. Silent incorrectness is only a *potential* risk, not something we have observed. Enable TORCH_LOGS=+dynamo for a DEBUG stack trace.
+[trainer0]:
+[trainer0]:This call originates from:
+[trainer0]:  File "/app/src/prime_rl/trainer/models/layers/norms.py", line 37, in forward
+[trainer0]:    quack_fn = _get_quack_rmsnorm() if hidden_states.is_cuda else None
+[trainer0]:
+[trainer0]:  torch._dynamo.utils.warn_once(msg)
+[trainer0]:[2m12:03:02[0m [33m[1mWARNING[0m [33m[1m[22mPeak FLOPS undefined for `NVIDIA A10`. Falling back to A100 (312 TFLOPS)[0m[0m
+[trainer0]:[2m12:03:02[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 1 |   1m 3s | Loss 0.0000 | Entropy 0.8821 | Mismatch KL 0.0040 | Grad. Norm 0.0018 | LR 1.00e-05 | Throughput 300 tokens/s | MFU 0.2% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:03:13[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 2 |   11.1s | Loss 0.0000 | Entropy 0.9033 | Mismatch KL 0.0049 | Grad. Norm 0.0843 | LR 1.00e-05 | Throughput 430 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:03:28[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 3 |   15.0s | Loss 0.0000 | Entropy 0.8551 | Mismatch KL 0.0051 | Grad. Norm 0.0026 | LR 1.00e-05 | Throughput 380 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:03:38[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 4 |   10.4s | Loss -0.0001 | Entropy 0.6943 | Mismatch KL 0.0072 | Grad. Norm 0.5103 | LR 1.00e-05 | Throughput 475 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:03:52[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 5 |   14.2s | Loss 0.0000 | Entropy 0.7025 | Mismatch KL 0.0049 | Grad. Norm 0.0031 | LR 1.00e-05 | Throughput 335 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:04:04[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 6 |   12.0s | Loss 0.0000 | Entropy 0.8759 | Mismatch KL 0.0076 | Grad. Norm 0.1751 | LR 1.00e-05 | Throughput 434 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:04:19[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 7 |   14.3s | Loss 0.0000 | Entropy 0.7220 | Mismatch KL 0.0096 | Grad. Norm 0.0053 | LR 1.00e-05 | Throughput 382 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:04:30[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 8 |   11.5s | Loss -0.0000 | Entropy 0.8065 | Mismatch KL 0.0130 | Grad. Norm 0.0994 | LR 1.00e-05 | Throughput 450 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:04:44[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 9 |   13.4s | Loss 0.0000 | Entropy 0.7627 | Mismatch KL 0.0152 | Grad. Norm 0.1205 | LR 1.00e-05 | Throughput 388 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:04:55[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 10 |   11.1s | Loss 0.0001 | Entropy 0.7144 | Mismatch KL 0.0408 | Grad. Norm 0.2238 | LR 1.00e-05 | Throughput 476 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:05:08[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 11 |   13.7s | Loss 0.0009 | Entropy 1.0117 | Mismatch KL 0.0341 | Grad. Norm 0.2228 | LR 1.00e-05 | Throughput 354 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:05:20[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 12 |   12.0s | Loss 0.0000 | Entropy 1.0123 | Mismatch KL 0.0193 | Grad. Norm 0.0105 | LR 1.00e-05 | Throughput 481 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:05:33[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 13 |   13.1s | Loss 0.0000 | Entropy 0.7687 | Mismatch KL 0.0365 | Grad. Norm 0.0327 | LR 1.00e-05 | Throughput 379 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:05:45[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 14 |   11.6s | Loss 0.0000 | Entropy 0.8252 | Mismatch KL 0.0324 | Grad. Norm 0.0228 | LR 1.00e-05 | Throughput 384 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:05:59[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 15 |   13.6s | Loss 0.0000 | Entropy 0.8602 | Mismatch KL 0.0298 | Grad. Norm 0.0242 | LR 1.00e-05 | Throughput 348 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:06:10[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 16 |   11.0s | Loss 0.0000 | Entropy 0.8306 | Mismatch KL 0.0343 | Grad. Norm 0.0215 | LR 1.00e-05 | Throughput 466 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:06:24[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 17 |   14.6s | Loss 0.0000 | Entropy 0.7660 | Mismatch KL 0.0220 | Grad. Norm 0.0558 | LR 1.00e-05 | Throughput 376 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:06:34[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 18 |    9.9s | Loss 0.0000 | Entropy 0.7922 | Mismatch KL 0.0792 | Grad. Norm 0.1229 | LR 1.00e-05 | Throughput 480 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:06:48[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 19 |   13.8s | Loss 0.0001 | Entropy 0.8525 | Mismatch KL 0.0568 | Grad. Norm 0.1856 | LR 1.00e-05 | Throughput 320 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:07:00[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 20 |   12.2s | Loss 0.0000 | Entropy 0.8099 | Mismatch KL 0.0388 | Grad. Norm 0.2250 | LR 1.00e-05 | Throughput 450 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:07:13[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 21 |   12.8s | Loss 0.0008 | Entropy 0.7690 | Mismatch KL 0.0228 | Grad. Norm 0.1628 | LR 1.00e-05 | Throughput 330 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:07:23[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 22 |   10.5s | Loss 0.0000 | Entropy 0.9376 | Mismatch KL 0.0213 | Grad. Norm 0.0102 | LR 1.00e-05 | Throughput 412 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:07:37[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 23 |   13.4s | Loss 0.0000 | Entropy 0.7152 | Mismatch KL 0.0146 | Grad. Norm 0.1318 | LR 1.00e-05 | Throughput 383 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:07:47[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 24 |   10.5s | Loss -0.0001 | Entropy 0.9310 | Mismatch KL 0.0214 | Grad. Norm 0.2099 | LR 1.00e-05 | Throughput 395 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:08:01[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 25 |   13.5s | Loss 0.0001 | Entropy 0.9010 | Mismatch KL 0.0228 | Grad. Norm 0.1014 | LR 1.00e-05 | Throughput 388 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:08:12[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 26 |   11.2s | Loss 0.0001 | Entropy 0.7701 | Mismatch KL 0.0192 | Grad. Norm 0.1997 | LR 1.00e-05 | Throughput 462 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:08:25[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 27 |   12.9s | Loss -0.0000 | Entropy 0.8249 | Mismatch KL 0.0298 | Grad. Norm 0.2424 | LR 1.00e-05 | Throughput 387 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:08:36[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 28 |   11.2s | Loss -0.0001 | Entropy 0.9631 | Mismatch KL 0.0211 | Grad. Norm 0.2071 | LR 1.00e-05 | Throughput 383 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:08:50[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 29 |   14.1s | Loss 0.0002 | Entropy 0.6981 | Mismatch KL 0.0122 | Grad. Norm 0.1795 | LR 1.00e-05 | Throughput 385 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:09:03[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 30 |   12.5s | Loss 0.0004 | Entropy 0.7736 | Mismatch KL 0.0116 | Grad. Norm 0.1285 | LR 1.00e-05 | Throughput 452 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:09:16[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 31 |   13.6s | Loss 0.0001 | Entropy 0.9471 | Mismatch KL 0.0226 | Grad. Norm 0.3637 | LR 1.00e-05 | Throughput 385 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:09:28[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 32 |   11.6s | Loss 0.0003 | Entropy 0.9560 | Mismatch KL 0.0161 | Grad. Norm 0.2650 | LR 1.00e-05 | Throughput 477 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:09:42[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 33 |   13.8s | Loss 0.0000 | Entropy 0.8690 | Mismatch KL 0.0140 | Grad. Norm 0.0071 | LR 1.00e-05 | Throughput 380 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:09:52[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 34 |   10.5s | Loss 0.0000 | Entropy 0.9851 | Mismatch KL 0.0253 | Grad. Norm 0.0122 | LR 1.00e-05 | Throughput 470 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:10:06[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 35 |   14.0s | Loss 0.0000 | Entropy 0.7829 | Mismatch KL 0.0179 | Grad. Norm 0.0073 | LR 1.00e-05 | Throughput 361 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:10:18[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 36 |   11.5s | Loss 0.0000 | Entropy 0.7997 | Mismatch KL 0.0216 | Grad. Norm 0.0393 | LR 1.00e-05 | Throughput 465 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:10:32[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 37 |   14.2s | Loss 0.0001 | Entropy 0.8556 | Mismatch KL 0.0200 | Grad. Norm 0.2080 | LR 1.00e-05 | Throughput 311 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:10:43[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 38 |   11.1s | Loss 0.0002 | Entropy 0.8989 | Mismatch KL 0.0201 | Grad. Norm 0.1956 | LR 1.00e-05 | Throughput 422 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:10:57[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 39 |   13.5s | Loss 0.0009 | Entropy 0.5294 | Mismatch KL 0.0198 | Grad. Norm 0.1747 | LR 1.00e-05 | Throughput 383 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:11:09[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 40 |   12.6s | Loss 0.0001 | Entropy 0.8769 | Mismatch KL 0.0180 | Grad. Norm 0.2466 | LR 1.00e-05 | Throughput 480 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:11:23[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 41 |   13.5s | Loss 0.0000 | Entropy 0.9821 | Mismatch KL 0.0167 | Grad. Norm 0.1272 | LR 1.00e-05 | Throughput 361 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:11:33[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 42 |   10.4s | Loss -0.0001 | Entropy 0.6934 | Mismatch KL 0.0183 | Grad. Norm 0.3117 | LR 1.00e-05 | Throughput 416 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:11:47[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 43 |   13.9s | Loss 0.0000 | Entropy 1.0238 | Mismatch KL 0.0168 | Grad. Norm 0.0051 | LR 1.00e-05 | Throughput 305 tokens/s | MFU 0.2% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:11:59[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 44 |   11.7s | Loss 0.0001 | Entropy 0.8130 | Mismatch KL 0.0311 | Grad. Norm 0.2110 | LR 1.00e-05 | Throughput 414 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:12:13[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 45 |   14.7s | Loss 0.0000 | Entropy 0.7576 | Mismatch KL 0.0225 | Grad. Norm 0.0089 | LR 1.00e-05 | Throughput 392 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:12:25[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 46 |   11.5s | Loss 0.0001 | Entropy 0.8636 | Mismatch KL 0.0311 | Grad. Norm 0.0794 | LR 1.00e-05 | Throughput 457 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:12:39[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 47 |   14.1s | Loss 0.0000 | Entropy 0.8582 | Mismatch KL 0.0250 | Grad. Norm 0.0080 | LR 1.00e-05 | Throughput 335 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:12:50[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 48 |   11.5s | Loss 0.0001 | Entropy 0.8329 | Mismatch KL 0.0330 | Grad. Norm 0.6939 | LR 1.00e-05 | Throughput 480 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:13:04[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 49 |   13.5s | Loss 0.0001 | Entropy 0.7717 | Mismatch KL 0.0250 | Grad. Norm 0.0944 | LR 1.00e-05 | Throughput 370 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:13:05[0m [1m   INFO[0m [1m[22m[GC] collection took 0.81s[0m[0m
+[trainer0]:[2m12:13:15[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 50 |   10.5s | Loss -0.0000 | Entropy 0.9113 | Mismatch KL 0.0232 | Grad. Norm 0.0526 | LR 1.00e-05 | Throughput 428 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:13:29[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 51 |   14.1s | Loss 0.0001 | Entropy 0.9103 | Mismatch KL 0.0257 | Grad. Norm 0.1017 | LR 1.00e-05 | Throughput 356 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:13:40[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 52 |   10.9s | Loss 0.0001 | Entropy 0.9752 | Mismatch KL 0.0481 | Grad. Norm 0.0646 | LR 1.00e-05 | Throughput 472 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:13:54[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 53 |   13.3s | Loss 0.0000 | Entropy 0.7766 | Mismatch KL 0.0354 | Grad. Norm 0.0179 | LR 1.00e-05 | Throughput 368 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:14:04[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 54 |   10.9s | Loss 0.0001 | Entropy 0.7702 | Mismatch KL 0.0486 | Grad. Norm 0.7943 | LR 1.00e-05 | Throughput 477 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:14:18[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 55 |   13.9s | Loss 0.0000 | Entropy 0.8865 | Mismatch KL 0.0360 | Grad. Norm 0.0964 | LR 1.00e-05 | Throughput 360 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:14:29[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 56 |   10.9s | Loss 0.0000 | Entropy 0.8899 | Mismatch KL 0.0532 | Grad. Norm 0.0183 | LR 1.00e-05 | Throughput 389 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:14:43[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 57 |   13.6s | Loss -0.0002 | Entropy 0.9423 | Mismatch KL 0.0381 | Grad. Norm 0.0988 | LR 1.00e-05 | Throughput 378 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:14:55[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 58 |   11.7s | Loss 0.0001 | Entropy 0.9132 | Mismatch KL 0.0748 | Grad. Norm 0.0851 | LR 1.00e-05 | Throughput 399 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:15:07[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 59 |   12.5s | Loss 0.0000 | Entropy 0.6956 | Mismatch KL 0.0794 | Grad. Norm 0.0354 | LR 1.00e-05 | Throughput 380 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:15:20[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 60 |   13.0s | Loss -0.0000 | Entropy 0.7346 | Mismatch KL 0.0451 | Grad. Norm 0.1486 | LR 1.00e-05 | Throughput 465 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:15:34[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 61 |   14.2s | Loss 0.0005 | Entropy 0.7716 | Mismatch KL 0.0470 | Grad. Norm 0.2253 | LR 1.00e-05 | Throughput 329 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:15:45[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 62 |   11.0s | Loss -0.0000 | Entropy 0.7330 | Mismatch KL 0.0371 | Grad. Norm 0.0700 | LR 1.00e-05 | Throughput 449 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:15:59[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 63 |   14.0s | Loss 0.0002 | Entropy 0.7575 | Mismatch KL 0.1004 | Grad. Norm 0.2608 | LR 1.00e-05 | Throughput 342 tokens/s | MFU 0.3% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:16:10[0m [32m[1mSUCCESS[0m [32m[1m[22mStep 64 |   11.0s | Loss -0.0002 | Entropy 0.7455 | Mismatch KL 0.0727 | Grad. Norm 0.2346 | LR 1.00e-05 | Throughput 461 tokens/s | MFU 0.4% | Peak Mem. 3.3 GiB[0m[0m
+[trainer0]:[2m12:16:10[0m [1m   INFO[0m [1m[22mWriting final checkpoint[0m[0m
+[trainer0]:[2m12:16:16[0m [1m   INFO[0m [1m[22mWriting final weight checkpoint[0m[0m
+[trainer0]:[2m12:16:18[0m [1m   INFO[0m [1m[22mPeak memory: 3.3 GiB[0m[0m
+[trainer0]:[2m12:16:18[0m [32m[1mSUCCESS[0m [32m[1m[22mRL trainer finished![0m[0m
