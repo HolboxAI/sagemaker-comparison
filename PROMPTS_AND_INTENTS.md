@@ -4,6 +4,8 @@ Covers two things: (1) the prompts given during this session, in order, that dro
 SageMaker training from environment setup to the final result — each with its instance,
 short intent, and short error; and (2) the per-experiment training prompt and intent.
 
+**Session model:** this session was run with **DeepSeek-V4-Pro**.
+
 ---
 
 ## 1. Session prompts → instances (chronological, with intent + error)
