@@ -1,6 +1,6 @@
 # Prompts & Intents — SageMaker 4-Experiment Session
 
-Covers two things: (1) the prompts given during this session, in order, that drove the
+Covers two things: (1) the prompts and steps during this session, in order, that drove the
 SageMaker training from environment setup to the final result — each with its instance,
 short intent, and short error; and (2) the per-experiment training prompt and intent.
 
@@ -12,7 +12,7 @@ short intent, and short error; and (2) the per-experiment training prompt and in
 
 | # | Prompt / step | Instance(s) | Error (short) | Intent (short) |
 |---|---|---|---|---|
-| 1 | **Run the 4 experiments** (ORena SFT/RL, GoEmotions SFT/RL) on SageMaker script-mode — account `751871643798`, profile `stanford_gpu`, `us-east-1` | GE-SFT `ml.g4dn.xlarge` · GE-RL `ml.g5.xlarge` · ORena-RL `ml.g5.2xlarge` · ORena-SFT `ml.g5.12xlarge` | — | Set up IAM role + S3 channels and launch all 4 demo jobs |
+| 1 | **Go through the MD file on the 4 trainings**; review the data available in S3; download any non-available data to S3; then start training — but first provide the setup and servers to be used | GE-SFT `ml.g4dn.xlarge` · GE-RL `ml.g5.xlarge` · ORena-RL `ml.g5.2xlarge` · ORena-SFT `ml.g5.12xlarge` | — | Review the 4-training plan + inventory/upload S3 data, then present the setup + server (instance) plan before launching |
 | 2 | ORena SFT re-attempt | `ml.g5.12xlarge` | `pyarrow` "cannot mix list and non-list" | Plain-string content + separate `images` column |
 | 3 | ORena SFT re-attempt | `ml.g5.12xlarge` | `DataParallel` device mismatch `cuda:0` vs `cuda:1` | Pin to single GPU (`CUDA_VISIBLE_DEVICES=0`) |
 | 4 | ORena SFT re-attempt | `ml.g5.12xlarge` | Same mismatch — env var silently dropped | Wire `environment` pass-through into the estimator |
@@ -20,7 +20,7 @@ short intent, and short error; and (2) the per-experiment training prompt and in
 | 6 | **"…ignore the non similarities"** (hyperparameter / GPU differences) | all four | — | Record GPU-forced deltas as findings; don't change them |
 | 7 | ORena SFT re-attempt | `ml.g5.12xlarge` | `torch.OutOfMemoryError` (~200 MB over 24 GB) | Resolve 9B bf16 OOM |
 | 8 | **"Cheap bf16 fix"** | `ml.g5.12xlarge` | (the OOM above) | LoRA rank 64→32/64 + `expandable_segments` → ✅ loss 1.494 |
-| 9 | **"…push relevant files … through vishnu-holbox … don't add claude as co-author"** | all four (artifacts) | — | Commit logs + metrics + config to GitHub |
+| 9 | **Final results** — explain the outcome after training completion | all four | — | Report: ORena SFT loss 1.494, GoEmotions SFT loss 1.54, both RL runs reward 0 (thinking mode) |
 
 Retries were concentrated on **ORena SFT (5 attempts)** and **ORena RL (2 attempts)**;
 GoEmotions SFT and RL completed on their first documented run. Every retry stayed on the
