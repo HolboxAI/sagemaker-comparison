@@ -48,6 +48,8 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 ├── fireworks/             # Fireworks run: config, scripts, logs, metrics, evaluators
 ├── sagemaker/             # SageMaker team adds their data here
 ├── prime-intellect/       # Prime Intellect team adds their data here
+├── baseten/               # Baseten attempt (CholecT50 task) — blocked at authorization
+├── together-ai/           # Together AI feasibility probe (CholecT50) — RL not available
 └── analysis/              # shared comparison code + the canonical metrics schema
 ```
 
@@ -60,6 +62,8 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 | Fireworks | ✅ complete (4/4 jobs) | [`fireworks/metrics/final_results.json`](fireworks/metrics/final_results.json) |
 | SageMaker | ⏳ pending — team to add | — |
 | Prime Intellect | ✅ partial — 2 complete, 1 blocked, 1 not started | [`prime-intellect/metrics/final_results.json`](prime-intellect/metrics/final_results.json) |
+| Baseten (CholecT50) | 🚫 blocked — training not authorized | [`baseten/EXPERIENCE_REPORT.md`](baseten/EXPERIENCE_REPORT.md) |
+| Together AI (CholecT50) | ❌ not feasible — no RL/GRPO | [`together-ai/EXPERIENCE_REPORT.md`](together-ai/EXPERIENCE_REPORT.md) |
 
 ### Fireworks quick results (1 epoch, fresh)
 
@@ -85,6 +89,22 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 Full matrix, small-run sizes, and the platform-specific findings (VLM SFT version drift,
 thinking-mode RL footgun, LoRA checkpoint bug, …):
 [`prime-intellect/config/PRIME_INTELLECT_4EXP_CONFIG.md`](prime-intellect/config/PRIME_INTELLECT_4EXP_CONFIG.md).
+
+---
+
+### Platform feasibility probes (a different task: CholecT50)
+
+`baseten/` and `together-ai/` document a **separate, later experiment** — CholecT50
+surgical action-triplet recognition (SFT → RLVR with a custom triplet-F1 reward) —
+not the ORena/GoEmotions benchmark above. Neither platform got a training run:
+
+| Platform | Outcome | One-line reason |
+|---|---|---|
+| Baseten | 🚫 blocked before launch | HTTP 403 — org lacks the Training Jobs entitlement |
+| Together AI | ❌ not feasible | self-serve fine-tuning is SFT + DPO only (no RL/GRPO) |
+
+Details: [`baseten/EXPERIENCE_REPORT.md`](baseten/EXPERIENCE_REPORT.md) and
+[`together-ai/EXPERIENCE_REPORT.md`](together-ai/EXPERIENCE_REPORT.md).
 
 ---
 

@@ -1,0 +1,26 @@
+{
+  "updated": "2026-10-12",
+  "platform": "together-ai",
+  "compute": "Together AI fine-tuning API (self-serve)",
+  "instance_types": "managed (not user-selectable)",
+  "sdk": "Together REST API",
+  "note": "Feasibility check only. RL/GRPO not available (SFT + DPO only); Qwen3-VL-4B absent. No job created, no cost. Canonical results: final_results.json.",
+  "experiments": {
+    "cholec_sft": {
+      "job_name": null,
+      "instance_type": null,
+      "state": "NOT_FEASIBLE",
+      "base_model": "Qwen3.5-4B/9B would be the closest substitute",
+      "method": "sft",
+      "note": "Target Qwen3-VL-4B-Instruct not on the platform; SFT possible only on a different VLM."
+    },
+    "cholec_rl": {
+      "job_name": null,
+      "instance_type": null,
+      "state": "NOT_FEASIBLE",
+      "base_model": null,
+      "method": "grpo",
+      "note": "No RL/GRPO/RLVR on the self-serve API; RL is a gated 'Custom Training' beta."
+    }
+  }
+}

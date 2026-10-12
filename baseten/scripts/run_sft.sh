@@ -1,0 +1,12 @@
+#!/bin/bash
+set -eux
+
+pip install -q \
+  "transformers==5.18.0" \
+  "trl==1.14.1" \
+  "peft==0.21.2" \
+  "accelerate>=1.4.0" \
+  "datasets>=4.7.0" \
+  remotezip pillow
+
+python sft.py "$@"
