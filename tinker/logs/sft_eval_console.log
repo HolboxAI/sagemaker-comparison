@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  25/300  tripletF1=0.153 blend=0.368 (106s)
+  50/300  tripletF1=0.151 blend=0.363 (219s)
+  75/300  tripletF1=0.121 blend=0.346 (334s)
+  100/300  tripletF1=0.109 blend=0.343 (432s)
+  125/300  tripletF1=0.116 blend=0.345 (548s)
+  150/300  tripletF1=0.133 blend=0.356 (660s)
+  175/300  tripletF1=0.142 blend=0.363 (758s)
+  200/300  tripletF1=0.139 blend=0.361 (878s)
+  225/300  tripletF1=0.136 blend=0.359 (970s)
+  250/300  tripletF1=0.131 blend=0.357 (1136s)
+  275/300  tripletF1=0.143 blend=0.366 (1326s)
+  300/300  tripletF1=0.136 blend=0.364 (1499s)
+{
+  "model": "tinker://f22a8509-e325-5621-92f0-73acf5ca5220:train:0/sampler_weights/cholec-sft-final-sampler",
+  "split": "val",
+  "n": 300,
+  "triplet_f1": 0.1357,
+  "instrument_f1": 0.8472,
+  "verb_f1": 0.3962,
+  "target_f1": 0.3064,
+  "blended_reward": 0.3642
+}
+wrote eval_sft.json

@@ -1,0 +1,27 @@
+{
+  "updated": "2026-10-13",
+  "platform": "tinker",
+  "compute": "Thinking Machines Tinker (managed GPUs, LoRA fine-tuning)",
+  "instance_types": "managed (not user-selectable)",
+  "sdk": "tinker 0.33.1 + tinker-cookbook 0.5.7",
+  "orchestrator": "thin host running only the tokenizer + image processor; all weights and training on Tinker managed GPUs",
+  "note": "First successful CholecT50 SFT -> RL/GRPO run. Canonical results: final_results.json.",
+  "experiments": {
+    "cholec_sft": {
+      "job_name": "cholec-sft-final",
+      "instance_type": null,
+      "state": "JOB_STATE_COMPLETED",
+      "base_model": "Qwen/Qwen3.5-4B",
+      "method": "sft",
+      "note": "625 steps, LoRA rank 16, lr 2e-4, final train loss 0.1254"
+    },
+    "cholec_rl": {
+      "job_name": "final",
+      "instance_type": null,
+      "state": "JOB_STATE_COMPLETED",
+      "base_model": "Qwen/Qwen3.5-4B",
+      "method": "grpo",
+      "note": "16 GRPO batches (importance sampling), lr 1e-5, mean reward 0.31 -> peak 0.49"
+    }
+  }
+}

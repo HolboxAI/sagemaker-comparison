@@ -1,0 +1,99 @@
+=== BASE eval Tue Oct 13 10:05:08 UTC 2026 ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  25/300  tripletF1=0.000 blend=0.000 (73s)
+  50/300  tripletF1=0.000 blend=0.000 (145s)
+  75/300  tripletF1=0.000 blend=0.000 (218s)
+  100/300  tripletF1=0.000 blend=0.000 (291s)
+  125/300  tripletF1=0.000 blend=0.000 (364s)
+  150/300  tripletF1=0.000 blend=0.000 (437s)
+  175/300  tripletF1=0.000 blend=0.000 (508s)
+  200/300  tripletF1=0.000 blend=0.000 (670s)
+  225/300  tripletF1=0.000 blend=0.000 (743s)
+  250/300  tripletF1=0.000 blend=0.000 (816s)
+  275/300  tripletF1=0.000 blend=0.000 (890s)
+  300/300  tripletF1=0.000 blend=0.000 (963s)
+{
+  "model": "base",
+  "split": "val",
+  "n": 300,
+  "triplet_f1": 0.0,
+  "instrument_f1": 0.0,
+  "verb_f1": 0.0,
+  "target_f1": 0.0,
+  "blended_reward": 0.0
+}
+wrote eval_base.json
+=== SFT eval Tue Oct 13 10:21:21 UTC 2026 ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/home/ubuntu/cholec-rl/tinker_eval.py", line 147, in <module>
+    main()
+  File "/home/ubuntu/cholec-rl/tinker_eval.py", line 143, in main
+    asyncio.run(run(args))
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/ubuntu/cholec-rl/tinker_eval.py", line 58, in run
+    sampling_client = sc.create_sampling_client(model_path=args.ckpt)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/cholec-rl-venv/lib/python3.12/site-packages/tinker/lib/public_interfaces/service_client.py", line 766, in create_sampling_client
+    ).result()
+      ^^^^^^^^
+  File "/home/ubuntu/cholec-rl-venv/lib/python3.12/site-packages/tinker/lib/public_interfaces/api_future.py", line 127, in result
+    return self._future.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/ubuntu/cholec-rl-venv/lib/python3.12/site-packages/tinker/lib/telemetry.py", line 431, in _awrapper
+    return await cast(Callable[..., Awaitable[R]], func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/cholec-rl-venv/lib/python3.12/site-packages/tinker/lib/public_interfaces/sampling_client.py", line 280, in _create_impl
+    sampling_session_id = await holder._create_sampling_session(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/cholec-rl-venv/lib/python3.12/site-packages/tinker/lib/internal_client_holder.py", line 567, in _create_sampling_session
+    result = await client.service.create_sampling_session(request=request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/cholec-rl-venv/lib/python3.12/site-packages/tinker/resources/service.py", line 136, in create_sampling_session
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/cholec-rl-venv/lib/python3.12/site-packages/tinker/_base_client.py", line 1265, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/cholec-rl-venv/lib/python3.12/site-packages/tinker/_base_client.py", line 1066, in request
+    raise self._make_status_error_from_response(err.response) from None
+tinker.BadRequestError: Error code: 400 - {'detail': "model_path 'tinker://a033c56b-51f6-5933-9513-3fea86cc7468:train:0/weights/cholec-sft-final' must point to a sampler weights checkpoint, but got a 'weights' checkpoint. Sampling requires a sampler weights checkpoint (path of the form 'tinker://<model_id>/sampler_weights/<name>'); create one from your training weights with save_weights_for_sampler."}
+=== RL eval Tue Oct 13 10:21:31 UTC 2026 ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  25/300  tripletF1=0.180 blend=0.431 (111s)
+  50/300  tripletF1=0.170 blend=0.417 (230s)
+  75/300  tripletF1=0.147 blend=0.401 (354s)
+  100/300  tripletF1=0.143 blend=0.404 (477s)
+  125/300  tripletF1=0.156 blend=0.412 (590s)
+  150/300  tripletF1=0.164 blend=0.414 (690s)
+  175/300  tripletF1=0.171 blend=0.422 (800s)
+  200/300  tripletF1=0.165 blend=0.416 (915s)
+  225/300  tripletF1=0.159 blend=0.415 (1019s)
+  250/300  tripletF1=0.160 blend=0.418 (1139s)
+  275/300  tripletF1=0.170 blend=0.423 (1248s)
+  300/300  tripletF1=0.159 blend=0.419 (1373s)
+{
+  "model": "tinker://b1437c11-da52-5b04-9beb-fbb070ea86da:train:0/sampler_weights/final",
+  "split": "val",
+  "n": 300,
+  "triplet_f1": 0.1589,
+  "instrument_f1": 0.8644,
+  "verb_f1": 0.5284,
+  "target_f1": 0.3833,
+  "blended_reward": 0.4188
+}
+wrote eval_rl.json
+=== ALL EVALS DONE ===

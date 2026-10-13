@@ -50,6 +50,7 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 ├── prime-intellect/       # Prime Intellect team adds their data here
 ├── baseten/               # Baseten attempt (CholecT50 task) — blocked at authorization
 ├── together-ai/           # Together AI feasibility probe (CholecT50) — RL not available
+├── tinker/                # Thinking Machines Tinker run (CholecT50) — SFT → RL/GRPO complete
 └── analysis/              # shared comparison code + the canonical metrics schema
 ```
 
@@ -64,6 +65,7 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 | Prime Intellect | ✅ partial — 2 complete, 1 blocked, 1 not started | [`prime-intellect/metrics/final_results.json`](prime-intellect/metrics/final_results.json) |
 | Baseten (CholecT50) | 🚫 blocked — training not authorized | [`baseten/EXPERIENCE_REPORT.md`](baseten/EXPERIENCE_REPORT.md) |
 | Together AI (CholecT50) | ❌ not feasible — no RL/GRPO | [`together-ai/EXPERIENCE_REPORT.md`](together-ai/EXPERIENCE_REPORT.md) |
+| Tinker (CholecT50) | ✅ complete — SFT → RL/GRPO | [`tinker/metrics/final_results.json`](tinker/metrics/final_results.json) |
 
 ### Fireworks quick results (1 epoch, fresh)
 
@@ -94,17 +96,20 @@ thinking-mode RL footgun, LoRA checkpoint bug, …):
 
 ### Platform feasibility probes (a different task: CholecT50)
 
-`baseten/` and `together-ai/` document a **separate, later experiment** — CholecT50
-surgical action-triplet recognition (SFT → RLVR with a custom triplet-F1 reward) —
-not the ORena/GoEmotions benchmark above. Neither platform got a training run:
+`baseten/`, `together-ai/`, and `tinker/` document a **separate, later experiment** —
+CholecT50 surgical action-triplet recognition (SFT → RLVR with a custom triplet-F1
+reward) — not the ORena/GoEmotions benchmark above. Two platforms could not run it;
+Tinker completed the full pipeline:
 
 | Platform | Outcome | One-line reason |
 |---|---|---|
 | Baseten | 🚫 blocked before launch | HTTP 403 — org lacks the Training Jobs entitlement |
 | Together AI | ❌ not feasible | self-serve fine-tuning is SFT + DPO only (no RL/GRPO) |
+| Tinker | ✅ complete | SFT → GRPO ran; triplet F1 0.000 → 0.136 (SFT) → 0.159 (RL) |
 
-Details: [`baseten/EXPERIENCE_REPORT.md`](baseten/EXPERIENCE_REPORT.md) and
-[`together-ai/EXPERIENCE_REPORT.md`](together-ai/EXPERIENCE_REPORT.md).
+Details: [`baseten/EXPERIENCE_REPORT.md`](baseten/EXPERIENCE_REPORT.md),
+[`together-ai/EXPERIENCE_REPORT.md`](together-ai/EXPERIENCE_REPORT.md), and
+[`tinker/README.md`](tinker/README.md).
 
 ---
 

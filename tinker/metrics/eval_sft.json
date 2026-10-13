@@ -1,0 +1,10 @@
+{
+  "model": "tinker://f22a8509-e325-5621-92f0-73acf5ca5220:train:0/sampler_weights/cholec-sft-final-sampler",
+  "split": "val",
+  "n": 300,
+  "triplet_f1": 0.1357,
+  "instrument_f1": 0.8472,
+  "verb_f1": 0.3962,
+  "target_f1": 0.3064,
+  "blended_reward": 0.3642
+}

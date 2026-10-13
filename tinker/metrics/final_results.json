@@ -1,0 +1,68 @@
+{
+  "platform": "tinker",
+  "generated_utc": "2026-10-13",
+  "shared": {
+    "fresh_runs": true,
+    "task": "CholecT50 surgical action-triplet recognition",
+    "note": "First successful end-to-end SFT -> RL/GRPO run of the CholecT50 triplet task in this benchmark. Managed GPUs via Thinking Machines Tinker; thin orchestration host (no local weights).",
+    "eval": "val split, n=300 frames, greedy decoding (temp 0); blended reward = 0.4*triplet_F1 + 0.6*mean(instrument, verb, target F1)"
+  },
+  "experiments": {
+    "cholec_sft": {
+      "experiment": "cholec_sft",
+      "method": "sft",
+      "job_id": null,
+      "state": "JOB_STATE_COMPLETED",
+      "base_model": "Qwen/Qwen3.5-4B",
+      "hf_model_id": "Qwen/Qwen3.5-4B",
+      "output_model": "tinker://a033c56b-51f6-5933-9513-3fea86cc7468:train:0/weights/cholec-sft-final",
+      "lora_rank": 16,
+      "learning_rate": 2e-4,
+      "max_context_length": 8192,
+      "epochs": 1,
+      "dataset_size": 2500,
+      "steps": 625,
+      "final_train_loss": 0.1254,
+      "estimated_cost_usd": null,
+      "wall_time_s": 3277,
+      "eval_triplet_f1": 0.1357,
+      "eval_instrument_f1": 0.8472,
+      "eval_verb_f1": 0.3962,
+      "eval_target_f1": 0.3064,
+      "eval_blended_reward": 0.3642
+    },
+    "cholec_rl": {
+      "experiment": "cholec_rl",
+      "method": "grpo",
+      "job_id": null,
+      "state": "JOB_STATE_COMPLETED",
+      "base_model": "Qwen/Qwen3.5-4B",
+      "hf_model_id": "Qwen/Qwen3.5-4B",
+      "output_model": "tinker://b1437c11-da52-5b04-9beb-fbb070ea86da:train:0/sampler_weights/final",
+      "lora_rank": 16,
+      "learning_rate": 1e-5,
+      "dataset_size": 256,
+      "steps": 16,
+      "start_score": 0.3642,
+      "final_score": 0.4188,
+      "start_triplet_f1": 0.1357,
+      "final_triplet_f1": 0.1589,
+      "start_instrument_f1": 0.8472,
+      "final_instrument_f1": 0.8644,
+      "start_verb_f1": 0.3962,
+      "final_verb_f1": 0.5284,
+      "start_target_f1": 0.3064,
+      "final_target_f1": 0.3833,
+      "reward_curve": [0.3055, 0.3182, 0.2705, 0.3401, 0.3855, 0.3074, 0.3649, 0.3522, 0.333, 0.3609, 0.4116, 0.4244, 0.4872, 0.4674, 0.4102, 0.3799],
+      "estimated_cost_usd": null,
+      "wall_time_s": 393
+    }
+  },
+  "findings": [
+    "Tinker runs RLVR/GRPO with a custom Python reward (the triplet-F1 Env) end to end with no platform gap — the whole point of this benchmark's CholecT50 leg.",
+    "SFT and RL use two non-interchangeable checkpoint kinds: save_state() -> weights/ (training, resumable) vs save_weights_for_sampler() -> sampler_weights/ (inference only). Eval of a training checkpoint requires converting to sampler_weights first.",
+    "Base model (Qwen3.5-4B, no fine-tuning) emits zero valid triplets (all F1 = 0.0), so SFT is the 'before'; RL then lifts every component (+17% triplet F1, +33% verb F1, +15% blended reward).",
+    "No per-job USD cost is surfaced by the SDK used; only token counts and wall time are available, so estimated_cost_usd is null.",
+    "Qwen3.5-4B (vision-language) LoRA fine-tuning + RL is supported on Tinker, the capability Together AI and Baseten could not self-serve for this task."
+  ]
+}
