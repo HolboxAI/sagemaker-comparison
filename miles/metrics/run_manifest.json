@@ -1,12 +1,11 @@
 {
   "updated": "2026-10-14",
   "platform": "miles",
-  "framework": "miles (fork of slime) — SGLang rollout + Megatron/FSDP training",
+  "framework": "miles (fork of slime) — SGLang rollout + FSDP training",
   "sdk": "radixark/miles:latest (Docker), self-hosted",
   "aws_profile": "riley (user stanford_gpu, account 751871643798, us-east-1)",
   "repo": "github.com/radixark/miles",
   "scope": "RL only (GRPO). SFT stays on Fireworks, SageMaker, and Prime Intellect.",
-  "note": "Launch-ready. Reward functions and GoEmotions data built and smoke-tested offline. No training step has run yet on Miles.",
   "experiments": {
     "orena_sft": {
       "experiment": "orena_sft",
@@ -27,7 +26,7 @@
       "dataset": "data/orena/orena_rl.jsonl (regenerate; 66 MB base64 images, not committed)",
       "dataset_size": 2000,
       "reward": "miles/scripts/reward_orena.py (dense correctness; exact-match reported)",
-      "note": "VLM RL on the exact Fireworks base model. Needs full data regen, VLM generate-function validation, and an 8-GPU node."
+      "note": "VLM RL on the exact Fireworks base model. Blocked by 8-GPU g6e capacity. Same thinking-disable fix applies (Qwen3-VL defaults to thinking)."
     },
     "goemotions_sft": {
       "experiment": "goemotions_sft",
@@ -38,24 +37,28 @@
     "goemotions_rl": {
       "experiment": "goemotions_rl",
       "method": "grpo",
-      "state": "NOT_STARTED",
-      "base_model": "Qwen3-4B",
-      "hf_model_id": "Qwen/Qwen3-4B",
+      "state": "COMPLETED",
+      "base_model": "Qwen3-0.6B",
+      "hf_model_id": "Qwen/Qwen3-0.6B",
       "lora_rank": null,
       "learning_rate": 1e-5,
       "n_samples_per_prompt": 8,
       "rollout_max_response_len": 64,
+      "kl_beta": 0.0,
+      "enable_thinking": false,
       "dataset": "miles/data/goemotions_rl_miles.jsonl",
       "dataset_size": 5000,
       "reward": "miles/scripts/reward_goemotions.py (Jaccard; micro-F1 reported)",
-      "note": "De-risk leg. FSDP backend, one GPU. Base model differs from Fireworks/SageMaker (Qwen3-0.6B not in Miles catalog)."
+      "jaccard": { "start": 0.1325, "final": 0.6016, "peak": 0.6562, "mean": 0.3807 },
+      "micro_f1_mean_sampled": 0.4392,
+      "truncated_mean": 0.835,
+      "note": "First run invalidated by Qwen3 default enable_thinking=True (model rambled to the 64-token cap, reward ~0). Rerun with enable_thinking=False fixed it; see final_results.json."
     }
   },
   "findings": [
-    "VLM RL base model is an exact match to Fireworks (Qwen3-VL-8B-Instruct) — the only cross-platform pair in the benchmark with the same RL base model.",
-    "Text RL base model differs: Qwen3-0.6B is not in Miles' supported list, so GoEmotions RL uses Qwen3-4B.",
-    "Compute is self-host and heavy: the standard recipe wants 8x H100/H200/B200; the riley profile has smaller GPU classes (L40S/L4/Blackwell L-series).",
-    "Non-binary rewards (dense ORena correctness, Jaccard) hit Miles' documented fractional-reward gradient-noise caveat when a GRPO group shares one reward value.",
-    "Reward registration is a single-file --custom-rm-path function, simpler than Fireworks' tarball + Eval Protocol upload."
+    "Base model for text RL matches Fireworks exactly: Qwen3-0.6B. Same dataset, same 64-token cap, same Jaccard reward — apples-to-apples.",
+    "Qwen3's chat template defaults to enable_thinking=True, which made the model fill the whole 64-token budget with <think> reasoning and score zero. Fix = --apply-chat-template-kwargs '{\"enable_thinking\": false}' (Fireworks runs this model with enable_thinking=False).",
+    "Miles (self-hosted GRPO, KL=0) reaches final Jaccard 0.60 vs Fireworks 0.34, and sampled micro-F1 ~0.44 vs 0.38 — but ends at 100% truncated responses, so the higher Jaccard is partly verbose-but-parseable output.",
+    "FSDP saves DCP (torch.distributed.checkpoint); export_hf is Megatron-only, so a held-out eval needs a DCP->HF loader."
   ]
 }

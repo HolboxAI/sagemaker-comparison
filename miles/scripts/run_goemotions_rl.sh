@@ -47,6 +47,10 @@ ROLLOUT_ARGS=(
   --input-key messages
   --label-key label
   --apply-chat-template
+  # Qwen3 default enables thinking; without this the 0.6B model fills the whole
+  # 64-token budget with <think> reasoning and parses to zero labels (reward 0).
+  # Fireworks runs this same model with enable_thinking=False, so match it.
+  --apply-chat-template-kwargs '{"enable_thinking": false}'
   --rollout-shuffle
   --custom-rm-path reward_goemotions.reward_fn
   --reward-key reward_value

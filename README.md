@@ -36,6 +36,10 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 - RL method = GRPO, KL beta 0.04, temperature 0.7, 8 rollouts per prompt.
 - 1 epoch each (short runs to fit a small budget).
 
+> ⚠️ Deviation: the Miles GoEmotions RL leg ran with `kl_beta = 0` (see the
+> Miles quick-results caveats below). Re-running at `kl_beta = 0.04` is the
+> clean follow-up before the reward curves are compared one-to-one.
+
 ---
 
 ## Repository layout
@@ -65,7 +69,7 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 | Fireworks | ✅ complete (4/4 jobs) | [`fireworks/metrics/final_results.json`](fireworks/metrics/final_results.json) |
 | SageMaker | ⏳ pending — team to add | — |
 | Prime Intellect | ✅ partial — 2 complete, 1 blocked, 1 not started | [`prime-intellect/metrics/final_results.json`](prime-intellect/metrics/final_results.json) |
-| Miles | ⏳ running — GoEmotions RL (256 rollouts, GRPO) live on g5.2xlarge | [`miles/metrics/run_manifest.json`](miles/metrics/run_manifest.json) |
+| Miles | ✅ complete — GoEmotions RL (256 rollouts, GRPO) on g5.2xlarge | [`miles/metrics/final_results.json`](miles/metrics/final_results.json) |
 | Baseten (CholecT50) | 🚫 blocked — training not authorized | [`baseten/EXPERIENCE_REPORT.md`](baseten/EXPERIENCE_REPORT.md) |
 | Together AI (CholecT50) | ❌ not feasible — no RL/GRPO | [`together-ai/EXPERIENCE_REPORT.md`](together-ai/EXPERIENCE_REPORT.md) |
 | Tinker (CholecT50) | ✅ complete — SFT → RL/GRPO | [`tinker/metrics/final_results.json`](tinker/metrics/final_results.json) |
@@ -94,6 +98,37 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 Full matrix, small-run sizes, and the platform-specific findings (VLM SFT version drift,
 thinking-mode RL footgun, LoRA checkpoint bug, …):
 [`prime-intellect/config/PRIME_INTELLECT_4EXP_CONFIG.md`](prime-intellect/config/PRIME_INTELLECT_4EXP_CONFIG.md).
+
+### Miles quick results (self-hosted GRPO, Qwen3-0.6B, 1 epoch, fresh)
+
+| Experiment | Metric | Start → final | Peak |
+|---|---|---|---|
+| GoEmotions RL | Jaccard | 0.133 → **0.602** | 0.656 |
+| GoEmotions RL | micro_f1 (sampled) | — → **0.439** | — |
+
+**vs Fireworks (same base model, same data, same 64-token cap):**
+
+| Metric | Fireworks | Miles | Δ |
+|---|---|---|---|
+| GoEmotions RL Jaccard final | 0.344 | **0.602** | +0.26 |
+| GoEmotions RL micro_f1 final | 0.377 | **0.439** | +0.06 |
+
+Miles reaches a higher Jaccard on the same text-RL task, but two caveats keep the
+comparison from being strictly apples-to-apples:
+
+- **KL divergence**: Miles ran `kl_beta = 0` (fire-and-forget GRPO). Fireworks used
+  `kl_beta = 0.04` per the shared spec. A higher KL penalty constrains Fireworks to
+  stay closer to the base model, which caps its reward ceiling. The fair follow-up
+  is Miles at `kl_beta = 0.04`.
+- **Verbosity**: Miles' model ends at ~100% truncated responses (`truncated_mean 0.84`,
+  `response_len_mean 55` of 64). It learned to fill the token budget while getting
+  labels parseable, a mild reward-hacking signature. Fireworks' truncation rate was
+  not reported.
+
+Details: [`miles/metrics/run_manifest.json`](miles/metrics/run_manifest.json) and
+[`miles/metrics/final_results.json`](miles/metrics/final_results.json).
+Comparison chart: [`analysis/plots/miles_vs_fireworks_goemotions.png`](analysis/plots/miles_vs_fireworks_goemotions.png)
+(regenerate with `python3 analysis/plot_miles_vs_fireworks.py`).
 
 ---
 
