@@ -1,0 +1,10 @@
+{
+  "model": "base",
+  "split": "val",
+  "n": 300,
+  "triplet_f1": 0.0,
+  "instrument_f1": 0.0,
+  "verb_f1": 0.0,
+  "target_f1": 0.0,
+  "blended_reward": 0.0
+}

@@ -1,0 +1,61 @@
+{
+  "platform": "baseten",
+  "generated_utc": "2026-10-12",
+  "shared": {
+    "fresh_runs": true,
+    "task": "CholecT50 surgical action-triplet recognition",
+    "epochs": 1,
+    "rl_method": "GRPO",
+    "rl_kl_beta": 0.04,
+    "rl_temperature": 1.0,
+    "rl_rollouts_per_prompt": 8
+  },
+  "experiments": {
+    "cholec_sft": {
+      "experiment": "cholec_sft",
+      "method": "sft",
+      "job_id": null,
+      "state": "BLOCKED",
+      "base_model": "Qwen/Qwen3-VL-4B-Instruct",
+      "hf_model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "output_model": null,
+      "lora_rank": 16,
+      "learning_rate": 2e-4,
+      "max_context_length": 8192,
+      "epochs": 1,
+      "dataset_size": 2500,
+      "steps": null,
+      "final_train_loss": null,
+      "estimated_cost_usd": null,
+      "wall_time_s": null,
+      "blocked_reason": "HTTP 403 'You are not authorized for Baseten training' — the org does not have the Training Jobs entitlement."
+    },
+    "cholec_rl": {
+      "experiment": "cholec_rl",
+      "method": "grpo",
+      "job_id": null,
+      "state": "BLOCKED",
+      "base_model": "Qwen/Qwen3-VL-4B-Instruct (SFT checkpoint)",
+      "hf_model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "output_model": null,
+      "lora_rank": 16,
+      "learning_rate": 1e-6,
+      "max_completion_length": 256,
+      "dataset_size": 600,
+      "steps": 150,
+      "start_score": null,
+      "final_score": null,
+      "start_exact_match": null,
+      "final_exact_match": null,
+      "estimated_cost_usd": null,
+      "wall_time_s": null,
+      "blocked_reason": "Same 403 as SFT — the RL job never launched."
+    }
+  },
+  "findings": [
+    "Baseten Training Jobs is an org-level entitlement; a bare 403 is returned before any job is created.",
+    "Only H100 ($6.50/hr) and H200 ($7.50/hr) are offered for training; no smaller GPU for smoke tests.",
+    "Adding a payment method or an HF token does not resolve the training-authorization 403.",
+    "The truss_train config API (Runtime/TrainingJob/TrainingProject/LoadCheckpointConfig/SecretReference) was validated and compiles cleanly; the pipeline is push-ready."
+  ]
+}

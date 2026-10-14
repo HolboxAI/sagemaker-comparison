@@ -1,0 +1,44 @@
+# Exp 2 — ORena VLM RL (GRPO, small) on Qwen/Qwen3.5-9B, parity with Fireworks §5.
+#
+# ⚠️ SCHEMA NOT VERIFIED. The [orchestrator]/[[source]]/env.id fields below are the
+#    prime-rl GitHub-main RL schema (from 06_EXP2_ORENA_RL.md); the pod's prime-rl
+#    is OLDER than main and already rejected [run], so reconcile these at run time
+#    exactly the way we did for SFT ([run] removed, name lives in output_dir).
+#    Do NOT launch until the RL schema is confirmed against `prime-rl` on the pod.
+#
+# Parity hyperparameters (locked — D6): lr 1e-5, LoRA r=16, KL beta 0.04,
+# temperature 0.7, max output 512, 8 rollouts/prompt, GRPO, fresh (no warm-start).
+max_steps = 48                 # small-run cap
+output_dir = "/workspace/outputs/orena-rl-exp2"
+seq_len = 4096                 # ref 65536; rows are ~1-2k tokens
+
+[model]
+name = "Qwen/Qwen3.5-9B"
+impl = "custom"
+vlm = true
+
+[model.lora]
+rank = 16
+alpha = 32
+dropout = 0.05
+
+[data]
+name = "/workspace/data/orena/rl"
+
+[orchestrator]
+batch_size = 64
+group_size = 8                # 8 rollouts per prompt
+max_off_policy_steps = 8
+
+[orchestrator.algo]
+type = "grpo"
+# kl_beta = 0.04
+# temperature = 0.7
+# max_output_tokens = 512
+
+[trainer.optim]
+lr = 1e-5
+
+[ckpt]
+[ckpt.weights]
+save_adapter_separately = true

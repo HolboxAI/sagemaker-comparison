@@ -1,0 +1,55 @@
+{
+  "platform": "together-ai",
+  "generated_utc": "2026-10-12",
+  "shared": {
+    "fresh_runs": true,
+    "task": "CholecT50 surgical action-triplet recognition",
+    "note": "Feasibility check only — no job was created or billed."
+  },
+  "experiments": {
+    "cholec_sft": {
+      "experiment": "cholec_sft",
+      "method": "sft",
+      "job_id": null,
+      "state": "NOT_FEASIBLE",
+      "base_model": null,
+      "hf_model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "output_model": null,
+      "lora_rank": null,
+      "learning_rate": null,
+      "max_context_length": null,
+      "epochs": null,
+      "dataset_size": null,
+      "steps": null,
+      "final_train_loss": null,
+      "estimated_cost_usd": null,
+      "wall_time_s": null,
+      "blocked_reason": "Target model Qwen3-VL-4B-Instruct is not on Together (inference or fine-tuning). SFT would require a model swap to Qwen3.5-4B/9B."
+    },
+    "cholec_rl": {
+      "experiment": "cholec_rl",
+      "method": "grpo",
+      "job_id": null,
+      "state": "NOT_FEASIBLE",
+      "base_model": null,
+      "hf_model_id": "Qwen/Qwen3-VL-4B-Instruct",
+      "output_model": null,
+      "lora_rank": null,
+      "learning_rate": null,
+      "max_completion_length": null,
+      "dataset_size": null,
+      "steps": null,
+      "start_score": null,
+      "final_score": null,
+      "estimated_cost_usd": null,
+      "wall_time_s": null,
+      "blocked_reason": "Together self-serve fine-tuning supports SFT + DPO only — no GRPO/RLVR/custom reward. RL exists only in a gated 'Custom Training' beta."
+    }
+  },
+  "findings": [
+    "Together AI's self-serve fine-tuning is SFT + DPO only; no reinforcement learning.",
+    "Qwen3-VL is absent from the catalog; Qwen2.5-VL and Qwen2-VL 72B are inference-only.",
+    "Vision-language fine-tuning is limited to Qwen3.5/Qwen3.6/Qwen3.8 and Gemma/Llama VLMs.",
+    "No cost is quotable because the RL stage (the project's goal) cannot run on this platform."
+  ]
+}

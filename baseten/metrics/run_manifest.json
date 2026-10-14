@@ -1,0 +1,35 @@
+{
+  "updated": "2026-10-12",
+  "platform": "baseten",
+  "compute": "Baseten Training Jobs (truss_train)",
+  "instance_types": "H100 ($6.50/hr); H200 ($7.50/hr) — training only",
+  "sdk": "baseten CLI (truss_train config)",
+  "note": "Blocked before launch: HTTP 403 training authorization. No job created, no compute billed. Canonical results: final_results.json.",
+  "experiments": {
+    "cholec_sft": {
+      "job_name": null,
+      "instance_type": "H100",
+      "state": "BLOCKED",
+      "base_model": "Qwen/Qwen3-VL-4B-Instruct",
+      "method": "sft",
+      "epochs": 1,
+      "learning_rate": 2e-4,
+      "lora_rank": 16,
+      "max_context_length": 8192,
+      "subset": "2500 train",
+      "blocked_reason": "HTTP 403 'You are not authorized for Baseten training' (org lacks the Training Jobs entitlement)"
+    },
+    "cholec_rl": {
+      "job_name": null,
+      "instance_type": "H100",
+      "state": "BLOCKED",
+      "base_model": "Qwen/Qwen3-VL-4B-Instruct (SFT checkpoint)",
+      "method": "grpo",
+      "epochs": 1,
+      "learning_rate": 1e-6,
+      "lora_rank": 16,
+      "subset": "600 prompts, 150 steps, 8 rollouts",
+      "blocked_reason": "Same 403 as SFT"
+    }
+  }
+}

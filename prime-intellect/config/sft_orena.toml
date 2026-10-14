@@ -1,0 +1,48 @@
+# Exp 1 — ORena VLM SFT (small de-risk run) on Qwen/Qwen3.5-9B, parity with Fireworks §4.
+#
+# Deviations from reference (recorded in DECISIONS_LOG D4/D6):
+#   - 300 train / 100 eval rows (ref: full 10,980-row orena_train_full)
+#   - max_steps 128 (ref: 1 epoch over the full set)
+#   - seq_len 4096 (ref 65536): 9.4B VLM can't hold 65k ctx on ONE A100 40GB; our
+#     rows tokenize to ~1-2k (~1280 visual tokens + short text), so 4096 is ample.
+#   - micro_batch_size 4 / batch 32 is the reference; if OOM on A100 40GB, halve
+#     micro to 2 (record it) — do not otherwise touch hyperparameters.
+#
+# VLM fields NOT yet verified on the pod's prime-rl (older than GitHub main):
+#   - how to flag the model as multimodal (impl="custom" + [model.vlm] per recon B4)
+#   - LoRA target modules for the vision tower (model.visual.* + model.visual.merger.*)
+#   - the image-content key the Qwen3.5 renderer expects ({"type":"image"} vs
+#     {"type":"image_url"}). Verify all three before launching.
+max_steps = 128
+output_dir = "/workspace/outputs/orena-sft-exp1"
+
+[model]
+name = "Qwen/Qwen3.5-9B"
+# impl = "custom"          # uncomment once verified (VLM enable flag)
+
+[model.lora]
+rank = 64
+alpha = 128
+dropout = 0.05
+
+[data]
+type = "sft"
+name = "/workspace/data/orena/chat"
+seq_len = 4096
+batch_size = 32
+micro_batch_size = 4
+
+[optim]
+type = "adamw"
+lr = 1e-4
+
+[scheduler]
+type = "cosine"
+warmup_steps = 13
+
+[ckpt]
+
+[ckpt.weights]
+# Same bug as Exp 3: default false STRIPS the LoRA adapter at checkpoint. Must be
+# true so the adapter is saved separately for merge-at-eval.
+save_adapter_separately = true

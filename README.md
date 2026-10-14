@@ -48,6 +48,9 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 ├── fireworks/             # Fireworks run: config, scripts, logs, metrics, evaluators
 ├── sagemaker/             # SageMaker team adds their data here
 ├── prime-intellect/       # Prime Intellect team adds their data here
+├── baseten/               # Baseten attempt (CholecT50 task) — blocked at authorization
+├── together-ai/           # Together AI feasibility probe (CholecT50) — RL not available
+├── tinker/                # Thinking Machines Tinker run (CholecT50) — SFT → RL/GRPO complete
 └── analysis/              # shared comparison code + the canonical metrics schema
 ```
 
@@ -59,7 +62,10 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 |---|---|---|
 | Fireworks | ✅ complete (4/4 jobs) | [`fireworks/metrics/final_results.json`](fireworks/metrics/final_results.json) |
 | SageMaker | ⏳ pending — team to add | — |
-| Prime Intellect | ⏳ pending — team to add | — |
+| Prime Intellect | ✅ partial — 2 complete, 1 blocked, 1 not started | [`prime-intellect/metrics/final_results.json`](prime-intellect/metrics/final_results.json) |
+| Baseten (CholecT50) | 🚫 blocked — training not authorized | [`baseten/EXPERIENCE_REPORT.md`](baseten/EXPERIENCE_REPORT.md) |
+| Together AI (CholecT50) | ❌ not feasible — no RL/GRPO | [`together-ai/EXPERIENCE_REPORT.md`](together-ai/EXPERIENCE_REPORT.md) |
+| Tinker (CholecT50) | ✅ complete — SFT → RL/GRPO | [`tinker/metrics/final_results.json`](tinker/metrics/final_results.json) |
 
 ### Fireworks quick results (1 epoch, fresh)
 
@@ -72,6 +78,38 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 
 **Results graphs:** [`analysis/plots/fireworks_summary.png`](analysis/plots/fireworks_summary.png)
 (SFT loss curves + RL reward curves). Individual charts are in the same folder.
+
+### Prime Intellect quick results (on-demand pods, prime-rl 0.7.0)
+
+| Experiment | Final metric | Result |
+|---|---|---|
+| ORena SFT | train loss | 🚫 blocked (pod image rejects `[model.vlm]` for SFT) |
+| ORena RL | exact_match | ⏳ not started (feasible) |
+| GoEmotions SFT | micro_f1 | **0.4956** (train loss 0.167) |
+| GoEmotions RL | micro_f1 | **0.035** (Jaccard 0.018; did not learn) |
+
+Full matrix, small-run sizes, and the platform-specific findings (VLM SFT version drift,
+thinking-mode RL footgun, LoRA checkpoint bug, …):
+[`prime-intellect/config/PRIME_INTELLECT_4EXP_CONFIG.md`](prime-intellect/config/PRIME_INTELLECT_4EXP_CONFIG.md).
+
+---
+
+### Platform feasibility probes (a different task: CholecT50)
+
+`baseten/`, `together-ai/`, and `tinker/` document a **separate, later experiment** —
+CholecT50 surgical action-triplet recognition (SFT → RLVR with a custom triplet-F1
+reward) — not the ORena/GoEmotions benchmark above. Two platforms could not run it;
+Tinker completed the full pipeline:
+
+| Platform | Outcome | One-line reason |
+|---|---|---|
+| Baseten | 🚫 blocked before launch | HTTP 403 — org lacks the Training Jobs entitlement |
+| Together AI | ❌ not feasible | self-serve fine-tuning is SFT + DPO only (no RL/GRPO) |
+| Tinker | ✅ complete | SFT → GRPO ran; triplet F1 0.000 → 0.136 (SFT) → 0.159 (RL) |
+
+Details: [`baseten/EXPERIENCE_REPORT.md`](baseten/EXPERIENCE_REPORT.md),
+[`together-ai/EXPERIENCE_REPORT.md`](together-ai/EXPERIENCE_REPORT.md), and
+[`tinker/README.md`](tinker/README.md).
 
 ---
 

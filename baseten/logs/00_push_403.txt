@@ -1,0 +1,13 @@
+Captured 2026-10-12 from `baseten train push --config ./config/config_sft.py`
+(condensed; the RL config returns the identical error).
+
+POST /v1/teams/<team-id>/training_projects  ->  403 Forbidden
+body: {"message": "You are not authorized for Baseten training"}
+
+`baseten train push` surfaces this as:
+  403 — You are not authorized for Baseten training
+
+Notes:
+- Not fixed by re-authentication, adding a payment method, or adding an HF token.
+- Root-caused via GET /v1/users/me: the account has no training role/entitlement.
+- No training job was created; no compute was billed.
