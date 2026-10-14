@@ -1,0 +1,61 @@
+{
+  "updated": "2026-10-14",
+  "platform": "miles",
+  "framework": "miles (fork of slime) — SGLang rollout + Megatron/FSDP training",
+  "sdk": "radixark/miles:latest (Docker), self-hosted",
+  "aws_profile": "riley (user stanford_gpu, account 751871643798, us-east-1)",
+  "repo": "github.com/radixark/miles",
+  "scope": "RL only (GRPO). SFT stays on Fireworks, SageMaker, and Prime Intellect.",
+  "note": "Launch-ready. Reward functions and GoEmotions data built and smoke-tested offline. No training step has run yet on Miles.",
+  "experiments": {
+    "orena_sft": {
+      "experiment": "orena_sft",
+      "method": "sft",
+      "state": "OUT_OF_SCOPE",
+      "note": "Not run on Miles. This leg covers RL only."
+    },
+    "orena_rl": {
+      "experiment": "orena_rl",
+      "method": "grpo",
+      "state": "NOT_STARTED",
+      "base_model": "Qwen3-VL-8B-Instruct",
+      "hf_model_id": "Qwen/Qwen3-VL-8B-Instruct",
+      "lora_rank": null,
+      "learning_rate": 1e-5,
+      "n_samples_per_prompt": 8,
+      "rollout_max_response_len": 512,
+      "dataset": "data/orena/orena_rl.jsonl (regenerate; 66 MB base64 images, not committed)",
+      "dataset_size": 2000,
+      "reward": "miles/scripts/reward_orena.py (dense correctness; exact-match reported)",
+      "note": "VLM RL on the exact Fireworks base model. Needs full data regen, VLM generate-function validation, and an 8-GPU node."
+    },
+    "goemotions_sft": {
+      "experiment": "goemotions_sft",
+      "method": "sft",
+      "state": "OUT_OF_SCOPE",
+      "note": "Not run on Miles. This leg covers RL only."
+    },
+    "goemotions_rl": {
+      "experiment": "goemotions_rl",
+      "method": "grpo",
+      "state": "NOT_STARTED",
+      "base_model": "Qwen3-4B",
+      "hf_model_id": "Qwen/Qwen3-4B",
+      "lora_rank": null,
+      "learning_rate": 1e-5,
+      "n_samples_per_prompt": 8,
+      "rollout_max_response_len": 64,
+      "dataset": "miles/data/goemotions_rl_miles.jsonl",
+      "dataset_size": 5000,
+      "reward": "miles/scripts/reward_goemotions.py (Jaccard; micro-F1 reported)",
+      "note": "De-risk leg. FSDP backend, one GPU. Base model differs from Fireworks/SageMaker (Qwen3-0.6B not in Miles catalog)."
+    }
+  },
+  "findings": [
+    "VLM RL base model is an exact match to Fireworks (Qwen3-VL-8B-Instruct) — the only cross-platform pair in the benchmark with the same RL base model.",
+    "Text RL base model differs: Qwen3-0.6B is not in Miles' supported list, so GoEmotions RL uses Qwen3-4B.",
+    "Compute is self-host and heavy: the standard recipe wants 8x H100/H200/B200; the riley profile has smaller GPU classes (L40S/L4/Blackwell L-series).",
+    "Non-binary rewards (dense ORena correctness, Jaccard) hit Miles' documented fractional-reward gradient-noise caveat when a GRPO group shares one reward value.",
+    "Reward registration is a single-file --custom-rm-path function, simpler than Fireworks' tarball + Eval Protocol upload."
+  ]
+}
