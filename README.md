@@ -1,12 +1,13 @@
 # Fine-tuning + RL Platform Benchmark
 
-This repository is the single aggregation point for one experiment run on three
+This repository is the single aggregation point for one experiment run on four
 platforms. The experiment compares fine-tuning and reinforcement-learning
 features across:
 
 1. **Fireworks AI** — data is in [`fireworks/`](fireworks/)
 2. **AWS SageMaker** — data goes in [`sagemaker/`](sagemaker/)
 3. **Prime Intellect** — data goes in [`prime-intellect/`](prime-intellect/)
+4. **Miles** — data is in [`miles/`](miles/) (self-hosted RL framework)
 
 All analysis, metric comparison, and cost comparison happens here in
 [`analysis/`](analysis/). Every platform runs the **same** experiment with the
@@ -48,6 +49,7 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 ├── fireworks/             # Fireworks run: config, scripts, logs, metrics, evaluators
 ├── sagemaker/             # SageMaker team adds their data here
 ├── prime-intellect/       # Prime Intellect team adds their data here
+├── miles/                 # Miles (self-hosted RL) — reward ports, data prep, launch scripts
 ├── baseten/               # Baseten attempt (CholecT50 task) — blocked at authorization
 ├── together-ai/           # Together AI feasibility probe (CholecT50) — RL not available
 ├── tinker/                # Thinking Machines Tinker run (CholecT50) — SFT → RL/GRPO complete
@@ -63,6 +65,7 @@ Full matrix and all hyperparameters: [`fireworks/config/FIREWORKS_4EXP_CONFIG.md
 | Fireworks | ✅ complete (4/4 jobs) | [`fireworks/metrics/final_results.json`](fireworks/metrics/final_results.json) |
 | SageMaker | ⏳ pending — team to add | — |
 | Prime Intellect | ✅ partial — 2 complete, 1 blocked, 1 not started | [`prime-intellect/metrics/final_results.json`](prime-intellect/metrics/final_results.json) |
+| Miles | 🚧 launch-ready — RL reward + data built, run pending | [`miles/metrics/run_manifest.json`](miles/metrics/run_manifest.json) |
 | Baseten (CholecT50) | 🚫 blocked — training not authorized | [`baseten/EXPERIENCE_REPORT.md`](baseten/EXPERIENCE_REPORT.md) |
 | Together AI (CholecT50) | ❌ not feasible — no RL/GRPO | [`together-ai/EXPERIENCE_REPORT.md`](together-ai/EXPERIENCE_REPORT.md) |
 | Tinker (CholecT50) | ✅ complete — SFT → RL/GRPO | [`tinker/metrics/final_results.json`](tinker/metrics/final_results.json) |
