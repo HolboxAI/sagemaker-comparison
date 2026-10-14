@@ -76,7 +76,7 @@ def score_row(pred_text: str, gold_labels: list[str]) -> dict:
     }
 
 
-def reward_fn(args, sample, **kwargs) -> dict:
+async def reward_fn(args, sample, **kwargs) -> dict:
     """Miles custom reward contract. `sample` is miles.utils.types.Sample."""
     pred = getattr(sample, "response", "")
     gold = gold_of(getattr(sample, "label", None))
@@ -84,6 +84,7 @@ def reward_fn(args, sample, **kwargs) -> dict:
 
 
 if __name__ == "__main__":
+    import asyncio
     from types import SimpleNamespace
 
     cases = [
@@ -95,7 +96,7 @@ if __name__ == "__main__":
     ok = True
     for response, gold, expected in cases:
         s = SimpleNamespace(response=response, label=json.dumps(gold))
-        out = reward_fn(None, s)
+        out = asyncio.run(reward_fn(None, s))
         got = out["reward_value"]
         status = "OK" if abs(got - expected) < 1e-6 else "FAIL"
         ok = ok and status == "OK"
